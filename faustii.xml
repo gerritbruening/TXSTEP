@@ -1,0 +1,298 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<script xmlns="http://www.xstep.org" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <!-- xsi:schemaLocation="http://www.xstep.org file:///C:/users/Gerrit/txstep/schema/txstep.xsd" -->
+    <!-- Compare more than two (xml-)sources, output = diff-files with TEI inspired tags -->
+    <variables>
+        <!-- Ausgangsdaten -->
+        <variable type="execution-file" name="execute"
+            >file:///C:/Users/Gerrit/txstep/ueb/txstep.tu</variable>
+        <variable type="permanent-file" name="h-x" code="utf8"
+            >file:///C:/Users/Gerrit/txstep/texte/h.xml</variable>
+        <variable type="permanent-file" name="c1-41-x" code="utf8"
+            >file:///C:/Users/Gerrit/txstep/texte/c1-41.xml</variable>
+        <variable type="permanent-file" name="fa-x" code="utf8"
+            >file:///C:/Users/Gerrit/txstep/texte/fa.xml</variable>
+        <variable type="permanent-file" name="ma-x" code="utf8"
+            >file:///C:/Users/Gerrit/txstep/texte/ma.xml</variable>
+        <!-- Zeichen -->
+        <char-group name="ok">?{-}{{}}%</char-group>
+        <!-- ok für ohne Klammern -->
+        <!-- das sind alle Zeichen ("?") außer ("{-}") den Spitzklammern ("{{" und "}}") und außer % -->
+        <!-- Das % ist in die char-group als Ausnahme mit aufgenommen, damit nicht auch in der 
+            Zeichenfolge "T%<est i%>st" (wo die Spitzklammern Bestandteil der TUSTEP-Codierung 
+            für e mit Zirkumflex und s mit Hacek sind) das Blank ausgetauscht wird. -->
+        <!-- Grundtext permanent -->
+        <variable type="permanent-file" option="erase" name="h-t" format="tustep"
+            >file:///C:/Users/Gerrit/txstep/texte/h.tf</variable>
+        <!-- Scratch-Files -->
+        <variable type="scratch-file" name="c1-41-s"/>
+        <variable type="scratch-file" name="fa-s"/>
+        <variable type="scratch-file" name="ma-s"/>
+        <!-- par -->
+        <variable type="scratch-file" name="par"/>
+        <!-- XML-Vergleiche -->
+        <variable type="permanent-file" name="h-c1-41-x" option="erase"
+            >file:///C:/Users/Gerrit/txstep/vergleiche/h-c1-41.xml</variable>
+        <variable type="permanent-file" name="h-fa-x" option="erase"
+            >file:///C:/Users/Gerrit/txstep/vergleiche/h-fa.xml</variable>
+        <variable type="permanent-file" name="h-ma-x" option="erase"
+            >file:///C:/Users/Gerrit/txstep/vergleiche/h-ma.xml</variable>
+        <!-- TUSTEP-VERGLEICHE -->
+        <variable type="permanent-file" name="h-c1-41-t" option="erase" format="tustep"
+            >file:///C:/Users/Gerrit/txstep/vergleiche/h-c1-41.list</variable>
+        <variable type="permanent-file" name="h-fa-t" option="erase" format="tustep"
+            >file:///C:/Users/Gerrit/txstep/vergleiche/h-fa.list</variable>
+        <variable type="permanent-file" name="h-ma-t" option="erase" format="tustep"
+            >file:///C:/Users/Gerrit/txstep/vergleiche/h-ma.list</variable>
+        <!-- Listing -->
+        <variable type="permanent-file" name="faustii-k" option="erase" format="tustep"
+            >file:///C:/Users/Gerrit/txstep/vergleiche/faustii.list</variable>
+    </variables>
+    <transform source="$h-x" destination="$h-t" save-params="$par">
+        <define-text-units>
+            <text-unit-start>
+                <comparison-table>
+                    <exclusion-string>{{/</exclusion-string>
+                    <comparison-string>{{</comparison-string>
+                </comparison-table>
+            </text-unit-start>
+        </define-text-units>
+        <pass>
+            <modify>
+                <exchange>
+                    <exchange-table>
+                        <exception-string>%{%}</exception-string>
+                        <!-- Akzente -->
+                        <exception-string>#.?</exception-string>
+                        <!-- frz. Anführungszeichen -->
+                        <string-pair>
+                            <search-string>{{l*}}{[}{00} </search-string>
+                            <replacement-string/>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>{{stage*}}{[}{00} </search-string>
+                            <replacement-string/>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>{00} {{/l}}</search-string>
+                            <replacement-string>{{/l}}</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>{{join*/}}</search-string>
+                            <replacement-string/>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>{{{0}/orig*}}</search-string>
+                            <replacement-string/>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>{{pb*/}}</search-string>
+                            <replacement-string/>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>{{{0}/sic*}}</search-string>
+                            <replacement-string/>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>{{{0}unclear*}}</search-string>
+                            <replacement-string/>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>{{{00}{c:ok}{[} {]}{00}{c:ok}}}</search-string>
+                            <replacement-string>_</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>{{{\a}{00}{c:ok}}} {{/{00}{c:ok}}}</search-string>
+                            <replacement-string> </replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>#\[2019\]</search-string>
+                            <replacement-string>'</replacement-string>
+                            <!-- Apostroph -->
+                        </string-pair>
+                        <string-pair>
+                            <search-string>#\[2013\]</search-string>
+                            <replacement-string>--</replacement-string>
+                            <!-- Halbgeviertstrich -->
+                        </string-pair>
+                        <string-pair>
+                            <search-string>#\[2014\]</search-string>
+                            <replacement-string>--</replacement-string>
+                            <!-- Geviertstrich -->
+                        </string-pair>
+                    </exchange-table>
+                </exchange>
+            </modify>
+        </pass>
+        <remove-blanks where="both"/>
+        <!-- spaces am Zeilenanfang und am Zeilenende weg -->
+        <suppress-blank-lines/>
+        <!-- Leerzeilen (diese enthielten ggf. nur tags) entfernen -->
+        <output-records max-length="120"/>
+        <!-- max. Zeilenlänge für Prosa-Teile -->
+    </transform>
+    <transform source="$c1-41-x" destination="$c1-41-s" take-params="$par"/>
+    <transform source="$fa-x" destination="$fa-s" take-params="$par">
+        <!--<string-pair>
+                            <search-string>{{supplied}}*{{/supplied}}</search-string>
+                            <replacement-string/>
+                        </string-pair>-->
+    </transform>
+    <transform source="$ma-x" destination="$ma-s" take-params="$par"/>
+    <compare versiona="$h-t" versionb="$c1-41-s" variants="$h-c1-41-x" type="readings"
+        listing="h-c1-41-t">
+        <compare-units mode="word"/>
+        <normalize>
+            <exchange-table>
+                <string-pair>
+                    <search-string>_rend="*"</search-string>
+                    <replacement-string/>
+                </string-pair>
+                <string-pair>
+                    <search-string>ey</search-string>
+                    <replacement-string>ei</replacement-string>
+                </string-pair>
+                <string-pair>
+                    <search-string>'s</search-string>
+                    <replacement-string>s</replacement-string>
+                </string-pair>
+            </exchange-table>
+        </normalize>
+        <locations abbreviate="no" word-number="always"/>
+        <add-context>
+            <omission length-before="0" length-lemma="5" length-after="0"/>
+            <replacement length-before="0" length-lemma="5" length-after="0"/>
+            <insertion length-before="1" length-after="0"/>
+        </add-context>
+        <pos-ind-b value="yes"/>
+        <version-id>C1 41</version-id>
+    </compare>
+    <!--<display file="$h-c1-41-t" type="listing"/>-->
+    <compare versiona="$h-t" versionb="$fa-s" variants="$h-fa-x" type="readings" listing="h-fa-t">
+        <compare-units mode="word"/>
+        <normalize>
+            <exchange-table>
+                <exception-string>{\a}{[}{\A}{00}{\A}</exception-string>
+                <exception-string>{\A}{00}{\A}{]}{\a}</exception-string>
+                <string-pair>
+                    <search-string>{\A}{00}{\A}</search-string>
+                    <replacement-string>{+1=}{+2-}</replacement-string>
+                </string-pair>
+                <string-pair>
+                    <search-string>{{{00}{c:ok}}}</search-string>
+                    <replacement-string/>
+                </string-pair>
+                <string-pair>
+                    <search-string>\Ae</search-string>
+                    <replacement-string>Ä</replacement-string>
+                </string-pair>
+                <string-pair>
+                    <search-string>\Oe</search-string>
+                    <replacement-string>Ö</replacement-string>
+                </string-pair>
+                <string-pair>
+                    <search-string>\Ue</search-string>
+                    <replacement-string>Ü</replacement-string>
+                </string-pair>
+                <string-pair>
+                    <search-string>aas</search-string>
+                    <replacement-string>aß</replacement-string>
+                </string-pair>
+                <string-pair>
+                    <search-string>aa</search-string>
+                    <replacement-string>a</replacement-string>
+                </string-pair>
+                <string-pair>
+                    <search-string>C</search-string>
+                    <replacement-string>K</replacement-string>
+                </string-pair>
+                <string-pair>
+                    <search-string>\ck</search-string>
+                    <replacement-string>\k</replacement-string>
+                </string-pair>
+                <string-pair>
+                    <search-string>dt</search-string>
+                    <replacement-string>t</replacement-string>
+                </string-pair>
+                <string-pair>
+                    <search-string>ey</search-string>
+                    <replacement-string>ei</replacement-string>
+                </string-pair>
+                <string-pair>
+                    <search-string>ie</search-string>
+                    <replacement-string>i</replacement-string>
+                </string-pair>
+                <string-pair>
+                    <search-string>#.s</search-string>
+                    <replacement-string>s</replacement-string>
+                </string-pair>
+                <string-pair>
+                    <search-string>\Th</search-string>
+                    <replacement-string>T</replacement-string>
+                </string-pair>
+                <string-pair>
+                    <search-string>\th</search-string>
+                    <replacement-string>t</replacement-string>
+                </string-pair>
+                <string-pair>
+                    <search-string>z</search-string>
+                    <replacement-string>tz</replacement-string>
+                </string-pair>
+                <!--<string-pair>
+                    <search-string>{{supplied}}*{{/supplied}}</search-string>
+                    <replacement-string/>
+                </string-pair>-->
+            </exchange-table>
+        </normalize>
+        <normalize2>
+            <exchange-table>
+                <exception-string>.{{/speaker}}</exception-string>
+                <string-pair>
+                    <search-string>{\A}{00}{\a}{{/speaker}}</search-string>
+                    <replacement-string>{+1=}{+2-}.{{/speaker}}</replacement-string>
+                </string-pair>
+            </exchange-table>
+        </normalize2>
+        <locations abbreviate="no" word-number="always"/>
+        <add-context>
+            <omission length-before="0" length-lemma="5" length-after="0"/>
+            <replacement length-before="0" length-lemma="5" length-after="0"/>
+            <insertion length-before="1" length-after="0"/>
+        </add-context>
+        <pos-ind-b value="yes"/>
+        <version-id>FA</version-id>
+    </compare>
+    <!--    <display file="$h-fa-t" type="listing" mode="ps-landscape"/>-->
+    <compare versiona="$h-t" versionb="$ma-s" variants="$h-ma-x" type="readings" listing="h-ma-t">
+        <compare-units mode="word"/>
+        <normalize>
+            <exchange-table>
+                <!-- \ = case sensitivity for following letter -->
+                <string-pair>
+                    <search-string>{{{00}{c:ok}}}</search-string>
+                    <replacement-string/>
+                </string-pair>
+                <string-pair>
+                    <search-string>#.s</search-string>
+                    <replacement-string>s</replacement-string>
+                </string-pair>
+            </exchange-table>
+        </normalize>
+        <locations abbreviate="no" word-number="always"/>
+        <add-context>
+            <omission length-before="0" length-lemma="5" length-after="0"/>
+            <replacement length-before="0" length-lemma="5" length-after="0"/>
+            <insertion length-before="1" length-after="0"/>
+        </add-context>
+        <pos-ind-b value="yes"/>
+        <version-id>MA</version-id>
+    </compare>
+    <!--<display file="$h-ma-t" type="listing"/>-->
+    <!-- kumuliert -->
+    <collate source="$h-t" mode="single-witness" diff-file="$h-fa-x" listing="$faustii-k">
+        <!-- $h-c1-41-x' -->
+        <!-- '$h-ma-x -->
+        <list lines="with-variants"/>
+    </collate>
+    <display file="$faustii-k" type="listing" mode="ps-landscape"/>
+</script>
