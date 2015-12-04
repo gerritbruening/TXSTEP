@@ -67,11 +67,11 @@
                         <!-- frz. Anführungszeichen -->
                         <string-pair>
                             <search-string>{{l*}}{[}{00} </search-string>
-                            <replacement-string/>
+                            <replacement-string></replacement-string>
                         </string-pair>
                         <string-pair>
                             <search-string>{{stage*}}{[}{00} </search-string>
-                            <replacement-string/>
+                            <replacement-string></replacement-string>
                         </string-pair>
                         <string-pair>
                             <search-string>{00} {{/l}}</search-string>
@@ -174,13 +174,26 @@
             <exchange-table>
                 <exception-string>{\a}{[}{\A}{00}{\A}</exception-string>
                 <exception-string>{\A}{00}{\A}{]}{\a}</exception-string>
+                <!--<exception-string>{{/speaker}}</exception-string>-->
                 <string-pair>
                     <search-string>{\A}{00}{\A}</search-string>
                     <replacement-string>{+1=}{+2-}</replacement-string>
                 </string-pair>
                 <string-pair>
+                    <search-string>.{]}{{/speaker}}</search-string>
+                    <replacement-string></replacement-string>
+                </string-pair>
+                <string-pair>
+                    <search-string>}}{[}(</search-string>
+                    <replacement-string></replacement-string>
+                </string-pair>
+                <string-pair>
+                    <search-string>){]}{{/stage}}</search-string>
+                    <replacement-string></replacement-string>
+                </string-pair>
+                <string-pair>
                     <search-string>{{{00}{c:ok}}}</search-string>
-                    <replacement-string/>
+                    <replacement-string></replacement-string>
                 </string-pair>
                 <string-pair>
                     <search-string>\Ae</search-string>
@@ -215,8 +228,8 @@
                     <replacement-string>t</replacement-string>
                 </string-pair>
                 <string-pair>
-                    <search-string>ey</search-string>
-                    <replacement-string>ei</replacement-string>
+                    <search-string>y</search-string>
+                    <replacement-string>i</replacement-string>
                 </string-pair>
                 <string-pair>
                     <search-string>ie</search-string>
@@ -235,7 +248,7 @@
                     <replacement-string>t</replacement-string>
                 </string-pair>
                 <string-pair>
-                    <search-string>z</search-string>
+                    <search-string>zz</search-string>
                     <replacement-string>tz</replacement-string>
                 </string-pair>
                 <!--<string-pair>
@@ -246,10 +259,22 @@
         </normalize>
         <normalize2>
             <exchange-table>
-                <exception-string>.{{/speaker}}</exception-string>
+                <!--<exception-string>.{{/speaker}}</exception-string>
                 <string-pair>
                     <search-string>{\A}{00}{\a}{{/speaker}}</search-string>
                     <replacement-string>{+1=}{+2-}.{{/speaker}}</replacement-string>
+                </string-pair>-->
+                <string-pair>
+                    <search-string>zt</search-string>
+                    <replacement-string>tzt</replacement-string>
+                </string-pair>
+                <string-pair>
+                    <search-string>z</search-string>
+                    <replacement-string>tz</replacement-string>
+                </string-pair>
+                <string-pair>
+                    <search-string>s</search-string>
+                    <replacement-string>ß</replacement-string>
                 </string-pair>
             </exchange-table>
         </normalize2>
@@ -270,7 +295,7 @@
                 <!-- \ = case sensitivity for following letter -->
                 <string-pair>
                     <search-string>{{{00}{c:ok}}}</search-string>
-                    <replacement-string/>
+                    <replacement-string></replacement-string>
                 </string-pair>
                 <string-pair>
                     <search-string>#.s</search-string>
@@ -289,7 +314,8 @@
     </compare>
     <!--<display file="$h-ma-t" type="listing"/>-->
     <!-- kumuliert -->
-    <collate source="$h-t" mode="single-witness" diff-file="$h-fa-x" listing="$faustii-k">
+    <collate source="$h-t" mode="single-witness" diff-file="$h-fa-x"
+        listing="$faustii-k">
         <!-- $h-c1-41-x' -->
         <!-- '$h-ma-x -->
         <list lines="with-variants"/>
