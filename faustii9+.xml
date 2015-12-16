@@ -4,18 +4,16 @@
         from these files, after cumulating and sorting, a synopsis of the variant readings is generated -->
     <variables>
         <variable type="execution-file" name="execute">file:///C:/Users/Gerrit/txstep/ueb/txstep.tu</variable>
-        <variable type="permanent-file" name="version-1">file:///C:/Users/Gerrit/txstep/uebq/bau1</variable>
-        <variable type="permanent-file" name="version-2">file:///C:/Users/Gerrit/txstep/uebq/bau2</variable>
-        <variable type="permanent-file" name="version-3">file:///C:/Users/Gerrit/txstep/uebq/bau3</variable>
-        <variable type="permanent-file" name="version-5">file:///C:/Users/Gerrit/txstep/uebq/bau5</variable>
-        <variable type="permanent-file" name="version-7">file:///C:/Users/Gerrit/txstep/uebq/bau7</variable>
-        <variable type="permanent-file" name="version-33">file:///C:/Users/Gerrit/txstep/uebq/bau33</variable>
-        <variable type="permanent-file" name="version-b">file:///C:/Users/Gerrit/txstep/uebq/bau_bau</variable>
-        <variable type="permanent-file" name="version-g">file:///C:/Users/Gerrit/txstep/uebq/bau_germ</variable>
-        <variable type="permanent-file" name="version-h">file:///C:/Users/Gerrit/txstep/uebq/bau_heli</variable>
-        <variable type="permanent-file" name="version-m">file:///C:/Users/Gerrit/txstep/uebq/bau_mem</variable>
-        <variable type="permanent-file" name="version-o">file:///C:/Users/Gerrit/txstep/uebq/bau_och</variable>
-        <variable type="permanent-file" name="version-p">file:///C:/Users/Gerrit/txstep/uebq/bau_parv</variable>
+        <!-- Ausgangsdaten -->
+        <variable type="permanent-file" name="h-x" code="utf8"
+            >file:///C:/Users/Gerrit/txstep/texte/h.xml</variable>
+        <variable type="permanent-file" name="ih0a-x" code="utf8"
+            >file:///C:/Users/Gerrit/txstep/texte/ih0a.xml</variable>
+        <!-- Vergleichsdaten -->
+        <variable type="permanent-file" option="erase" name="h-t" format="tustep"
+            >file:///C:/Users/Gerrit/txstep/texte/h.tf</variable>
+        <variable type="permanent-file" option="erase" name="ih0a-t" format="tustep"
+            >file:///C:/Users/Gerrit/txstep/texte/ih0a.tf</variable>        
         <variable type="permanent-file" name="diff" option="erase">file:///C:/Users/Gerrit/txstep/ueb/bau-diff12</variable>
         <variable type="permanent-file" name="diff-listing" option="erase" format="tustep">file:///C:/Users/Gerrit/txstep/ueb/schell-diff.list</variable>
     </variables>
