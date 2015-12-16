@@ -1,0 +1,169 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<script xmlns="http://www.xstep.org" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <!-- Compare more than 9 (xml-)sources, output = diff-files with TEI inspired tags; 
+        from these files, after cumulating and sorting, a synopsis of the variant readings is generated -->
+    <variables>
+        <variable type="execution-file" name="execute">file:///C:/Users/Gerrit/txstep/ueb/txstep.tu</variable>
+        <variable type="permanent-file" name="version-1">file:///C:/Users/Gerrit/txstep/uebq/bau1</variable>
+        <variable type="permanent-file" name="version-2">file:///C:/Users/Gerrit/txstep/uebq/bau2</variable>
+        <variable type="permanent-file" name="version-3">file:///C:/Users/Gerrit/txstep/uebq/bau3</variable>
+        <variable type="permanent-file" name="version-5">file:///C:/Users/Gerrit/txstep/uebq/bau5</variable>
+        <variable type="permanent-file" name="version-7">file:///C:/Users/Gerrit/txstep/uebq/bau7</variable>
+        <variable type="permanent-file" name="version-33">file:///C:/Users/Gerrit/txstep/uebq/bau33</variable>
+        <variable type="permanent-file" name="version-b">file:///C:/Users/Gerrit/txstep/uebq/bau_bau</variable>
+        <variable type="permanent-file" name="version-g">file:///C:/Users/Gerrit/txstep/uebq/bau_germ</variable>
+        <variable type="permanent-file" name="version-h">file:///C:/Users/Gerrit/txstep/uebq/bau_heli</variable>
+        <variable type="permanent-file" name="version-m">file:///C:/Users/Gerrit/txstep/uebq/bau_mem</variable>
+        <variable type="permanent-file" name="version-o">file:///C:/Users/Gerrit/txstep/uebq/bau_och</variable>
+        <variable type="permanent-file" name="version-p">file:///C:/Users/Gerrit/txstep/uebq/bau_parv</variable>
+        <variable type="permanent-file" name="diff" option="erase">file:///C:/Users/Gerrit/txstep/ueb/bau-diff12</variable>
+        <variable type="permanent-file" name="diff-listing" option="erase" format="tustep">file:///C:/Users/Gerrit/txstep/ueb/schell-diff.list</variable>
+    </variables>
+
+    <compare versiona="$version-1" versionb="$version-2" variants="$diff"  type="corrections" listing="-">
+        <compare-units mode="word"/>
+        <add-context>
+            <omission length-before="0" length-lemma="3" length-after="0"/>
+            <replacement length-before="0" length-lemma="3" length-after="0"/>
+            <insertion length-before="1" length-after="0"/>
+        </add-context>
+        <pos-ind-b value="yes"/>       
+        <version-id>v02</version-id><version-sort-val value="1"/>
+    </compare>  
+    
+    <compare versiona="$version-1" versionb="$version-3" variants="$diff" type="corrections" option="append" listing="-">
+        <compare-units mode="word"/>
+        <add-context>
+            <omission length-before="0" length-lemma="3" length-after="0"/>
+            <replacement length-before="0" length-lemma="3" length-after="0"/>
+            <insertion length-before="1" length-after="0"/>
+        </add-context>
+        <pos-ind-b value="yes"/>       
+        <version-id>v03</version-id><version-sort-val value="2"/>
+    </compare> 
+    
+    <compare versiona="$version-1" versionb="$version-5" variants="$diff" type="corrections" option="append" listing="-">
+        <compare-units mode="word"/>
+        <add-context>
+            <omission length-before="0" length-lemma="3" length-after="0"/>
+            <replacement length-before="0" length-lemma="3" length-after="0"/>
+            <insertion length-before="1" length-after="0"/>
+        </add-context>
+        <pos-ind-b value="yes"/>       
+        <version-id>v05</version-id><version-sort-val value="3"/>
+    </compare> 
+    
+    <compare versiona="$version-1" versionb="$version-7" variants="$diff" type="corrections" option="append" listing="-">
+        <compare-units mode="word"/>
+        <add-context>
+            <omission length-before="0" length-lemma="3" length-after="0"/>
+            <replacement length-before="0" length-lemma="3" length-after="0"/>
+            <insertion length-before="1" length-after="0"/>
+        </add-context>
+        <pos-ind-b value="yes"/>       
+        <version-id>v07</version-id><version-sort-val value="4"/>
+    </compare> 
+    
+    <compare versiona="$version-1" versionb="$version-33" variants="$diff" type="corrections" option="append" listing="-">
+        <compare-units mode="word"/>
+        <add-context>
+            <omission length-before="0" length-lemma="3" length-after="0"/>
+            <replacement length-before="0" length-lemma="3" length-after="0"/>
+            <insertion length-before="1" length-after="0"/>
+        </add-context>
+        <pos-ind-b value="yes"/>       
+        <version-id>v33</version-id><version-sort-val value="5"/>
+    </compare>  
+    
+    <compare versiona="$version-1" versionb="$version-b" variants="$diff" type="corrections" option="append" listing="-">
+        <compare-units mode="word"/>
+        <add-context>
+            <omission length-before="0" length-lemma="3" length-after="0"/>
+            <replacement length-before="0" length-lemma="3" length-after="0"/>
+            <insertion length-before="1" length-after="0"/>
+        </add-context>
+        <pos-ind-b value="yes"/>       
+        <version-id>vb</version-id><version-sort-val value="6"/>
+    </compare> 
+    
+    <compare versiona="$version-1" versionb="$version-g" variants="$diff" type="corrections" option="append" listing="-">
+        <compare-units mode="word"/>
+        <add-context>
+            <omission length-before="0" length-lemma="3" length-after="0"/>
+            <replacement length-before="0" length-lemma="3" length-after="0"/>
+            <insertion length-before="1" length-after="0"/>
+        </add-context>
+        <pos-ind-b value="yes"/>       
+        <version-id>vg</version-id><version-sort-val value="7"/>
+    </compare> 
+    
+    <compare versiona="$version-1" versionb="$version-h" variants="$diff" type="corrections" option="append" listing="-">
+        <compare-units mode="word"/>
+        <add-context>
+            <omission length-before="0" length-lemma="3" length-after="0"/>
+            <replacement length-before="0" length-lemma="3" length-after="0"/>
+            <insertion length-before="1" length-after="0"/>
+        </add-context>
+        <pos-ind-b value="yes"/>       
+        <version-id>vh</version-id><version-sort-val value="8"/>
+    </compare>  
+    
+    <compare versiona="$version-1" versionb="$version-m" variants="$diff" type="corrections" option="append" listing="-">
+        <compare-units mode="word"/>
+        <add-context>
+            <omission length-before="0" length-lemma="3" length-after="0"/>
+            <replacement length-before="0" length-lemma="3" length-after="0"/>
+            <insertion length-before="1" length-after="0"/>
+        </add-context>
+        <pos-ind-b value="yes"/>       
+        <version-id>vm</version-id><version-sort-val value="9"/>
+    </compare> 
+    
+    <compare versiona="$version-1" versionb="$version-o" variants="$diff" type="corrections" option="append" listing="-">
+        <compare-units mode="word"/>
+        <add-context>
+            <omission length-before="0" length-lemma="3" length-after="0"/>
+            <replacement length-before="0" length-lemma="3" length-after="0"/>
+            <insertion length-before="1" length-after="0"/>
+        </add-context>
+        <pos-ind-b value="yes"/>       
+        <version-id>vo</version-id><version-sort-val value="10"/>
+    </compare> 
+    
+    <compare versiona="$version-1" versionb="$version-p" variants="$diff" type="corrections" option="append" listing="-">
+        <compare-units mode="word"/>
+        <add-context>
+            <omission length-before="0" length-lemma="3" length-after="0"/>
+            <replacement length-before="0" length-lemma="3" length-after="0"/>
+            <insertion length-before="1" length-after="0"/>
+        </add-context>
+        <pos-ind-b value="yes"/>       
+        <version-id>vp</version-id><version-sort-val value="11"/>
+    </compare> 
+    
+    <sort source="$diff" destination="$diff">
+        <sort-field num="1" start="1" length="17" order="ascending"/>
+        <sort-field num="2" start="37" length="2"/>
+        <!--  1-17: starting pos. of lemma ,18-34: end position of lemma, 35: type of reference (whole line or words in a line), 
+            36:  2 = omission, 3 = replacement, 4 = insertion,  37-38: version number for sorting, 
+            39-41: continuation lines for long variants,42-44: Pointer to 1st character after context info -->
+    </sort>
+     
+    <collate source="$version-1"  mode="cumulated" diff-file="$diff" listing="$diff-listing">
+        <list lines="all"/>
+        <version-sort-val value="1"/><version-id>b-2</version-id>
+        <version-sort-val value="2"/><version-id>b-3</version-id>
+        <version-sort-val value="3"/><version-id>b-5</version-id>
+        <version-sort-val value="4"/><version-id>b-7</version-id>
+        <version-sort-val value="5"/><version-id>b33</version-id>
+        <version-sort-val value="6"/><version-id>bau</version-id>
+        <version-sort-val value="7"/><version-id>germ</version-id>
+        <version-sort-val value="8"/><version-id>hell</version-id>
+        <version-sort-val value="9"/><version-id>mem</version-id>
+        <version-sort-val value="10"/><version-id>och</version-id>
+        <version-sort-val value="11"/><version-id>parv</version-id>
+        <var-marks id-text="=" missing-text=" " id-var="id-prev"/> 
+    </collate>
+    
+    <display file="$diff-listing" type="listing"/> 
+</script>
