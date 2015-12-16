@@ -8,8 +8,6 @@ https://tustep.wikispaces.com/Neue+Konventionen.
 ## Concatenation of tags with _
     <char-group name="ok">?{-}{{}}%</char-group>
 
-ok f¸r ohne Klammern, das sind alle Zeichen ("?") auﬂer ("{-}") den Spitzklammern ("{{" und "}}") und auﬂer %
+ok f√ºr ohne Klammern, das sind alle Zeichen ("?") au√üer ("{-}") den Spitzklammern ("{{" und "}}") und au√üer %
 
-Das % ist in die char-group als Ausnahme mit aufgenommen, damit nicht auch in der Zeichenfolge "T%<est i%>st" (wo die Spitzklammern Bestandteil der TUSTEP-Codierung 
-            f¸r e mit Zirkumflex und s mit Hacek sind) das Blank ausgetauscht wird. 
-
+Das % ist in die char-group als Ausnahme mit aufgenommen, damit nicht auch in der Zeichenfolge "T%<est i%>st" (wo die Spitzklammern Bestandteil der TUSTEP-Codierung f√ºr e mit Zirkumflex und s mit Hacek sind) das Blank ausgetauscht wird. 
