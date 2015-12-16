@@ -5,7 +5,7 @@ For the software see http://www.txstep.de/.
 ## Pattern-matching
 https://tustep.wikispaces.com/Neue+Konventionen.
 
-## Concatenation of tags with _
+### Concatenation of tags with _
     <char-group name="ok">?{-}{{}}%</char-group>
 
 ok für ohne Klammern, das sind alle Zeichen ("?") außer ("{-}") den Spitzklammern ("{{" und "}}") und außer %
