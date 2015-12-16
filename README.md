@@ -16,7 +16,7 @@ Das % ist in die char-group als Ausnahme mit aufgenommen, damit nicht auch in de
 
 (wo die Spitzklammern Bestandteil der TUSTEP-Codierung für e mit Zirkumflex und s mit Hacek sind) das Blank ausgetauscht wird. 
 
-## <transform> (#KOPIERE)
+## &lt;transform> (#KOPIERE)
 
         <define-text-units>
             <text-unit-start>
