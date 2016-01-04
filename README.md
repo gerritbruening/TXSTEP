@@ -28,3 +28,6 @@ Das % ist in die char-group als Ausnahme mit aufgenommen, damit nicht auch in de
         </define-text-units>
  
 Appends lines to the previous line if they do not begin with start-tags.
+
+## faustii9+.xml
+Compare more than 9 (xml-)sources, output = diff-files with TEI inspired tags; from these files, after cumulating and sorting, a synopsis of the variant readings is generated
