@@ -16,8 +16,16 @@ Das % ist in die char-group als Ausnahme mit aufgenommen, damit nicht auch in de
 
 (wo die Spitzklammern Bestandteil der TUSTEP-Codierung für e mit Zirkumflex und s mit Hacek sind) das Blank ausgetauscht wird. 
 
+### Delete certain tags
+                        <string-pair>
+                            <search-string>{{{0}/orig*}}</search-string>
+                            <replacement-string/>
+                        </string-pair>
+
+
 ## &lt;transform> (#KOPIERE)
 
+### Text units
         <define-text-units>
             <text-unit-start>
                 <comparison-table>
