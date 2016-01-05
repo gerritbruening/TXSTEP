@@ -22,7 +22,8 @@
             >file:///C:/Users/Gerrit/txstep/texte/c34.xml</variable>
         <variable type="permanent-file" name="c141-x" code="utf8"
             >file:///C:/Users/Gerrit/txstep/texte/c141.xml</variable>
-        <!-- TODO C3 41 -->
+        <variable type="permanent-file" name="c341-x" code="utf8"
+            >file:///C:/Users/Gerrit/txstep/texte/c341.xml</variable>
         <!-- TODO Q -->
         <!-- input data for <compare> -->
         <variable type="permanent-file" option="erase" name="h-t" format="tustep"
@@ -41,6 +42,8 @@
             >file:///C:/Users/Gerrit/txstep/texte/c34.tf</variable>
         <variable type="permanent-file" option="erase" name="c141-t" format="tustep"
             >file:///C:/Users/Gerrit/txstep/texte/c141.tf</variable>
+        <variable type="permanent-file" option="erase" name="c341-t" format="tustep"
+            >file:///C:/Users/Gerrit/txstep/texte/c341.tf</variable>
         <!-- parameters for <transform> -->
         <variable type="scratch-file" name="par"/>
         <!-- tustep output of <compare> -->
@@ -128,8 +131,8 @@
                         <exception-string>?{{/abbr}}?</exception-string>
                         <exception-string>?{{orig}}?</exception-string>
                         <exception-string>?{{/orig}}?</exception-string>
-                        <exception-string>?{{sic}}?</exception-string>
-                        <exception-string>?{{/sic}}?</exception-string>
+                        <exception-string>?{{{0}/sic}}?</exception-string>
+                        <exception-string>{{/sic}}{[}?</exception-string>
                         <string-pair>
                             <search-string>}}{[}?</search-string>
                             <replacement-string> {-1=}</replacement-string>
@@ -156,6 +159,7 @@
     <transform source="$c2a4-x" destination="$c2a4-t" take-params="$par"/>
     <transform source="$c34-x" destination="$c34-t" take-params="$par"/>
     <transform source="$c141-x" destination="$c141-t" take-params="$par"/>
+    <transform source="$c341-x" destination="$c341-t" take-params="$par"/>
     <compare versiona="$h-t" versionb="$ih0a-t" variants="$diff" type="corrections" listing="-">
         <compare-units mode="word"/>
         <select-area versiona="0.38-2.349,99" versionb="0.28-2.145,99"/>
@@ -245,6 +249,26 @@
         <version-id>C1 41</version-id>
         <version-sort-val value="7"/>
     </compare>
+    <compare versiona="$h-t" versionb="$c341-t" variants="$diff" type="corrections" option="append"
+        listing="-">
+        <compare-units mode="word"/>
+        <normalize>
+            <exchange-table>
+                <string-pair>
+                    <search-string>_n="*"</search-string>
+                    <replacement-string></replacement-string>
+                </string-pair>
+            </exchange-table>
+        </normalize>
+        <add-context>
+            <omission length-before="0" length-lemma="3" length-after="0"/>
+            <replacement length-before="0" length-lemma="3" length-after="0"/>
+            <insertion length-before="1" length-after="0"/>
+        </add-context>
+        <pos-ind-b value="yes"/>
+        <version-id>C3 41</version-id>
+        <version-sort-val value="8"/>
+    </compare>
     <sort source="$diff" destination="$diff">
         <sort-field num="1" start="1" length="17" order="ascending"/>
         <sort-field num="2" start="37" length="2"/>
@@ -260,14 +284,16 @@
         <version-id>C1 12</version-id>
         <version-sort-val value="3"/>
         <version-id>C3 12</version-id>
-        <version-sort-val value="4"/>
+<!--        <version-sort-val value="4"/>
         <version-id>C1 4</version-id>
         <version-sort-val value="5"/>
         <version-id>C2a 4</version-id>
         <version-sort-val value="6"/>
         <version-id>C3 4</version-id>
-        <version-sort-val value="7"/>
+-->        <version-sort-val value="7"/>
         <version-id>C1 41</version-id>
+        <version-sort-val value="8"/>
+        <version-id>C3 41</version-id>
         <var-marks id-text="=" missing-text=" " id-var="id-prev"/>
     </collate>
     <display file="$diff-listing" type="listing" mode="ps-landscape"/>
