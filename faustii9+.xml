@@ -3,6 +3,8 @@
     <variables>
         <variable type="execution-file" name="execute"
             >file:///C:/Users/Gerrit/txstep/ueb/txstep.tu</variable>
+        <!-- char-group -->
+        <char-group name="ok">?{-}{{}}%</char-group>
         <!-- source data -->
         <variable type="permanent-file" name="h-x" code="utf8"
             >file:///C:/Users/Gerrit/txstep/texte/h.xml</variable>
@@ -10,8 +12,17 @@
             >file:///C:/Users/Gerrit/txstep/texte/ih0a.xml</variable>
         <variable type="permanent-file" name="c112-x" code="utf8"
             >file:///C:/Users/Gerrit/txstep/texte/c112.xml</variable>
-        <!-- char-group -->
-        <char-group name="ok">?{-}{{}}%</char-group>
+        <variable type="permanent-file" name="c312-x" code="utf8"
+            >file:///C:/Users/Gerrit/txstep/texte/c312.xml</variable>
+        <variable type="permanent-file" name="c14-x" code="utf8"
+            >file:///C:/Users/Gerrit/txstep/texte/c14.xml</variable>
+        <variable type="permanent-file" name="c2a4-x" code="utf8"
+            >file:///C:/Users/Gerrit/txstep/texte/c2a4.xml</variable>
+        <variable type="permanent-file" name="c34-x" code="utf8"
+            >file:///C:/Users/Gerrit/txstep/texte/c34.xml</variable>
+        <!-- TODO C1 41 -->
+        <!-- TODO C3 41 -->
+        <!-- TODO Q -->
         <!-- input data for <compare> -->
         <variable type="permanent-file" option="erase" name="h-t" format="tustep"
             >file:///C:/Users/Gerrit/txstep/texte/h.tf</variable>
@@ -19,6 +30,14 @@
             >file:///C:/Users/Gerrit/txstep/texte/ih0a.tf</variable>
         <variable type="permanent-file" option="erase" name="c112-t" format="tustep"
             >file:///C:/Users/Gerrit/txstep/texte/c112.tf</variable>
+        <variable type="permanent-file" option="erase" name="c312-t" format="tustep"
+            >file:///C:/Users/Gerrit/txstep/texte/c312.tf</variable>
+        <variable type="permanent-file" option="erase" name="c14-t" format="tustep"
+            >file:///C:/Users/Gerrit/txstep/texte/c14.tf</variable>
+        <variable type="permanent-file" option="erase" name="c2a4-t" format="tustep"
+            >file:///C:/Users/Gerrit/txstep/texte/c2a4.tf</variable>
+        <variable type="permanent-file" option="erase" name="c34-t" format="tustep"
+            >file:///C:/Users/Gerrit/txstep/texte/c34.tf</variable>
         <!-- parameters for <transform> -->
         <variable type="scratch-file" name="par"/>
         <!-- tustep output of <compare> -->
@@ -46,22 +65,6 @@
                         <exception-string>#.?</exception-string>
                         <!-- frz. Anführungszeichen -->
                         <string-pair>
-                            <search-string>{{unclear*}}</search-string>
-                            <replacement-string>\{</replacement-string>
-                        </string-pair>
-                        <string-pair>
-                            <search-string>{{/unclear}}</search-string>
-                            <replacement-string>\}</replacement-string>
-                        </string-pair>
-                        <string-pair>
-                            <search-string>{{{00}{c:ok}{[} {]}{00}{c:ok}}}</search-string>
-                            <replacement-string>_</replacement-string>
-                        </string-pair>
-                        <string-pair>
-                            <search-string>{{{\a}{00}{c:ok}}} {{/{00}{c:ok}}}</search-string>
-                            <replacement-string> </replacement-string>
-                        </string-pair>
-                        <string-pair>
                             <search-string>#\[2019\]</search-string>
                             <replacement-string>'</replacement-string>
                         </string-pair>
@@ -80,6 +83,35 @@
                         <string-pair>
                             <search-string>#.'</search-string>
                             <replacement-string>"</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>{{{0}/orig*}}</search-string>
+                            <replacement-string/>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>{{pb*/}}</search-string>
+                            <replacement-string>|</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>{{space*/}}</search-string>
+                            <replacement-string/>
+                            <!-- \*\*\* -->
+                        </string-pair>
+                        <string-pair>
+                            <search-string>{{unclear*}}</search-string>
+                            <replacement-string>\{</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>{{/unclear}}</search-string>
+                            <replacement-string>\}</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>{{{00}{c:ok}{[} {]}{00}{c:ok}}}</search-string>
+                            <replacement-string>_</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>{{{\a}{00}{c:ok}}} {{/{00}{c:ok}}}</search-string>
+                            <replacement-string> </replacement-string>
                         </string-pair>
                     </exchange-table>
                 </exchange>
@@ -116,8 +148,11 @@
     </transform>
     <transform source="$ih0a-x" destination="$ih0a-t" take-params="$par"/>
     <transform source="$c112-x" destination="$c112-t" take-params="$par"/>
-    <compare versiona="$h-t" versionb="$ih0a-t" variants="$diff" type="corrections"
-        listing="-">
+    <transform source="$c312-x" destination="$c312-t" take-params="$par"/>
+    <transform source="$c14-x" destination="$c14-t" take-params="$par"/>
+    <transform source="$c2a4-x" destination="$c2a4-t" take-params="$par"/>
+    <transform source="$c34-x" destination="$c34-t" take-params="$par"/>
+    <compare versiona="$h-t" versionb="$ih0a-t" variants="$diff" type="corrections" listing="-">
         <compare-units mode="word"/>
         <select-area versiona="0.38-2.349,99" versionb="0.28-2.145,99"/>
         <add-context>
@@ -129,9 +164,8 @@
         <version-id>H0a</version-id>
         <version-sort-val value="1"/>
     </compare>
-    
-    <compare versiona="$h-t" versionb="$c112-t" variants="$diff" type="corrections"
-        option="append" listing="-">
+    <compare versiona="$h-t" versionb="$c112-t" variants="$diff" type="corrections" option="append"
+        listing="-">
         <compare-units mode="word"/>
         <select-area versiona="0.38-2.349,99" versionb="9.497-11.855,99"/>
         <add-context>
@@ -140,11 +174,61 @@
             <insertion length-before="1" length-after="0"/>
         </add-context>
         <pos-ind-b value="yes"/>
-        <version-id>C1</version-id>
+        <version-id>C1 12</version-id>
         <version-sort-val value="2"/>
     </compare>
-    
-    
+    <compare versiona="$h-t" versionb="$c312-t" variants="$diff" type="corrections" option="append"
+        listing="-">
+        <compare-units mode="word"/>
+        <select-area versiona="0.38-2.349,99" versionb="9.444-11.799,99"/>
+        <add-context>
+            <omission length-before="0" length-lemma="3" length-after="0"/>
+            <replacement length-before="0" length-lemma="3" length-after="0"/>
+            <insertion length-before="1" length-after="0"/>
+        </add-context>
+        <pos-ind-b value="yes"/>
+        <version-id>C3 12</version-id>
+        <version-sort-val value="3"/>
+    </compare>
+    <compare versiona="$h-t" versionb="$c14-t" variants="$diff" type="corrections" option="append"
+        listing="-">
+        <compare-units mode="word"/>
+        <select-area versiona="7.906-10.834/02,9" versionb="0.238-3.127/02,9"/>
+        <add-context>
+            <omission length-before="0" length-lemma="3" length-after="0"/>
+            <replacement length-before="0" length-lemma="3" length-after="0"/>
+            <insertion length-before="1" length-after="0"/>
+        </add-context>
+        <pos-ind-b value="yes"/>
+        <version-id>C1 4</version-id>
+        <version-sort-val value="4"/>
+    </compare>
+    <compare versiona="$h-t" versionb="$c2a4-t" variants="$diff" type="corrections" option="append"
+        listing="-">
+        <compare-units mode="word"/>
+        <select-area versiona="7.906-10.834/02,9" versionb="0.240-3.117/02,9"/>
+        <add-context>
+            <omission length-before="0" length-lemma="3" length-after="0"/>
+            <replacement length-before="0" length-lemma="3" length-after="0"/>
+            <insertion length-before="1" length-after="0"/>
+        </add-context>
+        <pos-ind-b value="yes"/>
+        <version-id>C2a 4</version-id>
+        <version-sort-val value="5"/>
+    </compare>
+    <compare versiona="$h-t" versionb="$c34-t" variants="$diff" type="corrections" option="append"
+        listing="-">
+        <compare-units mode="word"/>
+        <select-area versiona="7.906-10.834/02,9" versionb="0.237-3.105/02,99"/>
+        <add-context>
+            <omission length-before="0" length-lemma="3" length-after="0"/>
+            <replacement length-before="0" length-lemma="3" length-after="0"/>
+            <insertion length-before="1" length-after="0"/>
+        </add-context>
+        <pos-ind-b value="yes"/>
+        <version-id>C3 4</version-id>
+        <version-sort-val value="6"/>
+    </compare>
     <sort source="$diff" destination="$diff">
         <sort-field num="1" start="1" length="17" order="ascending"/>
         <sort-field num="2" start="37" length="2"/>
@@ -152,16 +236,21 @@
             36:  2 = omission, 3 = replacement, 4 = insertion,  37-38: version number for sorting, 
             39-41: continuation lines for long variants,42-44: Pointer to 1st character after context info -->
     </sort>
-    
     <collate source="$h-t" mode="cumulated" diff-file="$diff" listing="$diff-listing">
-        <list lines="all"/>
+        <list lines="with-variants"/>
         <version-sort-val value="1"/>
         <version-id>H0a</version-id>
         <version-sort-val value="2"/>
-        <version-id>C1</version-id>
-        
+        <version-id>C1 12</version-id>
+        <version-sort-val value="3"/>
+        <version-id>C3 12</version-id>
+        <version-sort-val value="4"/>
+        <version-id>C1 4</version-id>
+        <version-sort-val value="5"/>
+        <version-id>C2a 4</version-id>
+        <version-sort-val value="6"/>
+        <version-id>C3 4</version-id>
         <var-marks id-text="=" missing-text=" " id-var="id-prev"/>
     </collate>
-    
     <display file="$diff-listing" type="listing" mode="ps-landscape"/>
 </script>
