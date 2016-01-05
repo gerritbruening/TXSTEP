@@ -45,15 +45,15 @@
                         <!-- Akzente -->
                         <exception-string>#.?</exception-string>
                         <!-- frz. Anführungszeichen -->
-                        <!--                        <string-pair>
+                        <string-pair>
                             <search-string>{{unclear*}}</search-string>
-                            <replacement-string>{</replacement-string>
+                            <replacement-string>\{</replacement-string>
                         </string-pair>
                         <string-pair>
                             <search-string>{{/unclear}}</search-string>
-                            <replacement-string>}</replacement-string>
+                            <replacement-string>\}</replacement-string>
                         </string-pair>
--->                        <string-pair>
+                        <string-pair>
                             <search-string>{{{00}{c:ok}{[} {]}{00}{c:ok}}}</search-string>
                             <replacement-string>_</replacement-string>
                         </string-pair>
