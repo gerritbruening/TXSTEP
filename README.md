@@ -1,6 +1,6 @@
 ﻿# TXSTEP
 
-For the software see http://www.txstep.de/.
+For the software see http://www.txstep.de/
 
 ## Pattern-matching
 https://tustep.wikispaces.com/Neue+Konventionen.
