@@ -307,22 +307,31 @@
         <list lines="with-variants"/>
         <version-sort-val value="1"/>
         <version-id>H0a</version-id>
-        <!--<version-sort-val value="2"/>
+        <version-list list="variants"/>
+        <version-sort-val value="2"/>
         <version-id>C1 12</version-id>
+        <version-list list="variants"/>
         <version-sort-val value="3"/>
-        <version-id>C3 12</version-id>-->
+        <version-id>C3 12</version-id>
+        <version-list list="variants"/>
         <version-sort-val value="4"/>
         <version-id>C1 4</version-id>
+        <version-list list="variants"/>
         <version-sort-val value="5"/>
         <version-id>C2a 4</version-id>
+        <version-list list="variants"/>
         <version-sort-val value="6"/>
         <version-id>C3 4</version-id>
+        <version-list list="variants"/>
         <version-sort-val value="7"/>
         <version-id>C1 41</version-id>
+        <version-list list="variants"/>
         <version-sort-val value="8"/>
         <version-id>C3 41</version-id>
+        <version-list list="variants"/>
         <version-sort-val value="9"/>
         <version-id>Q</version-id>
+        <version-list list="variants"/>
         <var-marks id-text="=" missing-text=" " id-var="id-prev"/>
     </collate>
     <display file="$diff-listing" type="listing" mode="ps-landscape"/>
