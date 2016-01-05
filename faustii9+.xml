@@ -102,7 +102,7 @@
                         </string-pair>
                         <string-pair>
                             <search-string>{{pb*/}}</search-string>
-                            <replacement-string>|</replacement-string>
+                            <replacement-string/>
                         </string-pair>
                         <string-pair>
                             <search-string>{{space*/}}</search-string>
@@ -263,7 +263,7 @@
             <exchange-table>
                 <string-pair>
                     <search-string>_n="*"</search-string>
-                    <replacement-string></replacement-string>
+                    <replacement-string/>
                 </string-pair>
             </exchange-table>
         </normalize>
@@ -283,7 +283,7 @@
             <exchange-table>
                 <string-pair>
                     <search-string>_n="*"</search-string>
-                    <replacement-string></replacement-string>
+                    <replacement-string/>
                 </string-pair>
             </exchange-table>
         </normalize>
@@ -307,17 +307,17 @@
         <list lines="with-variants"/>
         <version-sort-val value="1"/>
         <version-id>H0a</version-id>
-        <version-sort-val value="2"/>
+        <!--<version-sort-val value="2"/>
         <version-id>C1 12</version-id>
         <version-sort-val value="3"/>
-        <version-id>C3 12</version-id>
-<!--        <version-sort-val value="4"/>
+        <version-id>C3 12</version-id>-->
+        <version-sort-val value="4"/>
         <version-id>C1 4</version-id>
         <version-sort-val value="5"/>
         <version-id>C2a 4</version-id>
         <version-sort-val value="6"/>
         <version-id>C3 4</version-id>
--->        <version-sort-val value="7"/>
+        <version-sort-val value="7"/>
         <version-id>C1 41</version-id>
         <version-sort-val value="8"/>
         <version-id>C3 41</version-id>
