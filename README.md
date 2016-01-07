@@ -1,6 +1,9 @@
 ﻿# TXSTEP
 
-For the software see http://www.txstep.de/
+For the software see
+* http://www.txstep.de/
+* http://wiki.tei-c.org/index.php/Publishing_printed_critical_editions_from_TEI#using_TUSTEP
+
 
 ## Pattern-matching
 https://tustep.wikispaces.com/Neue+Konventionen.
