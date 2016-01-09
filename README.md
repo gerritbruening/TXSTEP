@@ -1,12 +1,12 @@
-﻿# TXSTEP
+# TXSTEP
 
 For the software see
 * http://www.txstep.de/
+* https://tustep.wikispaces.com/TXSTEP
 
 For the underlying technology see
 * http://www.tustep.uni-tuebingen.de/
 * http://wiki.tei-c.org/index.php/Publishing_printed_critical_editions_from_TEI#using_TUSTEP
-
 
 ## Pattern-matching
 https://tustep.wikispaces.com/Neue+Konventionen.
