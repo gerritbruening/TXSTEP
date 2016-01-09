@@ -303,7 +303,7 @@
             36:  2 = omission, 3 = replacement, 4 = insertion,  37-38: version number for sorting, 
             39-41: continuation lines for long variants,42-44: Pointer to 1st character after context info -->
     </sort>
-    <collate source="$h-t" mode="cumulated" diff-file="$diff" listing="$diff-listing">
+    <collate source="$h-t" mode="cumulated" diff-file="$diff" listing="$diff-listing" special="code">
         <list lines="with-variants"/>
         <version-sort-val value="1"/>
         <version-id>H0a</version-id>
@@ -323,7 +323,6 @@
         <version-sort-val value="6"/>
         <version-id>C3 4</version-id>
         <version-list list="variants"/>
-        <!-- Blaubeuren -->
         <version-sort-val value="7"/>
         <version-id>C1 41</version-id>
         <version-list list="variants"/>
