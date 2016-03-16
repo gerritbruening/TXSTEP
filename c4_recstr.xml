@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<script xmlns="http://www.xstep.org" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <variables>
+        <variable type="execution-file" name="exec">file:///c:/Users/Gerrit/txstep/ueb/txstep.tu</variable>
+        <variable type="permanent-file" name="source">file:///c:/Users/Gerrit/txstep/ve/diff</variable>
+        <variable type="permanent-file" name="version-a">file:///c:/Users/Gerrit/txstep/txt/c14.tf</variable>
+        <variable type="scratch-file" name="diff-gln"></variable>
+        <variable type="permanent-file" name="diff-gle" option="erase">file:///c:/Users/Gerrit/txstep/ve/diff-gle.tf</variable>
+        <variable type="permanent-file" name="diff-2a" option="erase">file:///c:/Users/Gerrit/txstep/ve/diff-2a.tf</variable>
+        <variable type="permanent-file" name="diff-3" option="erase">file:///c:/Users/Gerrit/txstep/ve/diff-3.tf</variable>
+        <variable type="permanent-file" name="lost" option="erase">file:///c:/Users/Gerrit/txstep/txt/verlorener_z.tf</variable>
+        <char-group name="os">?{-}}}</char-group>
+    </variables>
+    <transform source="source" destination="diff-gle'diff-2a'diff-3" option="erase">
+        <pass name="shorten"><!-- remove first 44 characters of each line -->
+            <modify><exchange>
+                <exchange-table><string-pair>
+                    <search-string>{[}{44}?</search-string><replacement-string/>
+                </string-pair></exchange-table>
+            </exchange></modify>
+            <save mode="replace"/><!-- save text for later recall -->
+            <next-pass name="clean-up" />
+        </pass>
+        <pass name="clean-up">
+            <modify><exchange>
+                <exchange-table><string-pair><!-- remove witness code of version b-->
+                    <search-string>(*)\[</search-string><replacement-string>\[</replacement-string>
+                </string-pair><string-pair><!-- remove reference to location in version b -->
+                    <search-string>{{{#}{00}{c:os}}}</search-string><replacement-string/>
+                </string-pair></exchange-table>
+            </exchange></modify>
+            <next-pass name="compare-subsequent-readings"/>
+        </pass>
+        <pass name="compare-subsequent-readings"><!-- when 2 subseqent entries are identical, output to file 1 -->
+            <examine-text><select><text-corresponds condition="identical"/>
+                </select><when-selected><output file-num="1"/><get-next-unit/></when-selected>
+                <otherwise><!-- other entries: save them for next comparison --><save-for-comparison/> 
+                    <!-- and recall latest saved entry --> <recall/> <next-pass name="single-variants"/></otherwise></examine-text>
+        </pass>
+       <pass name="single-variants"> <!-- write witnesses with unique readings to respective file -->
+           <examine-text><select>
+               <text-contains>
+                   <search-table><search-string>(C2</search-string></search-table>
+               </text-contains>
+           </select><when-selected><output file-num="2"/><get-next-unit/></when-selected>
+               <otherwise><output file-num="3"/><get-next-unit/></otherwise></examine-text>
+       </pass>
+    </transform>
+    <correct source="version-a" destination="lost" corrections="diff-gle" option="erase"/>
+</script>
