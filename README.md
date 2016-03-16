@@ -47,4 +47,4 @@ Appends lines to the previous line if they do not begin with start-tags.
 Compare more than 9 (xml-)sources, output = diff-files with TEI inspired tags; from these files, after cumulating and sorting, a synopsis of the variant readings is generated.
 
 ## c4_recstr.xml
-Compare the three prints of C4, the latter ones of which go back to a lost corrected copy which is to be reconstructed from the readings shared by C<sup>α</sup> and C<sup>3</sup>.
+Compare the three prints of [C vol. 4](http://beta.faustedition.net/archive_prints), the latter ones of which go back to a lost corrected copy which is to be reconstructed from the readings shared by C<sup>α</sup> and C<sup>3</sup>.
