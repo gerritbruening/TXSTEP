@@ -25,12 +25,6 @@
 
 
     <transform source="source" destination="diff-gle'diff-2a'diff-3'diff-both" option="erase">
-        <preset-numerical>
-            <statement>$lastpg=0</statement>
-            <statement>$lastln=0</statement>
-            <statement>$lastln2=0</statement>
-            <statement>$end=0</statement>
-        </preset-numerical>
         <pass name="shorten">
             <!-- remove first 44 characters of each line -->
             <reassemble>
