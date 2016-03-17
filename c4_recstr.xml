@@ -16,7 +16,7 @@
         <variable type="permanent-file" name="diff-3" option="erase"
             >file:///c:/Users/Gerrit/txstep/ve/diff-3.tf</variable>
         <variable type="permanent-file" name="diff-both" option="erase"
-            >file:///c:/users/bruening/txt/diff-2_3.tf</variable>
+            >file:///c:/Users/Gerrit/txstep/ve/diff-2_3.tf</variable>
         <variable type="permanent-file" name="lost" option="erase"
             >file:///c:/Users/Gerrit/txstep/txt/verlorener_z.tf</variable>
         <char-group name="os">?{-}}}</char-group>
@@ -136,7 +136,7 @@
                 <read-value>$wn</read-value>
             </extract-numerical-values>
             <compute>
-                <!-- same lemma if remembered and acutal location of lemma are the same -->
+                <!-- same lemma if remembered and actual location of lemma are the same -->
                 <statement>if ($pg .eq. $pg2 .AND. $ln .eq. $ln2 .AND. $wn .eq. $wn2)
                     then</statement>
                 <!-- yes - write both to file 4 -->
