@@ -9,21 +9,33 @@
             >file:///c:/Users/Gerrit/txstep/txt/c14.tf</variable>
         <variable type="permanent-file" name="diff-nrd" option="erase"
             >file:///c:/Users/Gerrit/txstep/ve/diff-nrd.tf</variable>
-        <variable type="scratch-file" name="diff-gln"/>
         <variable type="permanent-file" name="diff-gle" option="erase"
             >file:///c:/Users/Gerrit/txstep/ve/diff-gle.tf</variable>
         <variable type="permanent-file" name="diff-2a" option="erase"
             >file:///c:/Users/Gerrit/txstep/ve/diff-2a.tf</variable>
         <variable type="permanent-file" name="diff-3" option="erase"
             >file:///c:/Users/Gerrit/txstep/ve/diff-3.tf</variable>
+        <variable type="permanent-file" name="diff-both" option="erase"
+            >file:///c:/users/bruening/txt/diff-2_3.tf</variable>
         <variable type="permanent-file" name="lost" option="erase"
             >file:///c:/Users/Gerrit/txstep/txt/verlorener_z.tf</variable>
         <char-group name="os">?{-}}}</char-group>
     </variables>
-    <transform source="source" destination="diff-nrd" option="erase" mode="+"> </transform>
-    <transform source="source" destination="diff-gle'diff-2a'diff-3" option="erase">
+    <transform source="source" destination="diff-nrd" option="erase" mode="+"/>
+
+
+    <transform source="source" destination="diff-gle'diff-2a'diff-3'diff-both" option="erase">
+        <preset-numerical>
+            <statement>$lastpg=0</statement>
+            <statement>$lastln=0</statement>
+            <statement>$lastln2=0</statement>
+            <statement>$end=0</statement>
+        </preset-numerical>
         <pass name="shorten">
             <!-- remove first 44 characters of each line -->
+            <reassemble>
+                <switches name="$end" action="unset"/>
+            </reassemble>
             <modify>
                 <exchange>
                     <exchange-table>
@@ -34,18 +46,32 @@
                     </exchange-table>
                 </exchange>
             </modify>
-            <save mode="replace"/>
             <next-pass name="clean-up"/>
         </pass>
         <pass name="clean-up">
+            <extract-numerical-values>
+                <!-- get exact position of lemma -->
+                <normalize-for-reading>
+                    <exchange-table>
+                        <string-pair>
+                            <search-string>/</search-string>
+                            <replacement-string/>
+                        </string-pair>
+                    </exchange-table>
+                </normalize-for-reading>
+                <read-value>$pg</read-value>
+                <read-value>$ln</read-value>
+                <read-value>$wn</read-value>
+            </extract-numerical-values>
+            <compute>
+                <!-- remember position for comparing it with next entry -->
+                <statement>$pg2=$pg</statement>
+                <statement>$ln2=$ln</statement>
+                <statement>$wn2=$wn</statement>
+            </compute>
             <modify>
                 <exchange>
                     <exchange-table>
-                        <string-pair>
-                            <!-- remove witness code of version b-->
-                            <search-string>(*)\[</search-string>
-                            <replacement-string>\[</replacement-string>
-                        </string-pair>
                         <string-pair>
                             <!-- remove reference to location in version b -->
                             <search-string>{{{#}{00}{c:os}}}</search-string>
@@ -58,37 +84,123 @@
         </pass>
         <pass name="compare-subsequent-readings">
             <!-- when 2 subseqent entries are identical, output to file 1 -->
-            <examine-text><select>
+            <examine-text>
+                <normalize-text-to-examine>
+                    <exchange-table>
+                        <string-pair>
+                            <search-string>(*)\[</search-string>
+                            <replacement-string>\[</replacement-string>
+                        </string-pair>
+                    </exchange-table>
+                </normalize-text-to-examine>
+                <select>
                     <text-corresponds condition="identical"/>
-                </select><when-selected>
-                    <output file-num="1"/>
-                    <get-next-unit/>
+                </select>
+                <when-selected>
+                    <continue/>
                 </when-selected>
                 <otherwise>
                     <!-- other entries: save them for next comparison -->
                     <save-for-comparison/>
-                    <!-- and recall latest saved entry -->
-                    <recall/>
+                    <!-- and recall latest saved entry/save current entry -->
+                    <replace/>
+                    <next-pass name="check-double-variants"/>
+                </otherwise>
+            </examine-text>
+            <modify>
+                <exchange>
+                    <exchange-table>
+                        <string-pair>
+                            <search-string>(*)\[</search-string>
+                            <replacement-string>\[</replacement-string>
+                        </string-pair>
+                    </exchange-table>
+                </exchange>
+            </modify>
+            <output file-num="1"/>
+            <next-pass name="save-empty-text"/>
+        </pass>
+        <pass name="check-double-variants">
+            <!-- check if there is more than one variant for same lemma -->
+            <extract-numerical-values>
+                <normalize-for-reading>
+                    <exchange-table>
+                        <string-pair>
+                            <search-string>/</search-string>
+                            <replacement-string/>
+                        </string-pair>
+                    </exchange-table>
+                </normalize-for-reading>
+                <read-value>$pg</read-value>
+                <read-value>$ln</read-value>
+                <read-value>$wn</read-value>
+            </extract-numerical-values>
+            <compute>
+                <!-- same lemma if remembered and acutal location of lemma are the same -->
+                <statement>if ($pg .eq. $pg2 .AND. $ln .eq. $ln2 .AND. $wn .eq. $wn2)
+                    then</statement>
+                <!-- yes - write both to file 4 -->
+                <statement>
+                    <output file-num="4"/>
+                    <replace/>
+                    <output file-num="4"/>
+                    <next-pass name="save-empty-text"/>
+                </statement>
+                <statement>else</statement>
+                <!-- no - write variants to respective file -->
+                <statement>
                     <next-pass name="single-variants"/>
-                </otherwise></examine-text>
+                </statement>
+                <statement>endif</statement>
+            </compute>
+            <!--        <next-pass name="single-variants"/> -->
         </pass>
         <pass name="single-variants">
             <!-- write witnesses with unique readings to respective file -->
-            <examine-text><select>
+            <examine-text>
+                <select>
                     <text-contains>
                         <search-table>
                             <search-string>(C2</search-string>
                         </search-table>
                     </text-contains>
-                </select><when-selected>
+                </select>
+                <when-selected>
                     <output file-num="2"/>
-                    <get-next-unit/>
+                    <next-pass name="check-end"/>
                 </when-selected>
                 <otherwise>
                     <output file-num="3"/>
-                    <get-next-unit/>
-                </otherwise></examine-text>
+                    <next-pass name="check-end"/>
+                </otherwise>
+            </examine-text>
+            <get-next-unit/>
         </pass>
+        <pass name="save-empty-text">
+            <reassemble>
+                <text/>
+            </reassemble>
+            <save/>
+            <get-next-unit/>
+        </pass>
+        <pass name="check-end">
+            <branch-on-switches switches-set="$end">
+                <stop/>
+            </branch-on-switches>
+            <get-next-unit/>
+        </pass>
+        <at-end-of-data>
+            <pass name="end">
+                <!-- Datei-Ende -->
+                <reassemble>
+                    <switches name="$end" action="set"/>
+                </reassemble>
+                <!-- necessary for "stop" after pass "single variants" -->
+                <recall/>
+                <next-pass name="single-variants"/>
+            </pass>
+        </at-end-of-data>
+        <suppress-blank-lines/>
     </transform>
     <correct source="version-a" destination="lost" corrections="diff-gle" option="erase"/>
 </script>
