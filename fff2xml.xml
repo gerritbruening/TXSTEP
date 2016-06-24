@@ -78,6 +78,14 @@
                                 {{/Apparateintrag}}
                             </replacement-string>
                         </string-pair>
+                        <string-pair>
+                            <search-string>{{PW:"Popup-Verknüpfung",{#}.{#},{#}.{#},"Druckvariante Fris%/e"}}*{{LT}}*{{EL}}</search-string>
+                            <replacement-string>{{Apparateintrag}}
+                                {{Lesart Zeuge="Frise"}}{-10=}{{/Lesart}}
+                                {{Lesart Zeuge="KA"}}{-5=}{{/Lesart}}
+                                {{/Apparateintrag}}
+                            </replacement-string>
+                        </string-pair>
                     </exchange-table>
                 </exchange>
             </modify>
