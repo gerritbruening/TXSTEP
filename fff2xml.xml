@@ -55,8 +55,20 @@
                             <replacement-string></replacement-string>
                         </string-pair>
                         <string-pair>
-                            <search-string>{{FD:"L-KONKORDANZ"}}\{\{GW 1 {#}\}\} {{/FD:"L-KONKORDANZ"}}</search-string>
+                            <search-string>{{FD:"L-KONKORDANZ"}}{0} \{\{GW 1 {#}\}\} {{/FD:"L-KONKORDANZ"}}</search-string>
                             <replacement-string>{{Seitenumbruch Ausgabe="GW" Band="1" Nummer="{-24=}"/}}</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>{{JU:FL}}</search-string>
+                            <replacement-string></replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>{{PW:AUSZEICHUNGEN,{#}.{#},{#}.{#},"HANDEXEMPLAR Variante Bleistift"}}Haken{{LT}}*{{EL}}</search-string>
+                            <replacement-string>{{Apparateintrag}}
+                                {{Lesart Zeuge="HE-Blei"}}{{Anmerkung}}Haken{{/Anmerkung}}{{/Lesart}}
+                                {{Lesart Zeuge="KA"}}{-5=}{{/Lesart}}
+                                {{/Apparateintrag}}
+                            </replacement-string>
                         </string-pair>
                     </exchange-table>
                 </exchange>
