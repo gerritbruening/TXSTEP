@@ -40,11 +40,11 @@
                         </string-pair>
                         <string-pair>
                             <search-string>{{RD:"ÜBERSCHRIFT 7"}}{{JD:"MoE-1-S{#}"}}\[Seite {#}\]</search-string>
-                            <replacement-string>{{Seitenumbruch Ausgabe="EA" Band="MoE-1" Nummer="{-2=}"/}}</replacement-string>
+                            <replacement-string>{{Erstausgabe Band="MoE-1"}}{-2=}{{/Erstausgabe}}</replacement-string>
                         </string-pair>
                         <string-pair>
                             <search-string>{{RD:"ÜBERSCHRIFT 7"}}\[Seite {#}\]</search-string>
-                            <replacement-string>{{Seitenumbruch Ausgabe="EA" Nummer="{-2=}"/}}</replacement-string>
+                            <replacement-string>{{Erstausgabe}}{-2=}{{/Erstausgabe}}</replacement-string>
                         </string-pair>
                         <string-pair>
                             <search-string>{{RD}}{{PS:"LESETEXT DRUCK"}}</search-string>
@@ -56,7 +56,7 @@
                         </string-pair>
                         <string-pair>
                             <search-string>{{FD:"L-KONKORDANZ"}}{0} \{\{GW 1 {#}\}\} {{/FD:"L-KONKORDANZ"}}</search-string>
-                            <replacement-string>{{Seitenumbruch Ausgabe="GW" Band="1" Nummer="{-24=}"/}}</replacement-string>
+                            <replacement-string>{{Rowohlt Band="1"}}{-24=}{{/Rowohlt}}</replacement-string>
                         </string-pair>
                         <string-pair>
                             <search-string>{{JU:FL}}</search-string>
