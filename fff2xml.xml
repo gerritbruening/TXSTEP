@@ -22,6 +22,7 @@
             <modify>
                 <exchange>
                     <exchange-table>
+                        <!-- Kapiteltitel -->
                         <string-pair>
                             <search-string>{{RD:"ÜBERSCHRIFT 4"}}</search-string>
                             <replacement-string/>
@@ -38,14 +39,7 @@
                             <search-string>{{/FD:"S-KAPITEL"}}{[}{{EL}}</search-string>
                             <replacement-string/>
                         </string-pair>
-                        <string-pair>
-                            <search-string>{{RD:"ÜBERSCHRIFT 7"}}{{JD:"MoE-1-S{#}"}}\[Seite {#}\]</search-string>
-                            <replacement-string>{{Erstausgabe Band="MoE-1"}}{-2=}{{/Erstausgabe}}</replacement-string>
-                        </string-pair>
-                        <string-pair>
-                            <search-string>{{RD:"ÜBERSCHRIFT 7"}}\[Seite {#}\]</search-string>
-                            <replacement-string>{{Erstausgabe}}{-2=}{{/Erstausgabe}}</replacement-string>
-                        </string-pair>
+                        <!-- Absatz -->
                         <string-pair>
                             <search-string>{{RD}}{{PS:"LESETEXT DRUCK"}}</search-string>
                             <replacement-string>{{Absatzanfang/}}</replacement-string>
@@ -55,6 +49,20 @@
                             <replacement-string/>
                         </string-pair>
                         <string-pair>
+                            <search-string>{{HR}}{{PS:"LESETEXT DRUCK"}}</search-string>
+                            <replacement-string>{{Absatzanfang/}}</replacement-string>
+                        </string-pair>
+                        <!-- Erstausgabe -->
+                        <string-pair>
+                            <search-string>{{RD:"ÜBERSCHRIFT 7"}}{{JD:"MoE-1-S{#}"}}\[Seite {#}\]</search-string>
+                            <replacement-string>{{Erstausgabe Band="MoE-1"}}{-2=}{{/Erstausgabe}}</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>{{RD:"ÜBERSCHRIFT 7"}}\[Seite {#}\]</search-string>
+                            <replacement-string>{{Erstausgabe}}{-2=}{{/Erstausgabe}}</replacement-string>
+                        </string-pair>
+                        <!-- Rowohlt -->
+                        <string-pair>
                             <search-string>{{FD:"L-KONKORDANZ"}}{0} \{\{GW 1 {#}\}\} {{/FD:"L-KONKORDANZ"}}</search-string>
                             <replacement-string>{{Rowohlt Band="1"}}{-24=}{{/Rowohlt}}</replacement-string>
                         </string-pair>
@@ -62,14 +70,7 @@
                             <search-string>{{JU:FL}}</search-string>
                             <replacement-string/>
                         </string-pair>
-                        <string-pair>
-                            <search-string>{{HR}}{{PS:"LESETEXT DRUCK"}}</search-string>
-                            <replacement-string>{{Absatzanfang/}}</replacement-string>
-                        </string-pair>
-                        <string-pair>
-                            <search-string>{{CS:"VERSTECKTER WORTUMBRUCH"}}*{{/CS}}</search-string>
-                            <replacement-string>{{Worttrennung ersterTeil="{-6=}"/}}</replacement-string>
-                        </string-pair>
+                        <!-- Variante / Handexemplar / Frisé / Korrektur -->
                         <string-pair>
                             <search-string>{{PW:AUSZEICHUNGEN,{#}.{#},{#}.{#},"HANDEXEMPLAR Variante Bleistift"}}Haken{{LT}}*{{EL}}</search-string>
                             <replacement-string>{{Apparateintrag}}
@@ -85,6 +86,11 @@
                                 {{Lesart Zeuge="KA"}}{-5=}{{/Lesart}}
                                 {{/Apparateintrag}}
                             </replacement-string>
+                        </string-pair>
+                        <!-- Wortumbruch -->
+                        <string-pair>
+                            <search-string>{{CS:"VERSTECKTER WORTUMBRUCH"}}*{{/CS}}</search-string>
+                            <replacement-string>{{Worttrennung ersterTeil="{-6=}"/}}</replacement-string>
                         </string-pair>
                     </exchange-table>
                 </exchange>
