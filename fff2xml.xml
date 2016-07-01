@@ -7,16 +7,17 @@
             >file:///C:/Users/Gerrit/txstep/txt/MoE76-78.txt</variable>
         <!--<variable type="permanent-file" name="moe1-fff" code="utf8"
             >file:///C:/Users/Gerrit/txstep/txt/MoE1.FFF</variable>-->
-        <!--<variable type="permanent-file" name="moe1-txt" code="utf8"
-            >file:///C:/Users/Gerrit/txstep/txt/MoE1.txt</variable>-->
+        <variable type="permanent-file" name="moe1-txt" code="utf8"
+            >file:///C:/Users/Gerrit/txstep/txt/MoE1_text.txt</variable>
         <!-- outputs -->
-        <!--<variable type="permanent-file" name="moe1-t" option="erase" format="tustep"
-            >file:///C:/Users/Gerrit/txstep/txt/MoE1.tf</variable>-->
+        <variable type="permanent-file" option="erase" name="muo-xml-z1"
+            >file:///C:/Users/Gerrit/txstep/txt/MoE76-78_z1.xml</variable>
         <variable type="permanent-file" option="erase" name="muo-xml"
             >file:///C:/Users/Gerrit/txstep/txt/MoE76-78.xml</variable>
+        <variable type="permanent-file" name="moe1-t" option="erase" format="tustep"
+            >file:///C:/Users/Gerrit/txstep/txt/MoE1.tf</variable>
     </variables>
-    <!--<transform source="$moe1-txt" destination="$moe1-t"/>-->
-    <transform source="$muo-fff" destination="$muo-xml">
+    <transform source="$muo-fff" destination="$muo-xml-z1">
         <insert-at-start>{{Text}}</insert-at-start>
         <pass>
             <modify>
@@ -73,18 +74,11 @@
                         <!-- Variante / Handexemplar / Frisé / Korrektur -->
                         <string-pair>
                             <search-string>{{PW:AUSZEICHUNGEN,{#}.{#},{#}.{#},"HANDEXEMPLAR Variante Bleistift"}}Haken{{LT}}*{{EL}}</search-string>
-                            <replacement-string>{{Apparateintrag}}
-                                {{Lesart Zeuge="HE-Blei"}}{{Anmerkung}}Haken{{/Anmerkung}}{{/Lesart}}
-                                {{Lesart Zeuge="KA"}}{-5=}{{/Lesart}}
-                                {{/Apparateintrag}}
-                            </replacement-string>
+                            <replacement-string>{{Apparateintrag}}{{Variante}}{-5=}{{/Variante}}{{Handexemplar}}{{Musilzeichen Schreibmaterial="Blei" Zeichen="Haken"/}}{{/Handexemplar}}{{/Apparateintrag}}</replacement-string>
                         </string-pair>
                         <string-pair>
                             <search-string>{{PW:"Popup-Verknüpfung",{#}.{#},{#}.{#},"Druckvariante Fris%/e"}}*{{LT}}*{{EL}}</search-string>
-                            <replacement-string>{{Apparateintrag}}
-                                {{Lesart Zeuge="Frise"}}{-10=}{{/Lesart}}
-                                {{Lesart Zeuge="KA"}}{-5=}{{/Lesart}}
-                                {{/Apparateintrag}}
+                            <replacement-string>{{Apparateintrag}}{{Variante}}{-5=}{{/Variante}}{{Frise}}{-10=}{{/Frise}}{{/Apparateintrag}}
                             </replacement-string>
                         </string-pair>
                         <!-- Wortumbruch -->
@@ -98,5 +92,6 @@
         </pass>
         <insert-at-end>{{/Text}}</insert-at-end>
     </transform>
-    <display file="$muo-xml"/>
+    <transform source="$moe1-txt" destination="$moe1-t"/>
+    <display file="$muo-xml-z1"/>
 </script>
