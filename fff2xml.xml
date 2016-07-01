@@ -78,8 +78,19 @@
                         </string-pair>
                         <string-pair>
                             <search-string>{{PW:"Popup-Verknüpfung",{#}.{#},{#}.{#},"Druckvariante Fris%/e"}}*{{LT}}*{{EL}}</search-string>
-                            <replacement-string>{{Apparateintrag}}{{Variante}}{-5=}{{/Variante}}{{Frise}}{-10=}{{/Frise}}{{/Apparateintrag}}
-                            </replacement-string>
+                            <replacement-string>{{Apparateintrag}}{{Variante}}{-5=}{{/Variante}}{{Frise}}{-10=}{{/Frise}}{{/Apparateintrag}}</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>{{PW:AUSZEICHUNGEN,{#}.{#},{#}.{#},"HANDEXEMPLAR Korrektur Bleistift"}}*{{HR}}{{HR}}Druckvariante Fris%/e: *{{LT}}*{{EL}}</search-string>
+                            <replacement-string>{{Apparateintrag}}{{Variante}}{-5=}{{/Variante}}{{Korrektur}}{-42=}{{/Korrektur}}{{Handexemplar}}{-42=}{{/Handexemplar}}{{Frise}}{-10=}{{/Frise}}{{/Apparateintrag}}</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>{{PW:"Popup-Verknüpfung",{#}.{#},{#}.{#},"Druckvariante Orginal"}}*{{LT}}*{{EL}}</search-string>
+                            <replacement-string>{{Apparateintrag}}{{Variante}}{-10=}{{/Variante}}{{Korrektur}}{-5=}{{/Korrektur}}{{/Apparateintrag}}</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>{{IT+}}{{PW:"Popup-Verknüpfung",{#}.{#},{#}.{#},"Druckvariante Erstausgabe"}}gesperrt{{HR}}{{HR}}Druckvariante Fris%/e: kursiv{{LT}}*{{EL}}{{IT}}</search-string>
+                            <replacement-string>{{Apparateintrag}}{{Variante}}{{kursiv}}{-9=}{{/kursiv}}{{/Variante}}{{Druck}}{{gesperrt}}{-9=}{{/gesperrt}}{{/Druck}}{{Frise}}{{kursiv}}{-9=}{{/kursiv}}{{/Frise}}{{/Apparateintrag}}</replacement-string>
                         </string-pair>
                         <!-- Wortumbruch -->
                         <string-pair>
