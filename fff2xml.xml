@@ -12,21 +12,21 @@
             >file:///C:/Users/Gerrit/txstep/txt/MoE1_text.txt</variable>
         <!-- outputs -->
         <variable type="permanent-file" name="muo-z1" option="erase" format="tustep"
-            >file:///C:/Users/Gerrit/txstep/txt/MoE76-78_z1.tf</variable>
+            >file:///C:/Users/Gerrit/txstep/txt/muo_z1.tf</variable>
         <variable type="permanent-file" name="muo-z1a" option="erase" format="tustep"
-            >file:///C:/Users/Gerrit/txstep/txt/MoE76-78_z1a.tf</variable>
+            >file:///C:/Users/Gerrit/txstep/txt/muo_z1a.tf</variable>
         <variable type="permanent-file" name="muo-z1b" option="erase" format="tustep"
-            >file:///C:/Users/Gerrit/txstep/txt/MoE76-78_z1b.tf</variable>
+            >file:///C:/Users/Gerrit/txstep/txt/muo_z1b.tf</variable>
         <variable type="permanent-file" name="muo-z2" option="erase" format="tustep"
-            >file:///C:/Users/Gerrit/txstep/txt/MoE76-78_z2.tf</variable>
+            >file:///C:/Users/Gerrit/txstep/txt/muo_z2.tf</variable>
         <variable type="permanent-file" name="muo-z3" option="erase" format="tustep"
-            >file:///C:/Users/Gerrit/txstep/txt/MoE76-78_z3.tf</variable>
+            >file:///C:/Users/Gerrit/txstep/txt/muo_z3.tf</variable>
         <variable type="permanent-file" option="erase" name="muo-xml"
-            >file:///C:/Users/Gerrit/txstep/txt/MoE76-78.xml</variable>
+            >file:///C:/Users/Gerrit/txstep/txt/muo.xml</variable>
         <variable type="permanent-file" name="moe1-t" option="erase" format="tustep"
             >file:///C:/Users/Gerrit/txstep/txt/MoE1.tf</variable>
     </variables>
-    <transform source="$muo-fff" destination="$muo-z1">
+    <transform source="$moe1-txt" destination="$muo-z1">
         <insert-at-start>{{Text}}</insert-at-start>
         <pass>
             <modify>
@@ -116,6 +116,11 @@
                 </exchange>
             </modify>
         </pass>
+        <new-line-before>
+            <search-table>
+                <search-string>{{Erstausgabe</search-string>
+            </search-table>
+        </new-line-before>
     </transform>
     <transform source="$muo-z1a" destination="$muo-z1b">
         <define-text-units>
