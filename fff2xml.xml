@@ -144,8 +144,496 @@
                 <exchange>
                     <exchange-table>
                         <string-pair>
+                            <search-string>}}9{{/Erstausgabe}}*{{/Kapiteltitel}} {{Absatzanfang/}}{[}Über dem Atlantik</search-string>
+                            <replacement-string>{{Versal}}Über dem Atlantik{{/Versal}}</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>}}13{{/Erstausgabe}}*{{/Kapiteltitel}} {{Absatzanfang/}}{[}Die Straße</search-string>
+                            <replacement-string>{{Versal}}Die Straße{{/Versal}}</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>}}16{{/Erstausgabe}}*{{/Kapiteltitel}} {{Absatzanfang/}}{[}Der Mann</search-string>
+                            <replacement-string>{{Versal}}Der Mann{{/Versal}}</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>}}20{{/Erstausgabe}}*{{/Kapiteltitel}} {{Absatzanfang/}}{[}Wenn man</search-string>
+                            <replacement-string>{{Versal}}Wenn man{{/Versal}}</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>}}24{{/Erstausgabe}}*{{/Kapiteltitel}} {{Absatzanfang/}}{[}Der Mann</search-string>
+                            <replacement-string>{{Versal}}Der Mann{{/Versal}}</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>}}29{{/Erstausgabe}}*{{/Kapiteltitel}} {{Absatzanfang/}}{[}Wenn man sein Haus</search-string>
+                            <replacement-string>{{Versal}}Wenn man sein Haus{{/Versal}}</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>}}35{{/Erstausgabe}}*{{/Kapiteltitel}} {{Absatzanfang/}}{[}Eines Morgens</search-string>
+                            <replacement-string>{{Versal}}Eines Morgens{{/Versal}}</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>}}44{{/Erstausgabe}}*{{/Kapiteltitel}} {{Absatzanfang/}}{[}In dem Alter</search-string>
+                            <replacement-string>{{Versal}}In dem Alter{{/Versal}}</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>}}52{{/Erstausgabe}}*{{/Kapiteltitel}} {{Absatzanfang/}}{[}Dieser Mann</search-string>
+                            <replacement-string>{{Versal}}Dieser Mann{{/Versal}}</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>}}54{{/Erstausgabe}}*{{/Kapiteltitel}} {{Absatzanfang/}}{[}Aber Ulrich wechselte</search-string>
+                            <replacement-string>{{Versal}}Aber Ulrich wechselte{{/Versal}}</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>}}57{{/Erstausgabe}}*{{/Kapiteltitel}} {{Absatzanfang/}}{[}Über die Zeit</search-string>
+                            <replacement-string>{{Versal}}Über die Zeit{{/Versal}}</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>}}62{{/Erstausgabe}}*{{/Kapiteltitel}} {{Absatzanfang/}}{[}Es stellte</search-string>
+                            <replacement-string>{{Versal}}Es stellte{{/Versal}}</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>}}66{{/Erstausgabe}}*{{/Kapiteltitel}} {{Absatzanfang/}}{[}Es ist nicht</search-string>
+                            <replacement-string>{{Versal}}Es ist nicht{{/Versal}}</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>}}72{{/Erstausgabe}}*{{/Kapiteltitel}} {{Absatzanfang/}}{[}Ulrich war</search-string>
+                            <replacement-string>{{Versal}}Ulrich war{{/Versal}}</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>}}83{{/Erstausgabe}}*{{/Kapiteltitel}} {{Absatzanfang/}}{[}Walter und er</search-string>
+                            <replacement-string>{{Versal}}Walter und er{{/Versal}}</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>}}86{{/Erstausgabe}}*{{/Kapiteltitel}} {{Absatzanfang/}}{[}Da waren sie</search-string>
+                            <replacement-string>{{Versal}}Da waren sie{{/Versal}}</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>}}92{{/Erstausgabe}}*{{/Kapiteltitel}} {{Absatzanfang/}}{[}Während Ulrich</search-string>
+                            <replacement-string>{{Versal}}Während Ulrich{{/Versal}}</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>}}105{{/Erstausgabe}}*{{/Kapiteltitel}} {{Absatzanfang/}}{[}Zu dieser Zeit</search-string>
+                            <replacement-string>{{Versal}}Zu dieser Zeit{{/Versal}}</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>}}120{{/Erstausgabe}}*{{/Kapiteltitel}} {{Absatzanfang/}}{[}In solcher Weise</search-string>
+                            <replacement-string>{{Versal}}In solcher Weise{{/Versal}}</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>}}127{{/Erstausgabe}}*{{/Kapiteltitel}} {{Absatzanfang/}}{[}Dass Ulrich</search-string>
+                            <replacement-string>{{Versal}}Dass Ulrich{{/Versal}}</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>}}133{{/Erstausgabe}}*{{/Kapiteltitel}} {{Absatzanfang/}}{[}Die Wahrheit</search-string>
+                            <replacement-string>{{Versal}}Die Wahrheit{{/Versal}}</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>}}141{{/Erstausgabe}}*{{/Kapiteltitel}} {{Absatzanfang/}}{[}Diesen Grafen Leinsdorf</search-string>
+                            <replacement-string>{{Versal}}Diesen Grafen Leinsdorf{{/Versal}}</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>}}148{{/Erstausgabe}}*{{/Kapiteltitel}} {{Absatzanfang/}}{[}Diotima</search-string>
+                            <replacement-string>{{Versal}}Diotima{{/Versal}}</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>}}152{{/Erstausgabe}}*{{/Kapiteltitel}} {{Absatzanfang/}}{[}Zu einem feststehenden</search-string>
+                            <replacement-string>{{Versal}}Zu einem feststehenden{{/Versal}}</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>}}160{{/Erstausgabe}}*{{/Kapiteltitel}} {{Absatzanfang/}}{[}Sie las</search-string>
+                            <replacement-string>{{Versal}}Sie las{{/Versal}}</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>}}167{{/Erstausgabe}}*{{/Kapiteltitel}} {{Absatzanfang/}}{[}Diotima</search-string>
+                            <replacement-string>{{Versal}}Diotima{{/Versal}}</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>}}171{{/Erstausgabe}}*{{/Kapiteltitel}} {{Absatzanfang/}}{[}Es wäre leicht</search-string>
+                            <replacement-string>{{Versal}}Es wäre leicht{{/Versal}}</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>}}173{{/Erstausgabe}}*{{/Kapiteltitel}} {{Absatzanfang/}}{[}Ulrich saß inzwischen</search-string>
+                            <replacement-string>{{Versal}}Ulrich saß inzwischen{{/Versal}}</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>}}178{{/Erstausgabe}}*{{/Kapiteltitel}} {{Absatzanfang/}}{[}Ulrich hatte</search-string>
+                            <replacement-string>{{Versal}}Ulrich hatte{{/Versal}}</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>}}183{{/Erstausgabe}}*{{/Kapiteltitel}} {{Absatzanfang/}}{[}Und plötzlich zogen</search-string>
+                            <replacement-string>{{Versal}}Und plötzlich zogen{{/Versal}}</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>}}185{{/Erstausgabe}}*{{/Kapiteltitel}} {{Absatzanfang/}}{[}Das war</search-string>
+                            <replacement-string>{{Versal}}Das war{{/Versal}}</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>}}188{{/Erstausgabe}}*{{/Kapiteltitel}} {{Absatzanfang/}}{[}Es ist nicht</search-string>
+                            <replacement-string>{{Versal}}Es ist nicht{{/Versal}}</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>}}198{{/Erstausgabe}}*{{/Kapiteltitel}} {{Absatzanfang/}}{[}Bonadea hatte sich</search-string>
+                            <replacement-string>{{Versal}}Bonadea hatte sich{{/Versal}}</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>}}200{{/Erstausgabe}}*{{/Kapiteltitel}} {{Absatzanfang/}}{[}Als Ulrich Bonadea</search-string>
+                            <replacement-string>{{Versal}}Als Ulrich Bonadea{{/Versal}}</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>}}208{{/Erstausgabe}}*{{/Kapiteltitel}} {{Absatzanfang/}}{[}In diesem Augenblick</search-string>
+                            <replacement-string>{{Versal}}In diesem Augenblick{{/Versal}}</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>}}212{{/Erstausgabe}}*{{/Kapiteltitel}} {{Absatzanfang/}}{[}Direktor Leo Fischel</search-string>
+                            <replacement-string>{{Versal}}Direktor Leo Fischel{{/Versal}}</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>}}216{{/Erstausgabe}}*{{/Kapiteltitel}} {{Absatzanfang/}}{[}Graf Leinsdorf</search-string>
+                            <replacement-string>{{Versal}}Graf Leinsdorf{{/Versal}}</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>}}223{{/Erstausgabe}}*{{/Kapiteltitel}} {{Absatzanfang/}}{[}Als Ulrichs Brief</search-string>
+                            <replacement-string>{{Versal}}Als Ulrichs Brief{{/Versal}}</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>}}233{{/Erstausgabe}}*{{/Kapiteltitel}} {{Absatzanfang/}}{[}Allein Ulrich kam</search-string>
+                            <replacement-string>{{Versal}}Allein Ulrich kam{{/Versal}}</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>}}237{{/Erstausgabe}}*{{/Kapiteltitel}} {{Absatzanfang/}}{[}Es ist nicht schwer</search-string>
+                            <replacement-string>{{Versal}}Es ist nicht schwer{{/Versal}}</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>}}256{{/Erstausgabe}}*{{/Kapiteltitel}} {{Absatzanfang/}}{[}Kurz darauf</search-string>
+                            <replacement-string>{{Versal}}Kurz darauf{{/Versal}}</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>}}264{{/Erstausgabe}}*{{/Kapiteltitel}} {{Absatzanfang/}}{[}Als die letzte Minute</search-string>
+                            <replacement-string>{{Versal}}Als die letzte Minute{{/Versal}}</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>}}274{{/Erstausgabe}}*{{/Kapiteltitel}} {{Absatzanfang/}}{[}In der Pause</search-string>
+                            <replacement-string>{{Versal}}In der Pause{{/Versal}}</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>}}280{{/Erstausgabe}}*{{/Kapiteltitel}} {{Absatzanfang/}}{[}Ulrich liebte</search-string>
+                            <replacement-string>{{Versal}}Ulrich liebte{{/Versal}}</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>}}289{{/Erstausgabe}}*{{/Kapiteltitel}} {{Absatzanfang/}}{[}Als die Sitzung</search-string>
+                            <replacement-string>{{Versal}}Als die Sitzung{{/Versal}}</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>}}294{{/Erstausgabe}}*{{/Kapiteltitel}} {{Absatzanfang/}}{[}Arnheim schüttelte</search-string>
+                            <replacement-string>{{Versal}}Arnheim schüttelte{{/Versal}}</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>}}298{{/Erstausgabe}}*{{/Kapiteltitel}} {{Absatzanfang/}}{[}In den folgenden Wochen</search-string>
+                            <replacement-string>{{Versal}}In den folgenden Wochen{{/Versal}}</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>}}301{{/Erstausgabe}}*{{/Kapiteltitel}} {{Absatzanfang/}}{[}Aber alles das</search-string>
+                            <replacement-string>{{Versal}}Aber alles das{{/Versal}}</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>}}308{{/Erstausgabe}}*{{/Kapiteltitel}} {{Absatzanfang/}}{[}Der Verkehr</search-string>
+                            <replacement-string>{{Versal}}Der Verkehr{{/Versal}}</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>}}315{{/Erstausgabe}}*{{/Kapiteltitel}} {{Absatzanfang/}}{[}Diotima hatte recht</search-string>
+                            <replacement-string>{{Versal}}Diotima hatte recht{{/Versal}}</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>}}321{{/Erstausgabe}}*{{/Kapiteltitel}} {{Absatzanfang/}}{[}Direktor Fischel</search-string>
+                            <replacement-string>{{Versal}}Direktor Fischel{{/Versal}}</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>}}330{{/Erstausgabe}}*{{/Kapiteltitel}} {{Absatzanfang/}}{[}Sektionschef Tuzzi</search-string>
+                            <replacement-string>{{Versal}}Sektionschef Tuzzi{{/Versal}}</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>}}335{{/Erstausgabe}}*{{/Kapiteltitel}} {{Absatzanfang/}}{[}Der Prostituiertenmörder</search-string>
+                            <replacement-string>{{Versal}}Der Prostituiertenmörder{{/Versal}}</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>}}338{{/Erstausgabe}}*{{/Kapiteltitel}} {{Absatzanfang/}}{[}Clarisse sagte</search-string>
+                            <replacement-string>{{Versal}}Clarisse sagte{{/Versal}}</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>}}348{{/Erstausgabe}}*{{/Kapiteltitel}} {{Absatzanfang/}}{[}Der Mädchenmörder</search-string>
+                            <replacement-string>{{Versal}}Der Mädchenmörder{{/Versal}}</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>}}354{{/Erstausgabe}}*{{/Kapiteltitel}} {{Absatzanfang/}}{[}Zu dieser Zeit</search-string>
+                            <replacement-string>{{Versal}}Zu dieser Zeit{{/Versal}}</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>}}360{{/Erstausgabe}}*{{/Kapiteltitel}} {{Absatzanfang/}}{[}Ulrich steckte</search-string>
+                            <replacement-string>{{Versal}}Ulrich steckte{{/Versal}}</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>}}367{{/Erstausgabe}}*{{/Kapiteltitel}} {{Absatzanfang/}}{[}Einmal hatte</search-string>
+                            <replacement-string>{{Versal}}Einmal hatte{{/Versal}}</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>}}372{{/Erstausgabe}}*{{/Kapiteltitel}} {{Absatzanfang/}}{[}Inzwischen hatte sich</search-string>
+                            <replacement-string>{{Versal}}Inzwischen hatte sich{{/Versal}}</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>}}384{{/Erstausgabe}}*{{/Kapiteltitel}} {{Absatzanfang/}}{[}Was über Moosbrugger</search-string>
+                            <replacement-string>{{Versal}}Was über Moosbrugger{{/Versal}}</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>}}388{{/Erstausgabe}}*{{/Kapiteltitel}} {{Absatzanfang/}}{[}Auf diese Weise</search-string>
+                            <replacement-string>{{Versal}}Auf diese Weise{{/Versal}}</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>}}393{{/Erstausgabe}}*{{/Kapiteltitel}} {{Absatzanfang/}}{[}Genauigkeit</search-string>
+                            <replacement-string>{{Versal}}Genauigkeit{{/Versal}}</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>}}410{{/Erstausgabe}}*{{/Kapiteltitel}} {{Absatzanfang/}}{[}Als Ulrich</search-string>
+                            <replacement-string>{{Versal}}Als Ulrich{{/Versal}}</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>}}424{{/Erstausgabe}}*{{/Kapiteltitel}} {{Absatzanfang/}}{[}General Stumm</search-string>
+                            <replacement-string>{{Versal}}General Stumm{{/Versal}}</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>}}427{{/Erstausgabe}}*{{/Kapiteltitel}} {{Absatzanfang/}}{[}Es erleichterte</search-string>
+                            <replacement-string>{{Versal}}Es erleichterte{{/Versal}}</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>}}431{{/Erstausgabe}}*{{/Kapiteltitel}} {{Absatzanfang/}}{[}Ihr Vetter machte</search-string>
+                            <replacement-string>{{Versal}}Ihr Vetter machte{{/Versal}}</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>}}439{{/Erstausgabe}}*{{/Kapiteltitel}} {{Absatzanfang/}}{[}Das Verhältnis Diotimas</search-string>
+                            <replacement-string>{{Versal}}Das Verhältnis Diotimas{{/Versal}}</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>}}451{{/Erstausgabe}}*{{/Kapiteltitel}} {{Absatzanfang/}}{[}Unabhängig von dem</search-string>
+                            <replacement-string>{{Versal}}Unabhängig von dem{{/Versal}}</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>}}455{{/Erstausgabe}}*{{/Kapiteltitel}} {{Absatzanfang/}}{[}Und vornehmlich</search-string>
+                            <replacement-string>{{Versal}}Und vornehmlich{{/Versal}}</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>}}463{{/Erstausgabe}}*{{/Kapiteltitel}} {{Absatzanfang/}}{[}Die Neueinrichtung</search-string>
+                            <replacement-string>{{Versal}}Die Neueinrichtung{{/Versal}}</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>}}471{{/Erstausgabe}}*{{/Kapiteltitel}} {{Absatzanfang/}}{[}Von ihrem Brief</search-string>
+                            <replacement-string>{{Versal}}Von ihrem Brief{{/Versal}}</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>}}479{{/Erstausgabe}}*{{/Kapiteltitel}} {{Absatzanfang/}}{[}Es müssen nun</search-string>
+                            <replacement-string>{{Versal}}Es müssen nun{{/Versal}}</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>}}479{{/Erstausgabe}}*{{/Kapiteltitel}} {{Absatzanfang/}}{[}In diesem Getriebe</search-string>
+                            <replacement-string>{{Versal}}In diesem Getriebe{{/Versal}}</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>}}503{{/Erstausgabe}}*{{/Kapiteltitel}} {{Absatzanfang/}}{[}Es hatte sich rasch</search-string>
+                            <replacement-string>{{Versal}}Es hatte sich rasch{{/Versal}}</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>}}509{{/Erstausgabe}}*{{/Kapiteltitel}} {{Absatzanfang/}}{[}Der kleine</search-string>
+                            <replacement-string>{{Versal}}Der kleine{{/Versal}}</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>}}513{{/Erstausgabe}}*{{/Kapiteltitel}} {{Absatzanfang/}}{[}So weit war</search-string>
+                            <replacement-string>{{Versal}}So weit war{{/Versal}}</replacement-string>
+                        </string-pair>
+                        <string-pair>
                             <search-string>}}517{{/Erstausgabe}}*{{/Kapiteltitel}} {{Absatzanfang/}}{[}Diotima</search-string>
                             <replacement-string>{{Versal}}Diotima{{/Versal}}</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>}}522{{/Erstausgabe}}*{{/Kapiteltitel}} {{Absatzanfang/}}{[}Die Gefühle Diotimas</search-string>
+                            <replacement-string>{{Versal}}Die Gefühle Diotimas{{/Versal}}</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>}}535{{/Erstausgabe}}*{{/Kapiteltitel}} {{Absatzanfang/}}{[}Soliman</search-string>
+                            <replacement-string>{{Versal}}Soliman{{/Versal}}</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>}}542{{/Erstausgabe}}*{{/Kapiteltitel}} {{Absatzanfang/}}{[}Eine merkwürdige Bereicherung</search-string>
+                            <replacement-string>{{Versal}}Eine merkwürdige Bereicherung{{/Versal}}</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>}}553{{/Erstausgabe}}*{{/Kapiteltitel}} {{Absatzanfang/}}{[}Während am Konzil</search-string>
+                            <replacement-string>{{Versal}}Während am Konzil{{/Versal}}</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>}}560{{/Erstausgabe}}*{{/Kapiteltitel}} {{Absatzanfang/}}{[}Ihr Freund machte</search-string>
+                            <replacement-string>{{Versal}}Ihr Freund machte{{/Versal}}</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>}}570{{/Erstausgabe}}*{{/Kapiteltitel}} {{Absatzanfang/}}{[}Was hätte Ulrich</search-string>
+                            <replacement-string>{{Versal}}Was hätte Ulrich{{/Versal}}</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>}}578{{/Erstausgabe}}*{{/Kapiteltitel}} {{Absatzanfang/}}{[}Er fand dort</search-string>
+                            <replacement-string>{{Versal}}Er fand dort{{/Versal}}</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>}}589{{/Erstausgabe}}*{{/Kapiteltitel}} {{Absatzanfang/}}{[}Ulrich mochte</search-string>
+                            <replacement-string>{{Versal}}Ulrich mochte{{/Versal}}</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>}}607{{/Erstausgabe}}*{{/Kapiteltitel}} {{Absatzanfang/}}{[}Zu dieser Zeit</search-string>
+                            <replacement-string>{{Versal}}Zu dieser Zeit{{/Versal}}</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>}}628{{/Erstausgabe}}*{{/Kapiteltitel}} {{Absatzanfang/}}{[}Moosbrugger</search-string>
+                            <replacement-string>{{Versal}}Moosbrugger{{/Versal}}</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>}}635{{/Erstausgabe}}*{{/Kapiteltitel}} {{Absatzanfang/}}{[}Es wäre schon</search-string>
+                            <replacement-string>{{Versal}}Es wäre schon{{/Versal}}</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>}}639{{/Erstausgabe}}*{{/Kapiteltitel}} {{Absatzanfang/}}{[}Dr. Arnheim hatte</search-string>
+                            <replacement-string>{{Versal}}Dr. Arnheim hatte{{/Versal}}</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>}}649{{/Erstausgabe}}*{{/Kapiteltitel}} {{Absatzanfang/}}{[}Es ist wahrscheinlich</search-string>
+                            <replacement-string>{{Versal}}Es ist wahrscheinlich{{/Versal}}</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>}}655{{/Erstausgabe}}*{{/Kapiteltitel}} {{Absatzanfang/}}{[}Die Zusammenkünfte nahmen</search-string>
+                            <replacement-string>{{Versal}}Die Zusammenkünfte nahmen{{/Versal}}</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>}}668{{/Erstausgabe}}*{{/Kapiteltitel}} {{Absatzanfang/}}{[}Soviel Aufmerksamkeit</search-string>
+                            <replacement-string>{{Versal}}Soviel Aufmerksamkeit{{/Versal}}</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>}}673{{/Erstausgabe}}*{{/Kapiteltitel}} {{Absatzanfang/}}{[}Der General</search-string>
+                            <replacement-string>{{Versal}}Der General{{/Versal}}</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>}}675{{/Erstausgabe}}*{{/Kapiteltitel}} {{Absatzanfang/}}{[}Diotima wunderte sich</search-string>
+                            <replacement-string>{{Versal}}Diotima wunderte sich{{/Versal}}</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>}}683{{/Erstausgabe}}*{{/Kapiteltitel}} {{Absatzanfang/}}{[}Es ist fast</search-string>
+                            <replacement-string>{{Versal}}Es ist fast{{/Versal}}</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>}}690{{/Erstausgabe}}*{{/Kapiteltitel}} {{Absatzanfang/}}{[}Die eigentliche</search-string>
+                            <replacement-string>{{Versal}}Die eigentliche{{/Versal}}</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>}}694{{/Erstausgabe}}*{{/Kapiteltitel}} {{Absatzanfang/}}{[}Clarisse im Zimmer</search-string>
+                            <replacement-string>{{Versal}}Clarisse im Zimmer{{/Versal}}</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>}}710{{/Erstausgabe}}*{{/Kapiteltitel}} {{Absatzanfang/}}{[}Der Zug</search-string>
+                            <replacement-string>{{Versal}}Der Zug{{/Versal}}</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>}}724{{/Erstausgabe}}*{{/Kapiteltitel}} {{Absatzanfang/}}{[}Es war jedoch</search-string>
+                            <replacement-string>{{Versal}}Es war jedoch{{/Versal}}</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>}}733{{/Erstausgabe}}*{{/Kapiteltitel}} {{Absatzanfang/}}{[}General Stumm</search-string>
+                            <replacement-string>{{Versal}}General Stumm{{/Versal}}</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>}}743{{/Erstausgabe}}*{{/Kapiteltitel}} {{Absatzanfang/}}{[}Auch Diotima sprach</search-string>
+                            <replacement-string>{{Versal}}Auch Diotima sprach{{/Versal}}</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>}}763{{/Erstausgabe}}*{{/Kapiteltitel}} {{Absatzanfang/}}{[}Gerda wartete</search-string>
+                            <replacement-string>{{Versal}}Gerda wartete{{/Versal}}</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>}}777{{/Erstausgabe}}*{{/Kapiteltitel}} {{Absatzanfang/}}{[}Gerda war</search-string>
+                            <replacement-string>{{Versal}}Gerda war{{/Versal}}</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>}}791{{/Erstausgabe}}*{{/Kapiteltitel}} {{Absatzanfang/}}{[}Zwischen den hohen</search-string>
+                            <replacement-string>{{Versal}}Zwischen den hohen{{/Versal}}</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>}}801{{/Erstausgabe}}*{{/Kapiteltitel}} {{Absatzanfang/}}{[}Arnheim war</search-string>
+                            <replacement-string>{{Versal}}Arnheim war{{/Versal}}</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>}}808{{/Erstausgabe}}*{{/Kapiteltitel}} {{Absatzanfang/}}{[}Arnheim allein</search-string>
+                            <replacement-string>{{Versal}}Arnheim allein{{/Versal}}</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>}}818{{/Erstausgabe}}*{{/Kapiteltitel}} {{Absatzanfang/}}{[}Wenn Seine Erlaucht</search-string>
+                            <replacement-string>{{Versal}}Wenn Seine Erlaucht{{/Versal}}</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>}}827{{/Erstausgabe}}*{{/Kapiteltitel}} {{Absatzanfang/}}{[}So viele Worte</search-string>
+                            <replacement-string>{{Versal}}So viele Worte{{/Versal}}</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>}}835{{/Erstausgabe}}*{{/Kapiteltitel}} {{Absatzanfang/}}{[}Wenn es in Kakanien</search-string>
+                            <replacement-string>{{Versal}}Wenn es in Kakanien{{/Versal}}</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>}}848{{/Erstausgabe}}*{{/Kapiteltitel}} {{Absatzanfang/}}{[}Moosbrugger saß</search-string>
+                            <replacement-string>{{Versal}}Moosbrugger saß{{/Versal}}</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>}}855{{/Erstausgabe}}*{{/Kapiteltitel}} {{Absatzanfang/}}{[}Immerhin, ein Verbrecher</search-string>
+                            <replacement-string>{{Versal}}Immerhin, ein Verbrecher{{/Versal}}</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>}}862{{/Erstausgabe}}*{{/Kapiteltitel}} {{Absatzanfang/}}{[}Immerhin, ein Verbrecher</search-string>
+                            <replacement-string>{{Versal}}Immerhin, ein Verbrecher{{/Versal}}</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>}}879{{/Erstausgabe}}*{{/Kapiteltitel}} {{Absatzanfang/}}{[}Ulrich wußte</search-string>
+                            <replacement-string>{{Versal}}Ulrich wußte{{/Versal}}</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>}}902{{/Erstausgabe}}*{{/Kapiteltitel}} {{Absatzanfang/}}{[}Seine Erlaucht</search-string>
+                            <replacement-string>{{Versal}}Seine Erlaucht{{/Versal}}</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>}}922{{/Erstausgabe}}*{{/Kapiteltitel}} {{Absatzanfang/}}{[}Nach dem Gesetz</search-string>
+                            <replacement-string>{{Versal}}Nach dem Gesetz{{/Versal}}</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>}}934{{/Erstausgabe}}*{{/Kapiteltitel}} {{Absatzanfang/}}{[}Es waren</search-string>
+                            <replacement-string>{{Versal}}Es waren{{/Versal}}</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>}}963{{/Erstausgabe}}*{{/Kapiteltitel}} {{Absatzanfang/}}{[}Das Erwachen</search-string>
+                            <replacement-string>{{Versal}}Das Erwachen{{/Versal}}</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>}}969{{/Erstausgabe}}*{{/Kapiteltitel}} {{Absatzanfang/}}{[}Walter hatte</search-string>
+                            <replacement-string>{{Versal}}Walter hatte{{/Versal}}</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>}}987{{/Erstausgabe}}*{{/Kapiteltitel}} {{Absatzanfang/}}{[}Damals sah es aus</search-string>
+                            <replacement-string>{{Versal}}Damals sah es aus{{/Versal}}</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>}}1002{{/Erstausgabe}}*{{/Kapiteltitel}} {{Absatzanfang/}}{[}Als Walter</search-string>
+                            <replacement-string>{{Versal}}Als Walter{{/Versal}}</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>}}1017{{/Erstausgabe}}*{{/Kapiteltitel}} {{Absatzanfang/}}{[}Als Ulrich</search-string>
+                            <replacement-string>{{Versal}}Als Ulrich{{/Versal}}</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>}}1039{{/Erstausgabe}}*{{/Kapiteltitel}} {{Absatzanfang/}}{[}Ulrich ging</search-string>
+                            <replacement-string>{{Versal}}Ulrich ging{{/Versal}}</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>}}1050{{/Erstausgabe}}*{{/Kapiteltitel}} {{Absatzanfang/}}{[}Vielleicht hatte</search-string>
+                            <replacement-string>{{Versal}}Vielleicht hatte{{/Versal}}</replacement-string>
                         </string-pair>
                     </exchange-table>
                 </exchange>
