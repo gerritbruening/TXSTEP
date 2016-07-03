@@ -11,7 +11,8 @@
         <variable type="permanent-file" name="xx-versal" option="erase" code="utf8"
             >file:///C:/Users/Gerrit/txstep/txt/xx-versal.xml</variable>
     </variables>
-    <transform source="$varianten" destination="$var-z1">
+    <transform source="$varianten" destination="$xx-versal">
+        <insert-at-start>{{exchange-table}} </insert-at-start>
         <pass>
             <examine-text>
                 <select>
@@ -28,17 +29,49 @@
                 <exchange>
                     <exchange-table>
                         <string-pair>
+                            <search-string>\[Seite </search-string>
+                            <replacement-string/>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>\] \{Versal: #.,</search-string>
+                            <replacement-string>|</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>#.'</search-string>
+                            <replacement-string/>
+                        </string-pair>
+                        <string-pair>
                             <search-string> |ss|</search-string>
-                            <replacement-string></replacement-string>
+                            <replacement-string/>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>\}</search-string>
+                            <replacement-string/>
                         </string-pair>
                     </exchange-table>
                 </exchange>
             </modify>
         </pass>
+        <pass>
+            <modify>
+                <exchange>
+                    <exchange-table>
+                        <string-pair>
+                            <search-string>{#}|*</search-string>
+                            <replacement-string>{{string-pair}} {{search-string}}\}\}{+1=}\{\{/Erstausgabe\}\}*\{\{/Kapiteltitel\}\} \{\{Absatzanfang/\}\}\{\[\}{-1=}{{/search-string}} {{replacement-string}}\{\{Versal\}\}{-1=}\{\{/Versal\}\}{{/replacement-string}} {{/string-pair}}</replacement-string>
+                        </string-pair>
+                    </exchange-table>
+                </exchange>
+            </modify>
+        </pass>
+        <new-line-before>
+            <search-table>
+                <search-string>{{{00}/string-pair</search-string>
+                <search-string>{{search-string</search-string>
+                <search-string>{{replacement-string</search-string>
+            </search-table>
+        </new-line-before>
+        <insert-at-end> {{/exchange-table}}</insert-at-end>
     </transform>
-    <transform source="$var-z1" destination="xx-versal"/>
-
-
-
     <display file="$xx-versal"/>
 </script>
