@@ -10,8 +10,8 @@
         <variable type="permanent-file" name="moe1-txt" code="utf8"
             >file:///C:/Users/Gerrit/txstep/txt/MoE1_text.txt</variable>
         <!-- outputs -->
-        <variable type="permanent-file" option="erase" name="muo-xml-z1"
-            >file:///C:/Users/Gerrit/txstep/txt/MoE76-78_z1.xml</variable>
+        <variable type="permanent-file" name="muo-xml-z1" option="erase" format="tustep" 
+            >file:///C:/Users/Gerrit/txstep/txt/MoE76-78_z1.tf</variable>
         <variable type="permanent-file" option="erase" name="muo-xml"
             >file:///C:/Users/Gerrit/txstep/txt/MoE76-78.xml</variable>
         <variable type="permanent-file" name="moe1-t" option="erase" format="tustep"
@@ -103,6 +103,7 @@
         </pass>
         <insert-at-end>{{/Text}}</insert-at-end>
     </transform>
-    <transform source="$moe1-txt" destination="$moe1-t"/>
-    <display file="$muo-xml-z1"/>
+    <transform source="muo-xml-z1" destination="muo-xml"></transform>
+    <display file="$muo-xml"/>
+    <!--<transform source="$moe1-txt" destination="$moe1-t"/>-->
 </script>
