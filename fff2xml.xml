@@ -30,11 +30,12 @@
         </new-line-before>
         <new-line-after>
             <search-table>
+                <search-string>{{EL}}{{IT}}</search-string>
                 <search-string>{{EL}}</search-string>
             </search-table>
         </new-line-after>
     </transform>
-    <transform source="$muo-fff" destination="$muo-xml-z1">
+    <transform source="$muo-z0" destination="$muo-xml-z1">
         <insert-at-start>{{Text}}</insert-at-start>
         <pass>
             <modify>
