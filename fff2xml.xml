@@ -23,6 +23,10 @@
             <modify>
                 <exchange>
                     <exchange-table>
+                        <!-- Akzente -->
+                        <exception-string>%{%}</exception-string>
+                        <!-- frz. Anführungszeichen -->
+                        <exception-string>#.?</exception-string>
                         <!-- Kapiteltitel -->
                         <string-pair>
                             <search-string>{{RD:"ÜBERSCHRIFT 4"}}</search-string>
