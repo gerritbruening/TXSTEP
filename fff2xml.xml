@@ -11,64 +11,19 @@
         <variable type="permanent-file" name="moe1-txt" code="utf8"
             >file:///C:/Users/Gerrit/txstep/txt/MoE1_text.txt</variable>
         <!-- outputs -->
-        <variable type="permanent-file" name="muo-z0" option="erase" format="tustep"
-            >file:///C:/Users/Gerrit/txstep/txt/MoE76-78_z0.tf</variable>
         <variable type="permanent-file" name="muo-z1" option="erase" format="tustep"
             >file:///C:/Users/Gerrit/txstep/txt/MoE76-78_z1.tf</variable>
         <variable type="permanent-file" name="muo-z2" option="erase" format="tustep"
             >file:///C:/Users/Gerrit/txstep/txt/MoE76-78_z2.tf</variable>
+        <variable type="permanent-file" name="muo-z3" option="erase" format="tustep"
+            >file:///C:/Users/Gerrit/txstep/txt/MoE76-78_z3.tf</variable>
         <variable type="permanent-file" option="erase" name="muo-xml"
             >file:///C:/Users/Gerrit/txstep/txt/MoE76-78.xml</variable>
         <variable type="permanent-file" name="moe1-t" option="erase" format="tustep"
             >file:///C:/Users/Gerrit/txstep/txt/MoE1.tf</variable>
     </variables>
-    <transform source="$muo-fff" destination="$muo-z0">
-        <new-line-before>
-            <search-table>
-                <search-string>{{PW:AUSZEICHUNGEN,</search-string>
-                <search-string>{{IT+}}{{PW:"Popup-Verknüpfung",</search-string>
-                <search-string>{{PW:"Popup-Verknüpfung",</search-string>
-            </search-table>
-        </new-line-before>
-        <new-line-after>
-            <search-table>
-                <search-string>{{EL}}{{IT}}</search-string>
-                <search-string>{{EL}}</search-string>
-            </search-table>
-        </new-line-after>
-    </transform>
-    <transform source="$muo-z0" destination="$muo-z1">
-        <pass>
-            <modify>
-                <exchange>
-                    <exchange-table>
-                        <!-- Variante / Handexemplar / Frisé / Korrektur -->
-                        <string-pair>
-                            <search-string>{{PW:AUSZEICHUNGEN,{#}.{#},{#}.{#},"HANDEXEMPLAR Variante Bleistift"}}Haken{{LT}}*{{EL}}</search-string>
-                            <replacement-string>{{Apparateintrag}}{{Variante}}{-5=}{{/Variante}}{{Handexemplar}}{{Musilzeichen Schreibmaterial="Blei" Zeichen="Haken"/}}{{/Handexemplar}}{{/Apparateintrag}}</replacement-string>
-                        </string-pair>
-                        <string-pair>
-                            <search-string>{{PW:"Popup-Verknüpfung",{#}.{#},{#}.{#},"Druckvariante Fris%/e"}}*{{LT}}*{{EL}}</search-string>
-                            <replacement-string>{{Apparateintrag}}{{Variante}}{-5=}{{/Variante}}{{Frise}}{-10=}{{/Frise}}{{/Apparateintrag}}</replacement-string>
-                        </string-pair>
-                        <string-pair>
-                            <search-string>{{PW:AUSZEICHUNGEN,{#}.{#},{#}.{#},"HANDEXEMPLAR Korrektur Bleistift"}}*{{HR}}{{HR}}Druckvariante Fris%/e: *{{LT}}*{{EL}}</search-string>
-                            <replacement-string>{{Apparateintrag}}{{Variante}}{-5=}{{/Variante}}{{Korrektur}}{-42=}{{/Korrektur}}{{Handexemplar}}{-42=}{{/Handexemplar}}{{Frise}}{-10=}{{/Frise}}{{/Apparateintrag}}</replacement-string>
-                        </string-pair>
-                        <string-pair>
-                            <search-string>{{PW:"Popup-Verknüpfung",{#}.{#},{#}.{#},"Druckvariante Orginal"}}*{{LT}}*{{EL}}</search-string>
-                            <replacement-string>{{Apparateintrag}}{{Variante}}{-10=}{{/Variante}}{{Korrektur}}{-5=}{{/Korrektur}}{{/Apparateintrag}}</replacement-string>
-                        </string-pair>
-                        <string-pair>
-                            <search-string>{{IT+}}{{PW:"Popup-Verknüpfung",{#}.{#},{#}.{#},"Druckvariante Erstausgabe"}}gesperrt{{HR}}{{HR}}Druckvariante Fris%/e: kursiv{{LT}}*{{EL}}{{IT}}</search-string>
-                            <replacement-string>{{Apparateintrag}}{{Variante}}{{kursiv}}{-9=}{{/kursiv}}{{/Variante}}{{Druck}}{{gesperrt}}{-9=}{{/gesperrt}}{{/Druck}}{{Frise}}{{kursiv}}{-9=}{{/kursiv}}{{/Frise}}{{/Apparateintrag}}</replacement-string>
-                        </string-pair>
-                    </exchange-table>
-                </exchange>
-            </modify>
-        </pass>
-    </transform>
-    <transform source="$muo-z1" destination="$muo-z2">
+    <transform 
+        source="$muo-fff" destination="$muo-z1">
         <insert-at-start>{{Text}}</insert-at-start>
         <pass>
             <modify>
@@ -137,7 +92,53 @@
         </pass>
         <insert-at-end>{{/Text}}</insert-at-end>
     </transform>
-    <transform source="$muo-z2" destination="$muo-xml"/>
+    <transform source="$muo-z1" destination="$muo-z2">
+        <new-line-before>
+            <search-table>
+                <search-string>{{PW:AUSZEICHUNGEN,</search-string>
+                <search-string>{{IT+}}{{PW:"Popup-Verknüpfung",</search-string>
+                <search-string>{{PW:"Popup-Verknüpfung",</search-string>
+            </search-table>
+        </new-line-before>
+        <new-line-after>
+            <search-table>
+                <search-string>{{EL}}{{IT}}</search-string>
+                <search-string>{{EL}}</search-string>
+            </search-table>
+        </new-line-after>
+    </transform>
+    <transform source="$muo-z2" destination="$muo-z3">
+        <pass>
+            <modify>
+                <exchange>
+                    <exchange-table>
+                        <!-- Variante / Handexemplar / Frisé / Korrektur -->
+                        <string-pair>
+                            <search-string>{{PW:AUSZEICHUNGEN,{#}.{#},{#}.{#},"HANDEXEMPLAR Variante Bleistift"}}Haken{{LT}}*{{EL}}</search-string>
+                            <replacement-string>{{Apparateintrag}}{{Variante}}{-5=}{{/Variante}}{{Handexemplar}}{{Musilzeichen Schreibmaterial="Blei" Zeichen="Haken"/}}{{/Handexemplar}}{{/Apparateintrag}}</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>{{PW:"Popup-Verknüpfung",{#}.{#},{#}.{#},"Druckvariante Fris%/e"}}*{{LT}}*{{EL}}</search-string>
+                            <replacement-string>{{Apparateintrag}}{{Variante}}{-5=}{{/Variante}}{{Frise}}{-10=}{{/Frise}}{{/Apparateintrag}}</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>{{PW:AUSZEICHUNGEN,{#}.{#},{#}.{#},"HANDEXEMPLAR Korrektur Bleistift"}}*{{HR}}{{HR}}Druckvariante Fris%/e: *{{LT}}*{{EL}}</search-string>
+                            <replacement-string>{{Apparateintrag}}{{Variante}}{-5=}{{/Variante}}{{Korrektur}}{-42=}{{/Korrektur}}{{Handexemplar}}{-42=}{{/Handexemplar}}{{Frise}}{-10=}{{/Frise}}{{/Apparateintrag}}</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>{{PW:"Popup-Verknüpfung",{#}.{#},{#}.{#},"Druckvariante Orginal"}}*{{LT}}*{{EL}}</search-string>
+                            <replacement-string>{{Apparateintrag}}{{Variante}}{-10=}{{/Variante}}{{Korrektur}}{-5=}{{/Korrektur}}{{/Apparateintrag}}</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>{{IT+}}{{PW:"Popup-Verknüpfung",{#}.{#},{#}.{#},"Druckvariante Erstausgabe"}}gesperrt{{HR}}{{HR}}Druckvariante Fris%/e: kursiv{{LT}}*{{EL}}{{IT}}</search-string>
+                            <replacement-string>{{Apparateintrag}}{{Variante}}{{kursiv}}{-9=}{{/kursiv}}{{/Variante}}{{Druck}}{{gesperrt}}{-9=}{{/gesperrt}}{{/Druck}}{{Frise}}{{kursiv}}{-9=}{{/kursiv}}{{/Frise}}{{/Apparateintrag}}</replacement-string>
+                        </string-pair>
+                    </exchange-table>
+                </exchange>
+            </modify>
+        </pass>
+    </transform>
+    <transform source="$muo-z3" destination="$muo-xml"/>
     <display file="$muo-xml"/>
     <transform source="$moe1-txt" destination="$moe1-t"/>
 </script>
