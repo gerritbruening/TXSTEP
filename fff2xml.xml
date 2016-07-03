@@ -2,7 +2,7 @@
 <script xmlns="http://www.xstep.org" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <variables>
         <variable type="execution-file" name="execute">file:///C:/Users/Gerrit/txstep/ueb/txstep.tu</variable>
-        <char-group name="ts">{#},NMO.</char-group>
+        <char-group name="ts">{#},.MNORT</char-group>
         <!-- sources -->
         <variable type="permanent-file" name="muo-fff" code="utf8"
             >file:///C:/Users/Gerrit/txstep/txt/MoE76-78.txt</variable>
@@ -59,7 +59,7 @@
                             <replacement-string>{{Absatzanfang/}}</replacement-string>
                         </string-pair>
                         <string-pair>
-                            <search-string>{{TS:{#}{00}{c:ts},RT,NO}}</search-string>
+                            <search-string>{{TS:{00}{c:ts}}}</search-string>
                             <replacement-string/>
                         </string-pair>
                         <string-pair>
@@ -139,6 +139,18 @@
                         <string-pair>
                             <search-string>{{/Erstausgabe}}{[} {{Absatzanfang/}}</search-string>
                             <replacement-string/>
+                        </string-pair>
+                    </exchange-table>
+                </exchange>
+            </modify>
+        </pass>
+        <pass>
+            <modify>
+                <exchange>
+                    <exchange-table>
+                        <string-pair>
+                            <search-string>{{Kapiteltitel Kapitelnummer="MoE-1/1"}}</search-string>
+                            <replacement-string>{{Erstausgabe}}9{{/Erstausgabe}}{{Kapiteltitel Kapitelnummer="MoE-1/1"}}</replacement-string>
                         </string-pair>
                     </exchange-table>
                 </exchange>
@@ -703,6 +715,6 @@
         </pass>
     </transform>
     <transform source="$muo-z3" destination="$muo-xml"/>
-    <display file="$muo-xml"/>
+    <!--<display file="$muo-xml"/>-->
     <transform source="$moe1-txt" destination="$moe1-t"/>
 </script>
