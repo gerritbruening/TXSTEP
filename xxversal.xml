@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<script xmlns="http://www.xstep.org" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <variables>
+        <variable type="execution-file" name="execute">file:///C:/Users/Gerrit/txstep/ueb/txstep.tu</variable>
+        <!-- source -->
+        <variable type="permanent-file" name="varianten" code="utf8"
+            >file:///C:/Users/Gerrit/txstep/txt/MoE1_Varianten2.txt</variable>
+        <!-- outputs -->
+        <variable type="permanent-file" name="var-z1" option="erase" format="tustep"
+            >file:///C:/Users/Gerrit/txstep/txt/var_z1.tf</variable>
+        <variable type="permanent-file" name="xx-versal" option="erase" code="utf8"
+            >file:///C:/Users/Gerrit/txstep/txt/xx-versal.xml</variable>
+    </variables>
+    <transform source="$varianten" destination="$var-z1">
+        <pass>
+            <examine-text>
+                <select>
+                    <text-contains>
+                        <search-table>
+                            <search-string>\[Seite {#}\] \{Versal: </search-string>
+                        </search-table>
+                    </text-contains>
+                </select>
+            </examine-text>
+        </pass>
+        <pass>
+            <modify>
+                <exchange>
+                    <exchange-table>
+                        <string-pair>
+                            <search-string> |ss|</search-string>
+                            <replacement-string></replacement-string>
+                        </string-pair>
+                    </exchange-table>
+                </exchange>
+            </modify>
+        </pass>
+    </transform>
+    <transform source="$var-z1" destination="xx-versal"/>
+
+
+
+    <display file="$xx-versal"/>
+</script>
