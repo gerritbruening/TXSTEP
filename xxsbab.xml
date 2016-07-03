@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<script xmlns="http://www.xstep.org" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <variables>
+        <variable type="execution-file" name="execute">file:///C:/Users/Gerrit/txstep/ueb/txstep.tu</variable>
+        <!-- source -->
+        <variable type="permanent-file" name="varianten" code="utf8"
+            >file:///C:/Users/Gerrit/txstep/txt/MoE1_Varianten2.txt</variable>
+        <!-- output -->
+        <variable type="permanent-file" name="xx-sbab" option="erase" code="utf8"
+            >file:///C:/Users/Gerrit/txstep/txt/xx-sbab.xml</variable>
+    </variables>
+    <transform source="$varianten" destination="$xx-sbab">
+        <insert-at-start>{{exchange-table}} </insert-at-start>
+        <pass>
+            <examine-text>
+                <select>
+                    <text-contains>
+                        <search-table>
+                            <search-string>\[Seite {#}\] |SB=AB|</search-string>
+                        </search-table>
+                    </text-contains>
+                </select>
+            </examine-text>
+        </pass>
+        <pass>
+            <modify>
+                <exchange>
+                    <exchange-table>
+                        <string-pair>
+                            <search-string>\[Seite </search-string>
+                            <replacement-string/>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>\] |SB=AB|</search-string>
+                            <replacement-string></replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string> |GA-|</search-string>
+                            <replacement-string/>
+                        </string-pair>
+                    </exchange-table>
+                </exchange>
+            </modify>
+        </pass>
+        <pass>
+            <modify>
+                <exchange>
+                    <exchange-table>
+                        <string-pair>
+                            <search-string>{#}</search-string>
+                            <replacement-string>{{string-pair}} {{search-string}}\}\}{+1=}\{\{/Erstausgabe\}\}\{\[\}?{{/search-string}} {{replacement-string}}\{\{Absatzanfang/\}\}\{-1=\}{{/replacement-string}} {{/string-pair}}</replacement-string>
+                        </string-pair>
+                    </exchange-table>
+                </exchange>
+            </modify>
+        </pass>
+        <new-line-before>
+            <search-table>
+                <search-string>{{{00}/string-pair</search-string>
+                <search-string>{{search-string</search-string>
+                <search-string>{{replacement-string</search-string>
+            </search-table>
+        </new-line-before>
+        <insert-at-end> {{/exchange-table}}</insert-at-end>
+    </transform>
+    <display file="$xx-sbab"/>
+</script>
