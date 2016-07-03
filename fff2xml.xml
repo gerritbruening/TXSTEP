@@ -112,6 +112,11 @@
             <modify>
                 <exchange>
                     <exchange-table>
+                        <!-- Akzente -->
+                        <exception-string>%{%}</exception-string>
+                        <!-- frz. Anführungszeichen -->
+                        <exception-string>#.?</exception-string>
+                        <!-- Kapiteltitel -->
                         <!-- Variante / Handexemplar / Frisé / Korrektur -->
                         <string-pair>
                             <search-string>{{PW:AUSZEICHUNGEN,{#}.{#},{#}.{#},"HANDEXEMPLAR Variante Bleistift"}}Haken{{LT}}*{{EL}}</search-string>
