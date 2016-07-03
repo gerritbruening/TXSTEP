@@ -15,6 +15,8 @@
             >file:///C:/Users/Gerrit/txstep/txt/MoE76-78_z1.tf</variable>
         <variable type="permanent-file" name="muo-z1a" option="erase" format="tustep"
             >file:///C:/Users/Gerrit/txstep/txt/MoE76-78_z1a.tf</variable>
+        <variable type="permanent-file" name="muo-z1b" option="erase" format="tustep"
+            >file:///C:/Users/Gerrit/txstep/txt/MoE76-78_z1b.tf</variable>
         <variable type="permanent-file" name="muo-z2" option="erase" format="tustep"
             >file:///C:/Users/Gerrit/txstep/txt/MoE76-78_z2.tf</variable>
         <variable type="permanent-file" name="muo-z3" option="erase" format="tustep"
@@ -108,14 +110,55 @@
                     <exchange-table>
                         <string-pair>
                             <search-string>{{/Kapiteltitel}}{[} {{Erstausgabe*}}{#}{{/Erstausgabe}}{]}</search-string>
-                            <replacement-string></replacement-string>
+                            <replacement-string/>
                         </string-pair>
                     </exchange-table>
                 </exchange>
             </modify>
         </pass>
     </transform>
-    <transform source="$muo-z1a" destination="$muo-z2">
+    <transform source="$muo-z1a" destination="$muo-z1b">
+        <define-text-units>
+            <text-unit-start>
+                <comparison-table>
+                    <exclusion-string>{{Absatzanfang</exclusion-string>
+                    <exclusion-string>{{Kapiteltitel</exclusion-string>
+                    <comparison-string>{{Erstausgabe</comparison-string>
+                </comparison-table>
+            </text-unit-start>
+        </define-text-units>
+        <pass>
+            <modify>
+                <exchange>
+                    <exchange-table>
+                        <string-pair>
+                            <search-string>{{/Erstausgabe}}{[} {{Absatzanfang/}}</search-string>
+                            <replacement-string/>
+                        </string-pair>
+                    </exchange-table>
+                </exchange>
+            </modify>
+        </pass>
+        <pass>
+            <modify>
+                <exchange>
+                    <exchange-table>
+                        <string-pair>
+                            <search-string>}}517{{/Erstausgabe}}*{{/Kapiteltitel}} {{Absatzanfang/}}{[}Diotima</search-string>
+                            <replacement-string>{{Versal}}Diotima{{/Versal}}</replacement-string>
+                        </string-pair>
+                    </exchange-table>
+                </exchange>
+            </modify>
+        </pass>
+        <new-line-before>
+            <search-table>
+                <search-string>{{Kapiteltitel</search-string>
+                <search-string>{{Absatzanfang/}}</search-string>
+            </search-table>
+        </new-line-before>
+    </transform>
+    <transform source="$muo-z1b" destination="$muo-z2">
         <new-line-before>
             <search-table>
                 <search-string>{{PW:AUSZEICHUNGEN,</search-string>
