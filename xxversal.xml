@@ -5,9 +5,7 @@
         <!-- source -->
         <variable type="permanent-file" name="varianten" code="utf8"
             >file:///C:/Users/Gerrit/txstep/txt/MoE1_Varianten2.txt</variable>
-        <!-- outputs -->
-        <variable type="permanent-file" name="var-z1" option="erase" format="tustep"
-            >file:///C:/Users/Gerrit/txstep/txt/var_z1.tf</variable>
+        <!-- output -->
         <variable type="permanent-file" name="xx-versal" option="erase" code="utf8"
             >file:///C:/Users/Gerrit/txstep/txt/xx-versal.xml</variable>
     </variables>
