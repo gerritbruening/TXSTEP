@@ -1090,6 +1090,7 @@
                 </comparison-table>
             </text-unit-start>
         </define-text-units>
+        <!-- HYPHENATION -->
         <pass>
             <modify>
                 <exchange>
@@ -1102,6 +1103,7 @@
                 </exchange>
             </modify>
         </pass>
+        <!-- <Absatzanfang/> INTO <Absatz>...</Absatz> -->
         <pass>
             <modify>
                 <exchange>
@@ -1114,6 +1116,7 @@
                 </exchange>
             </modify>
         </pass>
+        <!-- PAGE BREAKS AT THE END OF PARAGRAPHS -->
         <pass>
             <modify>
                 <exchange>
@@ -1130,6 +1133,7 @@
                 </exchange>
             </modify>
         </pass>
+        <!-- WHITESPACE AT THE END OF PARAGRAPHS -->
         <pass>
             <modify>
                 <exchange>
@@ -1150,6 +1154,7 @@
             </search-table>
         </new-line-before>
     </transform>
+    <!-- APPARATUS ENTRIES IN SEPARATE RECORDS -->
     <transform source="$muo-z1ba" destination="$muo-z2">
         <new-line-before>
             <search-table>
@@ -1166,6 +1171,7 @@
         </new-line-after>
     </transform>
     <transform source="$muo-z2" destination="$muo-z2a">
+        <!-- HANDLE THE BULK OF VARIANTS -->
         <pass>
             <modify>
                 <exchange>
@@ -1233,6 +1239,7 @@
                 </exchange>
             </modify>
         </pass>
+        <!-- COMMENT OUT UNHANDLED FFF MARKUP -->
         <pass>
             <modify>
                 <exchange>
@@ -1318,6 +1325,7 @@
             </modify>
         </pass>
     </transform>
+    <!-- APPARATUS INTO PRECEDING AND FOLLOWING RECORDS -->
     <transform source="$muo-z2a" destination="$muo-z3">
         <define-text-units>
             <text-unit-start>
@@ -1329,6 +1337,7 @@
                 </comparison-table>
             </text-unit-start>
         </define-text-units>
+        <!-- TRIM WHITESPACE BETWEEN APP ENTRY AND FOLLOWING PUNCTUATION CHARACTERS -->
         <pass>
             <modify>
                 <exchange>
@@ -1349,6 +1358,7 @@
             </search-table>
         </new-line-before>
     </transform>
+    <!-- ADD ROOT ELEMENT -->
     <transform source="$muo-z3" destination="$muo-xml">
         <insert-at-start>{{Text}}</insert-at-start>
         <insert-at-end>{{/Text}}</insert-at-end>
