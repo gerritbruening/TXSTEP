@@ -1,4 +1,4 @@
-# TXSTEP
+﻿# TXSTEP
 
 For the software see
 * http://www.txstep.de/
@@ -48,3 +48,6 @@ Compare more than 9 (xml-)sources, output = diff-files with TEI inspired tags; f
 
 ## c4_recstr.xml
 Compare the three prints of [C vol. 4](http://beta.faustedition.net/archive_prints), the latter ones of which go back to a lost corrected copy which is to be reconstructed from the readings shared by C<sup>α</sup> and C<sup>3</sup>.
+
+## fff2xml.xml
+Provisional conversion from FFF to XML. For the general needs, see https://github.com/gerritbruening/muo#plan-of-action.
