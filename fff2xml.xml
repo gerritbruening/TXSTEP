@@ -4,6 +4,7 @@
         <variable type="execution-file" name="execute">file:///C:/Users/Gerrit/txstep/ueb/txstep.tu</variable>
         <char-group name="ts">{#},.MNORT</char-group>
         <char-group name="pw">{#},.</char-group>
+        <char-group name="pc">,;.:!\?</char-group>
         <!-- sources -->
         <variable type="permanent-file" name="muo-fff" code="utf8"
             >file:///C:/Users/Gerrit/txstep/txt/MoE76-78.txt</variable>
@@ -33,6 +34,7 @@
     <transform source="$moe1-txt" destination="$muo-z1">
         <!-- BASIC MARKUP -->
         <insert-at-start>{{Text}}</insert-at-start>
+        <!-- preparatory clean-up -->
         <pass>
             <modify>
                 <exchange>
@@ -44,6 +46,30 @@
                         <string-pair>
                             <search-string>{{BD{0}+}}</search-string>
                             <replacement-string/>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>{{RD:"ÜBERSCHRIFT 7"{[},CH{]}}}</search-string>
+                            <replacement-string/>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>{{BH}}</search-string>
+                            <replacement-string/>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>{{EH}}</search-string>
+                            <replacement-string/>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>{{JD:"MoE-1-S50 ref1"}}</search-string>
+                            <replacement-string/>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>{{IN:FI:{00}{c:pw}}}</search-string>
+                            <replacement-string/>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>{{IT+}} {{IT}}</search-string>
+                            <replacement-string> </replacement-string>
                         </string-pair>
                     </exchange-table>
                 </exchange>
@@ -97,7 +123,7 @@
                             <replacement-string/>
                         </string-pair>
                         <string-pair>
-                            <search-string>{{RD:"ÜBERSCHRIFT 7"}}\[Seite {#}\]</search-string>
+                            <search-string>{{RD:"ÜBERSCHRIFT 7"}}{0} \[Seite {#}\]</search-string>
                             <replacement-string>{{Erstausgabe}}{-2=}{{/Erstausgabe}}</replacement-string>
                         </string-pair>
                         <!-- Rowohlt -->
@@ -1069,12 +1095,24 @@
                             <replacement-string>{{Apparateintrag}}{{Variante}}{-5=}{{/Variante}}{{Handexemplar}}{-42=}{{/Handexemplar}}{{Frise}}{-42=}{{/Frise}}{{/Apparateintrag}}</replacement-string>
                         </string-pair>
                         <string-pair>
+                            <search-string>{{PW:AUSZEICHUNGEN{00}{c:pw}"HANDEXEMPLAR Variante Bleistift"}}{{IT-}}{{FT:Arial,SN}}{{PT:{0} {#}}}{{FC:{00}{c:pw}}}*{00}{c:pc}{{IT}}{{FT}}{{PT}}{{FC}}{{LT}}*{{EL}}</search-string>
+                            <replacement-string>{{Apparateintrag}}{{Variante}}{-5=}{{/Variante}}{{Handexemplar}}{{Kommentar}}{-26=}.{{/Kommentar}}{{/Handexemplar}}{{/Apparateintrag}}</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>{{PW:AUSZEICHUNGEN{00}{c:pw}"HANDEXEMPLAR Variante Bleistift"}}Das Wort ist unterstrichen{00}{c:pc}{{LT}}*{{EL}}</search-string>
+                            <replacement-string>{{Apparateintrag}}{{Variante}}{-5=}{{/Variante}}{{Handexemplar}}{{Kommentar}}Das Wort ist unterstrichen.{{/Kommentar}}{{/Handexemplar}}{{/Apparateintrag}}</replacement-string>
+                        </string-pair>
+                        <string-pair>
                             <search-string>{{PW:AUSZEICHUNGEN{00}{c:pw}"HANDEXEMPLAR Korrektur Bleistift"}}*{{HR}}{{HR}}Druckvariante Fris%/e: *{{LT}}*{{EL}}</search-string>
                             <replacement-string>{{Apparateintrag}}{{Variante}}{-5=}{{/Variante}}{{Korrektur}}{-42=}{{/Korrektur}}{{Handexemplar}}{-42=}{{/Handexemplar}}{{Frise}}{-10=}{{/Frise}}{{/Apparateintrag}}</replacement-string>
                         </string-pair>
                         <string-pair>
                             <search-string>{{IT+}}{{PW:"Popup-Verknüpfung"{00}{c:pw}"Druckvariante Erstausgabe"}}gesperrt{{HR}}{{HR}}Druckvariante Fris%/e: kursiv{{LT}}*{{EL}}{{IT}}</search-string>
                             <replacement-string>{{Apparateintrag}}{{Variante}}{{kursiv}}{-9=}{{/kursiv}}{{/Variante}}{{Druck}}{{gesperrt}}{-9=}{{/gesperrt}}{{/Druck}}{{Frise}}{{kursiv}}{-9=}{{/kursiv}}{{/Frise}}{{/Apparateintrag}}</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>{{PW:"Popup-Verknüpfung"{00}{c:pw}"Druckvariante Erstausgabe"}}*{{LT}}*{{EL}}</search-string>
+                            <replacement-string>{{Apparateintrag}}{{Variante}}{-5=}{{/Variante}}{{Druck}}{-10=}{{/Druck}}{{/Apparateintrag}}</replacement-string>
                         </string-pair>
                         <string-pair>
                             <search-string>{{PW:"Popup-Verknüpfung"{00}{c:pw}"Druckvariante Orginal"}}*{{LT}}*{{EL}}</search-string>
