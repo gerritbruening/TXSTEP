@@ -213,7 +213,7 @@
                     <exchange-table>
                         <exception-string>{{Erstausgabe}}62{{/Erstausgabe}}</exception-string>
                         <string-pair>
-                            <search-string>{{/Kapiteltitel}}{[} {{Erstausgabe*}}{#}{{/Erstausgabe}}{]}</search-string>
+                            <search-string>{{/Kapiteltitel}}{[} {{Erstausgabe}}{#}{{/Erstausgabe}}{]}</search-string>
                             <replacement-string/>
                         </string-pair>
                     </exchange-table>
