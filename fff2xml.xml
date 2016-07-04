@@ -17,6 +17,8 @@
             >file:///C:/Users/Gerrit/txstep/txt/muo_z1a.tf</variable>
         <variable type="permanent-file" name="muo-z1b" option="erase" format="tustep"
             >file:///C:/Users/Gerrit/txstep/txt/muo_z1b.tf</variable>
+        <variable type="permanent-file" name="muo-z1ba" option="erase" format="tustep"
+            >file:///C:/Users/Gerrit/txstep/txt/muo_z1ba.tf</variable>
         <variable type="permanent-file" name="muo-z2" option="erase" format="tustep"
             >file:///C:/Users/Gerrit/txstep/txt/muo_z2.tf</variable>
         <variable type="permanent-file" name="muo-z3" option="erase" format="tustep"
@@ -27,6 +29,7 @@
             >file:///C:/Users/Gerrit/txstep/txt/MoE1.tf</variable>
     </variables>
     <transform source="$moe1-txt" destination="$muo-z1">
+        <!-- BASIC MARKUP -->
         <insert-at-start>{{Text}}</insert-at-start>
         <pass>
             <modify>
@@ -96,6 +99,7 @@
         <insert-at-end>{{/Text}}</insert-at-end>
     </transform>
     <transform source="$muo-z1" destination="$muo-z1a">
+        <!-- REMOVE REDUNDANT <Erstausgabe> -->
         <define-text-units>
             <text-unit-start>
                 <comparison-table>
@@ -123,6 +127,7 @@
         </new-line-before>
     </transform>
     <transform source="$muo-z1a" destination="$muo-z1b">
+        <!-- REMOVE REDUNDANT <Absatzanfang/> ... -->
         <define-text-units>
             <text-unit-start>
                 <comparison-table>
@@ -144,6 +149,7 @@
                 </exchange>
             </modify>
         </pass>
+        <!-- ... AND INSERT <Absatzanfang/> WHEN COINCIDING WITH <Erstausgabe> PAGE BREAKS -->
         <pass>
             <modify>
                 <exchange>
@@ -452,6 +458,7 @@
                 </exchange>
             </modify>
         </pass>
+        <!-- preparatory step for the following one: insert inital page break -->
         <pass>
             <modify>
                 <exchange>
@@ -464,6 +471,7 @@
                 </exchange>
             </modify>
         </pass>
+        <!-- INSERT <Versal> -->
         <pass>
             <modify>
                 <exchange>
@@ -971,7 +979,36 @@
             </search-table>
         </new-line-before>
     </transform>
-    <transform source="$muo-z1b" destination="$muo-z2">
+    <transform source="$muo-z1b" destination="$muo-z1ba">
+        <define-text-units>
+            <text-unit-start>
+                <comparison-table>
+                    <exclusion-string>{{Erstausgabe</exclusion-string>
+                    <comparison-string>{{Kapiteltitel</comparison-string>
+                    <comparison-string>{{Absatzanfang/}}</comparison-string>
+                </comparison-table>
+            </text-unit-start>
+        </define-text-units>
+        <pass>
+            <modify>
+                <exchange>
+                    <exchange-table>
+                        <string-pair>
+                            <search-string>{{Absatzanfang/}}*{]}</search-string>
+                            <replacement-string>{{Absatz}}{-1=}{{/Absatz}}</replacement-string>
+                        </string-pair>
+                    </exchange-table>
+                </exchange>
+            </modify>
+        </pass>
+        <new-line-before>
+            <search-table>
+                <search-string>{{Kapiteltitel</search-string>
+                <search-string>{{Absatz}}</search-string>
+            </search-table>
+        </new-line-before>
+    </transform>
+    <transform source="$muo-z1ba" destination="$muo-z2">
         <new-line-before>
             <search-table>
                 <search-string>{{PW:AUSZEICHUNGEN,</search-string>
