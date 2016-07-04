@@ -1102,6 +1102,34 @@
                 </exchange>
             </modify>
         </pass>
+        <pass>
+            <modify>
+                <exchange>
+                    <exchange-table>
+                        <string-pair>
+                            <search-string>{{Erstausgabe}}{#}{{/Erstausgabe}}{{/Absatz}}{]}</search-string>
+                            <replacement-string>{+29-37=} {+1-28=}</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>{{Rowohlt}}{#}{{/Rowohlt}}{{/Absatz}}{]}</search-string>
+                            <replacement-string>{+21-29=} {+1-20=}</replacement-string>
+                        </string-pair>
+                    </exchange-table>
+                </exchange>
+            </modify>
+        </pass>
+        <pass>
+            <modify>
+                <exchange>
+                    <exchange-table>
+                        <string-pair>
+                            <search-string>{0} {]}{{/Absatz}}</search-string>
+                            <replacement-string/>
+                        </string-pair>
+                    </exchange-table>
+                </exchange>
+            </modify>
+        </pass>
         <new-line-before>
             <search-table>
                 <search-string>{{Teiltitel</search-string>
