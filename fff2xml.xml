@@ -126,6 +126,10 @@
                             <search-string>{{RD:"ÜBERSCHRIFT 7"}}{0} \[Seite {#}\]</search-string>
                             <replacement-string>{{Erstausgabe}}{-2=}{{/Erstausgabe}}</replacement-string>
                         </string-pair>
+                        <string-pair>
+                            <search-string>{{RD:"ÜBERSCHRIFT 7"}}{{JD:"MoE-1-S62 (korrigiert!)"}}\[Seite 62\]</search-string>
+                            <replacement-string>{{Erstausgabe Band="MoE-1"}}{-2=}{{/Erstausgabe}}</replacement-string>
+                        </string-pair>
                         <!-- Rowohlt -->
                         <string-pair>
                             <search-string>\{\{GW 1 {#}\}\}</search-string>
@@ -164,6 +168,7 @@
             <modify>
                 <exchange>
                     <exchange-table>
+                        <exception-string>{{Erstausgabe Band="MoE-1"}}62{{/Erstausgabe}}</exception-string>
                         <string-pair>
                             <search-string>{{/Kapiteltitel}}{[} {{Erstausgabe*}}{#}{{/Erstausgabe}}{]}</search-string>
                             <replacement-string/>
