@@ -60,7 +60,7 @@ Current structure of the script:
 4. insert `<Absatzanfang/>` where `<Erstausgabe>` page breaks coincide with the start of a new paragraph ([generated](https://github.com/gerritbruening/TXSTEP/blob/master/xxsbab.xml) from a handcrafted list)
 5. insert `<Versal>` ([generated](https://github.com/gerritbruening/TXSTEP/blob/master/xxversal.xml) from a handcrafted list)
 6. handling of hyphenation
-7. `<Absatzanfang/>` --> `<Absatz>...</Absatz>`
+7. `<Absatzanfang/>` → `<Absatz>...</Absatz>`
 8. page breaks at the end of paragraphs: move them from inside of a paragraph to outside of it
 9. trim whitespace at the end of paragraphs
 10. put apparatus entries in separate records
