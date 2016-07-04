@@ -183,7 +183,8 @@
                         <string-pair>
                             <search-string>}}144{{/Erstausgabe}}{[}?</search-string>
                             <replacement-string>{{Absatzanfang/}}{-1=}</replacement-string>
-                        </string-pair> |GA+!| <string-pair>
+                        </string-pair>
+                        <string-pair>
                             <search-string>}}145{{/Erstausgabe}}{[}?</search-string>
                             <replacement-string>{{Absatzanfang/}}{-1=}</replacement-string>
                         </string-pair>
