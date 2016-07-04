@@ -51,3 +51,8 @@ Compare the three prints of [C vol. 4](http://beta.faustedition.net/archive_prin
 
 ## fff2xml.xml
 Provisional conversion from FFF to XML. For the general needs, see https://github.com/gerritbruening/muo#plan-of-action.
+
+Current structure of the script:
+
+1. insertion of basic markup
+2. get rid of redundant `<Erstausgabe>` following after each `<Kapiteltitel>`
