@@ -168,7 +168,7 @@
                         <!-- Wortumbruch -->
                         <string-pair>
                             <search-string>{{CS:"VERSTECKTER WORTUMBRUCH"}}*{{/CS}}</search-string>
-                            <replacement-string>{{Worttrennung ersterTeil="{-6=}"/}}</replacement-string>
+                            <replacement-string>{{Worttrennung/}}</replacement-string>
                         </string-pair>
                         <!-- Teiltitel -->
                         <string-pair>
