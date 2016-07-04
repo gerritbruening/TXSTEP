@@ -172,6 +172,10 @@
                         </string-pair>
                         <!-- Teiltitel -->
                         <string-pair>
+                            <search-string>{{RD:"ÜBERSCHRIFT 2"}}{{JD:"LT-Der Mann ohne Eigenschaften, Erster Teil"}}ERSTER TEIL #\[2013\] EINE ART EINLEITUNG{{JL:*{{EL}}</search-string>
+                            <replacement-string>{{Teiltitel}}ERSTER TEIL #\[2013\] EINE ART EINLEITUNG{{/Teiltitel}}</replacement-string>
+                        </string-pair>
+                        <string-pair>
                             <search-string>{{RD:"ÜBERSCHRIFT 2"}}{{JU:LF}}{{IN:LF:2}}{{BR:BT:0,0}}{{SD:NO}}{{JD:"LT-Der Mann ohne Eigenschaften, Zweiter Teil"}}{{PT:16}}ZWEITER TEIL #\[2013\] SEINESGLEICHEN GESCHIEHT{{PT}}</search-string>
                             <replacement-string>{{Teiltitel}}ZWEITER TEIL #\[2013\] SEINESGLEICHEN GESCHIEHT{{/Teiltitel}}</replacement-string>
                         </string-pair>
