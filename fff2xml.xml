@@ -28,6 +28,7 @@
         <variable type="permanent-file" name="moe1-t" option="erase" format="tustep"
             >file:///C:/Users/Gerrit/txstep/txt/MoE1.tf</variable>
     </variables>
+    <transform source="$moe1-txt" destination="$moe1-t"/>
     <transform source="$moe1-txt" destination="$muo-z1">
         <!-- BASIC MARKUP -->
         <insert-at-start>{{Text}}</insert-at-start>
@@ -1061,5 +1062,4 @@
     </transform>
     <transform source="$muo-z3" destination="$muo-xml"/>
     <!--<display file="$muo-xml"/>-->
-    <transform source="$moe1-txt" destination="$moe1-t"/>
 </script>
