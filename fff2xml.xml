@@ -25,6 +25,8 @@
             >file:///C:/Users/Gerrit/txstep/txt/muo_z1ba.tf</variable>
         <variable type="permanent-file" name="muo-z2" option="erase" format="tustep"
             >file:///C:/Users/Gerrit/txstep/txt/muo_z2.tf</variable>
+        <variable type="permanent-file" name="muo-z2a" option="erase" format="tustep"
+            >file:///C:/Users/Gerrit/txstep/txt/muo_z2a.tf</variable>
         <variable type="permanent-file" name="muo-z3" option="erase" format="tustep"
             >file:///C:/Users/Gerrit/txstep/txt/muo_z3.tf</variable>
         <variable type="permanent-file" option="erase" name="muo-xml"
@@ -33,7 +35,6 @@
     <transform source="$moe1-txt" destination="$moe1-t"/>
     <transform source="$moe1-txt" destination="$muo-z1">
         <!-- BASIC MARKUP -->
-        <insert-at-start>{{Text}}</insert-at-start>
         <!-- preparatory clean-up -->
         <pass>
             <modify>
@@ -60,7 +61,15 @@
                             <replacement-string/>
                         </string-pair>
                         <string-pair>
-                            <search-string>{{JD:"MoE-1-S50 ref1"}}</search-string>
+                            <search-string>{{JD:"MoE-1-S{#}{[} \[{#}\]</search-string>
+                            <replacement-string/>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>{{JD:"MoE-1-S50{[} ref1</search-string>
+                            <replacement-string/>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>JD:"MoE-1-S{#}{[} \{{#}\}</search-string>
                             <replacement-string/>
                         </string-pair>
                         <string-pair>
@@ -70,6 +79,14 @@
                         <string-pair>
                             <search-string>{{IT+}} {{IT}}</search-string>
                             <replacement-string> </replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>{{HD-}} {{HD}}</search-string>
+                            <replacement-string> </replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>{{/FD:"S-KAPITEL"}}*{{FD:"S-KAPITEL"}}</search-string>
+                            <replacement-string>{+18=}</replacement-string>
                         </string-pair>
                     </exchange-table>
                 </exchange>
@@ -83,6 +100,7 @@
                         <exception-string>%{%}</exception-string>
                         <!-- frz. Anführungszeichen -->
                         <exception-string>#.?</exception-string>
+                        <exception-string>{{HR}}{{PS:"LESETEXT DRUCK"}}{{HR}}{{PS:"LESETEXT DRUCK"}}Druckvariante</exception-string>
                         <!-- Kapiteltitel -->
                         <string-pair>
                             <search-string>{{RD:"ÜBERSCHRIFT 4"}}</search-string>
@@ -106,6 +124,10 @@
                             <replacement-string>{{Absatzanfang/}}</replacement-string>
                         </string-pair>
                         <string-pair>
+                            <search-string>{{RD:"ÜBERSCHRIFT 7"}}{{PS:"LESETEXT DRUCK"}}</search-string>
+                            <replacement-string>{{Absatzanfang/}}</replacement-string>
+                        </string-pair>
+                        <string-pair>
                             <search-string>{{TS:{00}{c:ts}}}</search-string>
                             <replacement-string/>
                         </string-pair>
@@ -115,12 +137,8 @@
                         </string-pair>
                         <!-- Erstausgabe -->
                         <string-pair>
-                            <search-string>{{RD:"ÜBERSCHRIFT 7"}}{{JD:"MoE-1-S{#}"}}{0}\[Seite {#}\]</search-string>
+                            <search-string>{{RD:"ÜBERSCHRIFT 7"}}{0}\[{{JD:"MoE-1-{0}S{#}"}}{0}\[Seite {#}\]</search-string>
                             <replacement-string>{{Erstausgabe Band="MoE-1"}}{-2=}{{/Erstausgabe}}</replacement-string>
-                        </string-pair>
-                        <string-pair>
-                            <search-string>{{JD:"MoE-1-S33 \[1\]"}}</search-string>
-                            <replacement-string/>
                         </string-pair>
                         <string-pair>
                             <search-string>{{RD:"ÜBERSCHRIFT 7"}}{0} \[Seite {#}\]</search-string>
@@ -128,6 +146,10 @@
                         </string-pair>
                         <string-pair>
                             <search-string>{{RD:"ÜBERSCHRIFT 7"}}{{JD:"MoE-1-S62 (korrigiert!)"}}\[Seite 62\]</search-string>
+                            <replacement-string>{{Erstausgabe Band="MoE-1"}}{-2=}{{/Erstausgabe}}</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>{{RD:"ÜBERSCHRIFT 7"}}{{JD:"MoE-1/{#}, {#}"}}\[Seite {#}\]</search-string>
                             <replacement-string>{{Erstausgabe Band="MoE-1"}}{-2=}{{/Erstausgabe}}</replacement-string>
                         </string-pair>
                         <!-- Rowohlt -->
@@ -148,11 +170,32 @@
                             <search-string>{{CS:"VERSTECKTER WORTUMBRUCH"}}*{{/CS}}</search-string>
                             <replacement-string>{{Worttrennung ersterTeil="{-6=}"/}}</replacement-string>
                         </string-pair>
+                        <!-- Teiltitel -->
+                        <string-pair>
+                            <search-string>{{RD:"ÜBERSCHRIFT 2"}}{{JU:LF}}{{IN:LF:2}}{{BR:BT:0,0}}{{SD:NO}}{{JD:"LT-Der Mann ohne Eigenschaften, Zweiter Teil"}}{{PT:16}}ZWEITER TEIL #\[2013\] SEINESGLEICHEN GESCHIEHT{{PT}}</search-string>
+                            <replacement-string>{{Teiltitel}}ZWEITER TEIL #\[2013\] SEINESGLEICHEN GESCHIEHT{{/Teiltitel}}</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>{{RD}}{{FT:Arial,SN}}{{PT:10}}Inhalt{{FT}}{{PT}}</search-string>
+                            <replacement-string/>
+                        </string-pair>
                     </exchange-table>
                 </exchange>
             </modify>
         </pass>
-        <insert-at-end>{{/Text}}</insert-at-end>
+        <pass>
+            <modify>
+                <exchange>
+                    <exchange-table>
+                        <string-pair>
+                            <search-string>{{JU:LF}}</search-string>
+                            <replacement-string/>
+                            <!-- for the isolated ones; only now because of {{RD:"ÜBERSCHRIFT 2"}}{{JU:LF}} -->
+                        </string-pair>
+                    </exchange-table>
+                </exchange>
+            </modify>
+        </pass>
     </transform>
     <transform source="$muo-z1" destination="$muo-z1a">
         <!-- REMOVE REDUNDANT <Erstausgabe> -->
@@ -1043,6 +1086,7 @@
                     <exclusion-string>{{Erstausgabe</exclusion-string>
                     <comparison-string>{{Kapiteltitel</comparison-string>
                     <comparison-string>{{Absatzanfang/}}</comparison-string>
+                    <comparison-string>{{Teiltitel</comparison-string>
                 </comparison-table>
             </text-unit-start>
         </define-text-units>
@@ -1060,6 +1104,7 @@
         </pass>
         <new-line-before>
             <search-table>
+                <search-string>{{Teiltitel</search-string>
                 <search-string>{{Kapiteltitel</search-string>
                 <search-string>{{Absatz}}</search-string>
             </search-table>
@@ -1080,7 +1125,7 @@
             </search-table>
         </new-line-after>
     </transform>
-    <transform source="$muo-z2" destination="$muo-z3">
+    <transform source="$muo-z2" destination="$muo-z2a">
         <pass>
             <modify>
                 <exchange>
@@ -1106,6 +1151,10 @@
                         <string-pair>
                             <search-string>{{PW:AUSZEICHUNGEN{00}{c:pw}"HANDEXEMPLAR Variante Bleistift"}}Das Wort ist unterstrichen{00}{c:pc}{{LT}}*{{EL}}</search-string>
                             <replacement-string>{{Apparateintrag}}{{Variante}}{-5=}{{/Variante}}{{Handexemplar}}{{Kommentar}}Das Wort ist unterstrichen.{{/Kommentar}}{{/Handexemplar}}{{/Apparateintrag}}</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>{{PW:AUSZEICHUNGEN{00}{c:pw}"HANDEXEMPLAR Variante Bleistift"}}* (*){{HR}}{{HR}}Druckvariante Fris%/e: *{{LT}}*{{EL}}</search-string>
+                            <replacement-string>{{Apparateintrag}}{{Variante}}{-5=}{{/Variante}}{{Handexemplar}}{-46=} {{Kommentar}}{-34=}{{/Kommentar}}{{Frise}}{-10=}{{/Frise}}{{/Handexemplar}} {{/Apparateintrag}}</replacement-string>
                         </string-pair>
                         <string-pair>
                             <search-string>{{PW:AUSZEICHUNGEN{00}{c:pw}"HANDEXEMPLAR Korrektur Bleistift"}}*{{HR}}{{HR}}Druckvariante Fris%/e: *{{LT}}*{{EL}}</search-string>
@@ -1144,7 +1193,125 @@
                 </exchange>
             </modify>
         </pass>
+        <pass>
+            <modify>
+                <exchange>
+                    <exchange-table>
+                        <string-pair>
+                            <search-string>{{PW:AUSZEICHUNGEN*{{EL}}</search-string>
+                            <replacement-string>{{Apparateintrag}}{{!-- NOCH NICHT UMGESETZT --}}{{/Apparateintrag}}</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>{{PW:"Popup-Verknüpfung"*{{EL}}</search-string>
+                            <replacement-string>{{Apparateintrag}}{{!-- NOCH NICHT UMGESETZT --}}{{/Apparateintrag}}</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>{{LT}}*{{EL}}</search-string>
+                            <replacement-string>{{!-- {{LT}}...{{EL}} --}}</replacement-string>
+                        </string-pair>
+                    </exchange-table>
+                </exchange>
+            </modify>
+        </pass>
+        <pass>
+            <modify>
+                <exchange>
+                    <exchange-table>
+                        <string-pair>
+                            <search-string>{{HR}}{{HR}}</search-string>
+                            <replacement-string>{{!-- {{HR}}{{HR}} NOCH NICHT BEHANDELT --}}</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>{{HR}}</search-string>
+                            <replacement-string>{{!-- {{HR}} NOCH NICHT BEHANDELT --}}</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>{{PS:"LESETEXT DRUCK"}}</search-string>
+                            <replacement-string>{{!-- {{PS:"LESETEXT DRUCK"}} --}}</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>{{IT+}}</search-string>
+                            <replacement-string>{{!-- {{IT+}} NOCH NICHT BEHANDELT --}}</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>{{IT}}</search-string>
+                            <replacement-string>{{!-- {{IT}} NOCH NICHT BEHANDELT --}}</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>{{HD-}}</search-string>
+                            <replacement-string>{{!-- {{HD-}} NOCH ZU BEHANDELN\? --}}</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>{{HD}}</search-string>
+                            <replacement-string>{{!-- {{HD}} NOCH ZU BEHANDELN\? --}}</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>{{{0}/FD:Popup}}</search-string>
+                            <replacement-string>{{!-- {{FD:Popup}} NOCH NICHT BEHANDELT --}}</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>{{BC:DC}}</search-string>
+                            <replacement-string>{{!-- {{BC:DC}} --}}</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>{{BC}}</search-string>
+                            <replacement-string>{{!-- {{BC}} --}}</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>{{FT:Arial,SN}} {{FT}}</search-string>
+                            <replacement-string> {{!-- {{FT:Arial,SN}} {{FT}} --}}</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>{{PB}}</search-string>
+                            <replacement-string>{{!-- {{PB}} --}}</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>{{BP:{#}.{#}}}</search-string>
+                            <replacement-string>{{!-- {{BP:...}} --}}</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>{{JD:"MoE-1-{0}S{#}"}}</search-string>
+                            <replacement-string>{{!-- {{JD:"MoE-1-S... --}}</replacement-string>
+                        </string-pair>
+                    </exchange-table>
+                </exchange>
+            </modify>
+        </pass>
     </transform>
-    <transform source="$muo-z3" destination="$muo-xml"/>
+    <transform source="$muo-z2a" destination="$muo-z3">
+        <define-text-units>
+            <text-unit-start>
+                <comparison-table>
+                    <exclusion-string>{{Apparateintrag</exclusion-string>
+                    <comparison-string>{{Teil</comparison-string>
+                    <comparison-string>{{Kapitel</comparison-string>
+                    <comparison-string>{{Absatz</comparison-string>
+                </comparison-table>
+            </text-unit-start>
+        </define-text-units>
+        <pass>
+            <modify>
+                <exchange>
+                    <exchange-table>
+                        <string-pair>
+                            <search-string>{{/Apparateintrag}}{[} {]}{c:pc}</search-string>
+                            <replacement-string/>
+                        </string-pair>
+                    </exchange-table>
+                </exchange>
+            </modify>
+        </pass>
+        <new-line-before>
+            <search-table>
+                <search-string>{{Teil</search-string>
+                <search-string>{{Kapitel</search-string>
+                <search-string>{{Absatz</search-string>
+            </search-table>
+        </new-line-before>
+    </transform>
+    <transform source="$muo-z3" destination="$muo-xml">
+        <insert-at-start>{{Text}}</insert-at-start>
+        <insert-at-end>{{/Text}}</insert-at-end>
+    </transform>
     <display file="$muo-xml"/>
 </script>
