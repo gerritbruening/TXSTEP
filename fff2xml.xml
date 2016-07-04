@@ -1095,6 +1095,18 @@
                 <exchange>
                     <exchange-table>
                         <string-pair>
+                            <search-string>- {{Erstausgabe}}{#}{{/Erstausgabe}}{{Worttrennung/}}</search-string>
+                            <replacement-string>{{Erstausgabe Worttrennung="Ja"}}{+16=}{{/Erstausgabe}}</replacement-string>
+                        </string-pair>
+                    </exchange-table>
+                </exchange>
+            </modify>
+        </pass>
+        <pass>
+            <modify>
+                <exchange>
+                    <exchange-table>
+                        <string-pair>
                             <search-string>{{Absatzanfang/}}*{]}</search-string>
                             <replacement-string>{{Absatz}}{-1=}{{/Absatz}}</replacement-string>
                         </string-pair>
