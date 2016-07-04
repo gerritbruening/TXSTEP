@@ -115,7 +115,7 @@
                         </string-pair>
                         <!-- Erstausgabe -->
                         <string-pair>
-                            <search-string>{{RD:"ÜBERSCHRIFT 7"}}{{JD:"MoE-1-S{#}"}}\[Seite {#}\]</search-string>
+                            <search-string>{{RD:"ÜBERSCHRIFT 7"}}{{JD:"MoE-1-S{#}"}}{0}\[Seite {#}\]</search-string>
                             <replacement-string>{{Erstausgabe Band="MoE-1"}}{-2=}{{/Erstausgabe}}</replacement-string>
                         </string-pair>
                         <string-pair>
