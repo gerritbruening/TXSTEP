@@ -58,3 +58,4 @@ Current structure of the script:
 2. remove redundant `<Erstausgabe>` page breaks following after each `<Kapiteltitel>`
 3. remove redundant `<Absatzanfang/>` following after each `<Erstausgabe>` page break
 4. insert `<Absatzanfang/>` where `<Erstausgabe>` page breaks coincide with the start of a new paragraph ([generated](https://github.com/gerritbruening/TXSTEP/blob/master/xxsbab.xml) from a handcrafted list)
+5. insert `<Versal>` ([generated](https://github.com/gerritbruening/TXSTEP/blob/master/xxversal.xml) from a handcrafted list)
