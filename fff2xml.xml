@@ -3,6 +3,7 @@
     <variables>
         <variable type="execution-file" name="execute">file:///C:/Users/Gerrit/txstep/ueb/txstep.tu</variable>
         <char-group name="ts">{#},.MNORT</char-group>
+        <char-group name="pw">{#},.</char-group>
         <!-- sources -->
         <variable type="permanent-file" name="muo-fff" code="utf8"
             >file:///C:/Users/Gerrit/txstep/txt/MoE76-78.txt</variable>
@@ -32,6 +33,22 @@
     <transform source="$moe1-txt" destination="$muo-z1">
         <!-- BASIC MARKUP -->
         <insert-at-start>{{Text}}</insert-at-start>
+        <pass>
+            <modify>
+                <exchange>
+                    <exchange-table>
+                        <string-pair>
+                            <search-string>{{HR}}{{PS:"LESETEXT DRUCK"}}{{TS:{00}{c:ts}}}{]}{{/FD:"L-KONKORDANZ"}}</search-string>
+                            <replacement-string/>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>{{BD{0}+}}</search-string>
+                            <replacement-string/>
+                        </string-pair>
+                    </exchange-table>
+                </exchange>
+            </modify>
+        </pass>
         <pass>
             <modify>
                 <exchange>
@@ -81,8 +98,12 @@
                         </string-pair>
                         <!-- Rowohlt -->
                         <string-pair>
-                            <search-string>{{FD:"L-KONKORDANZ"}}{0} \{\{GW 1 {#}\}\} {{/FD:"L-KONKORDANZ"}}</search-string>
-                            <replacement-string>{{Rowohlt Band="1"}}{-24=}{{/Rowohlt}}</replacement-string>
+                            <search-string>\{\{GW 1 {#}\}\}</search-string>
+                            <replacement-string>{{Rowohlt Band="1"}}{-3=}{{/Rowohlt}}</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>{{{0}/FD:"L-KONKORDANZ"}}</search-string>
+                            <replacement-string/>
                         </string-pair>
                         <string-pair>
                             <search-string>{{JU:FL}}</search-string>
@@ -1036,24 +1057,41 @@
                         <!-- Kapiteltitel -->
                         <!-- Variante / Handexemplar / Frisé / Korrektur -->
                         <string-pair>
-                            <search-string>{{PW:AUSZEICHUNGEN,{#}.{#},{#}.{#},"HANDEXEMPLAR Variante Bleistift"}}Haken{{LT}}*{{EL}}</search-string>
+                            <search-string>{{PW:AUSZEICHUNGEN{00}{c:pw}"HANDEXEMPLAR Variante Bleistift"}}Haken{{LT}}*{{EL}}</search-string>
                             <replacement-string>{{Apparateintrag}}{{Variante}}{-5=}{{/Variante}}{{Handexemplar}}{{Musilzeichen Schreibmaterial="Blei" Zeichen="Haken"/}}{{/Handexemplar}}{{/Apparateintrag}}</replacement-string>
                         </string-pair>
                         <string-pair>
-                            <search-string>{{PW:"Popup-Verknüpfung",{#}.{#},{#}.{#},"Druckvariante Fris%/e"}}*{{LT}}*{{EL}}</search-string>
-                            <replacement-string>{{Apparateintrag}}{{Variante}}{-5=}{{/Variante}}{{Frise}}{-10=}{{/Frise}}{{/Apparateintrag}}</replacement-string>
+                            <search-string>{{PW:AUSZEICHUNGEN{00}{c:pw}"HANDEXEMPLAR Variante Bleistift"}}*{{HR}}(auch Druckvariante Fris%/e){{LT}}*{{EL}}</search-string>
+                            <replacement-string>{{Apparateintrag}}{{Variante}}{-5=}{{/Variante}}{{Handexemplar}}{-42=}{{/Handexemplar}}{{Frise}}{-42=}{{/Frise}}{{/Apparateintrag}}</replacement-string>
                         </string-pair>
                         <string-pair>
-                            <search-string>{{PW:AUSZEICHUNGEN,{#}.{#},{#}.{#},"HANDEXEMPLAR Korrektur Bleistift"}}*{{HR}}{{HR}}Druckvariante Fris%/e: *{{LT}}*{{EL}}</search-string>
+                            <search-string>{{PW:AUSZEICHUNGEN{00}{c:pw}"HANDEXEMPLAR Korrektur Bleistift"}}*{{HR}}{{HR}}Druckvariante Fris%/e: *{{LT}}*{{EL}}</search-string>
                             <replacement-string>{{Apparateintrag}}{{Variante}}{-5=}{{/Variante}}{{Korrektur}}{-42=}{{/Korrektur}}{{Handexemplar}}{-42=}{{/Handexemplar}}{{Frise}}{-10=}{{/Frise}}{{/Apparateintrag}}</replacement-string>
                         </string-pair>
                         <string-pair>
-                            <search-string>{{PW:"Popup-Verknüpfung",{#}.{#},{#}.{#},"Druckvariante Orginal"}}*{{LT}}*{{EL}}</search-string>
+                            <search-string>{{IT+}}{{PW:"Popup-Verknüpfung"{00}{c:pw}"Druckvariante Erstausgabe"}}gesperrt{{HR}}{{HR}}Druckvariante Fris%/e: kursiv{{LT}}*{{EL}}{{IT}}</search-string>
+                            <replacement-string>{{Apparateintrag}}{{Variante}}{{kursiv}}{-9=}{{/kursiv}}{{/Variante}}{{Druck}}{{gesperrt}}{-9=}{{/gesperrt}}{{/Druck}}{{Frise}}{{kursiv}}{-9=}{{/kursiv}}{{/Frise}}{{/Apparateintrag}}</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>{{PW:"Popup-Verknüpfung"{00}{c:pw}"Druckvariante Orginal"}}*{{LT}}*{{EL}}</search-string>
                             <replacement-string>{{Apparateintrag}}{{Variante}}{-10=}{{/Variante}}{{Korrektur}}{-5=}{{/Korrektur}}{{/Apparateintrag}}</replacement-string>
                         </string-pair>
                         <string-pair>
-                            <search-string>{{IT+}}{{PW:"Popup-Verknüpfung",{#}.{#},{#}.{#},"Druckvariante Erstausgabe"}}gesperrt{{HR}}{{HR}}Druckvariante Fris%/e: kursiv{{LT}}*{{EL}}{{IT}}</search-string>
-                            <replacement-string>{{Apparateintrag}}{{Variante}}{{kursiv}}{-9=}{{/kursiv}}{{/Variante}}{{Druck}}{{gesperrt}}{-9=}{{/gesperrt}}{{/Druck}}{{Frise}}{{kursiv}}{-9=}{{/kursiv}}{{/Frise}}{{/Apparateintrag}}</replacement-string>
+                            <search-string>{{PW:"Popup-Verknüpfung"{00}{c:ts}"Druckvariante Fris%/e"}}*{{LT}}*{{EL}}</search-string>
+                            <replacement-string>{{Apparateintrag}}{{Variante}}{-5=}{{/Variante}}{{Frise}}{-10=}{{/Frise}}{{/Apparateintrag}}</replacement-string>
+                        </string-pair>
+                    </exchange-table>
+                </exchange>
+            </modify>
+        </pass>
+        <pass>
+            <modify>
+                <exchange>
+                    <exchange-table>
+                        <string-pair>
+                            <search-string>{{PW:AUSZEICHUNGEN{00}{c:pw}"HANDEXEMPLAR Variante Bleistift"}}*{{LT}}*{{EL}}</search-string>
+                            <!-- vorsichtshalber nachträglich wegen obigem indentischen String mit "Haken" -->
+                            <replacement-string>{{Apparateintrag}}{{Variante}}{-5=}{{/Variante}}{{Handexemplar}}{-10=}{{/Handexemplar}}{{/Apparateintrag}}</replacement-string>
                         </string-pair>
                     </exchange-table>
                 </exchange>
@@ -1061,5 +1099,5 @@
         </pass>
     </transform>
     <transform source="$muo-z3" destination="$muo-xml"/>
-    <!--<display file="$muo-xml"/>-->
+    <display file="$muo-xml"/>
 </script>
