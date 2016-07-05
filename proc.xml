@@ -1,0 +1,113 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<script xmlns="http://www.xstep.org" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <variables>
+        <!-- sources -->
+        <variable type="execution-file" name="execute">file:///C:/Users/Gerrit/txstep/ueb/txstep.tu</variable>
+        <variable type="permanent-file" name="dta-x" code="utf8"
+            >file:///C:/Users/Gerrit/txstep/txt/process_dtaq.xml</variable>
+        <variable type="permanent-file" name="kproj-h" code="utf8"
+            >file:///C:/Users/Gerrit/txstep/txt/proc_kproject.xml</variable>
+        <!-- par ko -->
+        <variable type="scratch-file" name="par"/>
+        <!-- tf -->
+        <variable type="permanent-file" name="dta-t" format="tustep" option="erase"
+            >file:///C:/Users/Gerrit/txstep/txt/process_dtaq.tf</variable>
+        <variable type="permanent-file" name="kproj-t" format="tustep" option="erase"
+            >file:///C:/Users/Gerrit/txstep/txt/kproject.tf</variable>
+        <!-- ve -->
+        <variable type="permanent-file" name="diff1" option="erase" format="tustep"
+            >file:///C:/Users/Gerrit/txstep/ve/diff1.tf</variable>
+        <!-- va -->
+        <variable type="permanent-file" name="diff-listing" option="erase" format="tustep"
+            >file:///C:/Users/Gerrit/txstep/va/diff.list</variable>
+    </variables>
+    <transform source="$dta-x" destination="$dta-t" save-params="$par">
+        <define-text-units>
+            <text-unit-start>
+                <comparison-table>
+                    <exclusion-string>{{/</exclusion-string>
+                    <comparison-string>{{</comparison-string>
+                </comparison-table>
+            </text-unit-start>
+        </define-text-units>
+        <pass>
+            <modify>
+                <exchange>
+                    <exchange-table>
+                        <string-pair>
+                            <search-string>{{pb facs="^#f{#}" n="{#}"/}}</search-string>
+                            <replacement-string/>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>^&^#x201E;</search-string>
+                            <replacement-string>"</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>^&^#x201C;</search-string>
+                            <replacement-string>"</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>^&^#x2013;</search-string>
+                            <replacement-string>--</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>^&^#x2019;</search-string>
+                            <replacement-string></replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>#\[0096\]</search-string>
+                            <replacement-string>--</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>#\[0092\]</search-string>
+                            <replacement-string>'</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>.{[} {]}" "{&a}</search-string>
+                            <replacement-string/>
+                        </string-pair>
+                        <!--<string-pair>
+                            <search-string>.{[} {]}" {&a}</search-string>
+                            <replacement-string/>
+                        </string-pair>-->
+                    </exchange-table>
+                </exchange>
+            </modify>
+        </pass>
+        <remove-blanks where="both"/>
+        <!-- spaces am Zeilenanfang und am Zeilenende weg -->
+        <suppress-blank-lines/>
+        <!-- Leerzeilen (diese enthielten ggf. nur tags) entfernen -->
+        <output-records max-length="120"/>
+        <!-- max. Zeilenlänge für Prosa-Teile -->
+    </transform>
+    <transform source="$kproj-h" destination="$kproj-t" take-params="$par"/>
+    <compare versiona="$dta-t" versionb="$kproj-t" variants="$diff1" type="corrections" listing="-">
+        <compare-units mode="word"/>
+        <select-area versiona="0.229-1.803/61,99" versionb="0.7-1.369/84,99"/>
+        <!--<normalize>
+            <exchange-table>
+                <string-pair>
+                    <search-string>\u</search-string>
+                    <replacement-string>ü</replacement-string>
+                </string-pair>
+                <string-pair>
+                    <search-string>\a</search-string>
+                    <replacement-string>ä</replacement-string>
+                </string-pair>
+            </exchange-table>
+        </normalize>-->
+        <locations abbreviate="no" word-number="always"/>
+        <add-context>
+            <omission length-before="0" length-lemma="5" length-after="0"/>
+            <replacement length-before="0" length-lemma="5" length-after="0"/>
+            <insertion length-before="1" length-after="0"/>
+        </add-context>
+        <pos-ind-b value="yes"/>
+        <version-id>Proj</version-id>
+    </compare>
+    <collate source="$dta-t" mode="single-witness" diff-file="$diff1" listing="$diff-listing" special="code">
+        <list lines="with-variants"/>
+    </collate>
+    <display file="$diff-listing" type="listing" mode="ps-landscape"/>
+</script>
