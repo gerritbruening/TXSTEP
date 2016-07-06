@@ -68,3 +68,10 @@ Current structure of the script:
 12. comment out hitherto unhandled FFF markup
 13. integrate apparatus into preceding and following records, trim whitespace between app entry and following punctuation characters
 14. add root element
+
+## proc.xml
+
+The following versions are collated:
+
+1. Franz Kafka, Der Prozess. Roman, Berlin 1925, taken from http://www.deutschestextarchiv.de/dtaq/book/show/kafka_prozess_1925.
+2. Franz Kafka: Gesammelte Werke. Band 1, Frankfurt a.M. 1950 ff., taken from http://www.zeno.org/Literatur/M/Kafka,+Franz/Romane/Der+Proze%C3%9F. A derivative TEI encoded version of this text is to be found in the Textgrid Repo.
