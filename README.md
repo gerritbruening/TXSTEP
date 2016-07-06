@@ -71,7 +71,7 @@ Current structure of the script:
 
 ## proc.xml
 
-The following versions are collated:
+The base text is Franz Kafka, Der Prozess. Roman, Berlin 1925, taken from http://www.deutschestextarchiv.de/dtaq/book/show/kafka_prozess_1925, with which are collated the following versions:
 
-1. Franz Kafka, Der Prozess. Roman, Berlin 1925, taken from http://www.deutschestextarchiv.de/dtaq/book/show/kafka_prozess_1925.
-2. Franz Kafka: Gesammelte Werke. Band 1, Frankfurt a.M. 1950 ff., taken from http://www.zeno.org/Literatur/M/Kafka,+Franz/Romane/Der+Proze%C3%9F. A derivative TEI encoded version of this text is to be found in the Textgrid Repo.
+1. Franz Kafka: Gesammelte Werke. Band 1, Frankfurt a.M. 1950 ff., taken from http://www.zeno.org/Literatur/M/Kafka,+Franz/Romane/Der+Proze%C3%9F. A derivative TEI encoded version of this text is to be found in Textgrid.
+2. 
