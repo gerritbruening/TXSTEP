@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<script xmlns="http://www.xstep.org" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <variables>
+        <variable type="execution-file" name="execute">file:///C:/Users/Gerrit/txstep/ueb/txstep.tu</variable>
+        <variable type="permanent-file" name="muo-z2" format="tustep"
+            >file:///C:/Users/Gerrit/txstep/txt/muo_z2.tf</variable>
+        <variable type="permanent-file" name="muo-app" option="erase" format="tustep"
+            >file:///C:/Users/Gerrit/txstep/txt/muo_app.tf</variable>
+    </variables>
+    <transform source="$muo-z2" destination="$muo-app">
+        <pass>
+            <examine-text>
+                <select>
+                    <text-contains>
+                        <search-table>
+                            <search-string>{{PW:</search-string>
+                        </search-table>
+                    </text-contains>
+                </select>
+            </examine-text>
+        </pass>
+    </transform>
+</script>
