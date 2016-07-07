@@ -30,6 +30,8 @@
             >file:///C:/Users/Gerrit/txstep/ve/diff2.tf</variable>
         <variable type="permanent-file" name="diff3" option="erase" format="tustep"
             >file:///C:/Users/Gerrit/txstep/ve/diff3.tf</variable>
+        <variable type="permanent-file" name="diff4" option="erase" format="tustep"
+            >file:///C:/Users/Gerrit/txstep/ve/diff4.tf</variable>
         <!-- va -->
         <variable type="permanent-file" name="diff-listing" option="erase" format="tustep"
             >file:///C:/Users/Gerrit/txstep/va/diff.list</variable>
@@ -238,8 +240,16 @@
         <pos-ind-b value="yes"/>
         <version-id>KProj</version-id>
     </compare>
+    <compare versiona="$zeno-t" versionb="$gutenb-t" variants="$diff4" listing="-">
+        <compare-units mode="word"/>
+        <add-context>
+            <omission length-before="0" length-lemma="5" length-after="0"/>
+            <replacement length-before="0" length-lemma="5" length-after="0"/>
+            <insertion length-before="1" length-after="0"/>
+        </add-context>
+    </compare>
     <collate source="$dta-t" mode="single-witness" diff-file="$diff1'$diff2'diff3" listing="$diff-listing" special="code">
-        <list lines="with-variants"/>
+        <list lines="all"/>
     </collate>
     <display file="$diff-listing" type="listing" mode="ps-landscape"/>
 </script>
