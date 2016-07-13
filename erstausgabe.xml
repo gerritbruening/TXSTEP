@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<script xmlns="http://www.xstep.org" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <variables>
+        <variable type="execution-file" name="execute">file:///C:/Users/Gerrit/txstep/ueb/txstep.tu</variable>
+        <variable type="permanent-file" name="seiten" code="utf8"
+            >file:///C:/Users/Gerrit/txstep/txt/seiten.txt</variable>
+        <variable type="permanent-file" name="erstausgabe" code="utf8"
+            >file:///C:/Users/Gerrit/txstep/txt/erstausgabe.txt</variable>
+        <variable type="permanent-file" name="seiterst" option="erase" format="tustep"
+            >file:///C:/Users/Gerrit/txstep/ve/seiterst.tf</variable>
+        <variable type="permanent-file" name="fehlen" option="erase" format="tustep"
+            >file:///C:/Users/Gerrit/txstep/txt/fehlen.tf</variable>
+    </variables>
+    <compare versiona="$seiten" versionb="$erstausgabe" variants="$seiterst" type="corrections" listing="-">
+        <compare-units mode="line"/>
+        <locations abbreviate="no" word-number="always"/>
+        <add-context>
+            <omission length-before="0" length-lemma="5" length-after="0"/>
+            <replacement length-before="0" length-lemma="5" length-after="0"/>
+            <insertion length-before="1" length-after="0"/>
+        </add-context>
+        <pos-ind-b value="yes"/>
+        <version-id>seiten</version-id>
+    </compare>
+    <transform source="$seiterst" destination="$fehlen">
+        <pass>
+            <modify>
+                <exchange>
+                    <exchange-table>
+                        <string-pair>
+                            <search-string>{[}*\[</search-string>
+                            <replacement-string/>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>\]*{]}</search-string>
+                            <replacement-string/>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>\?</search-string>
+                            <replacement-string> </replacement-string>
+                        </string-pair>
+                    </exchange-table>
+                </exchange>
+            </modify>
+        </pass>
+        <new-line-after>
+            <search-table>
+                <search-string> </search-string>
+            </search-table>
+        </new-line-after>
+    </transform>
+</script>
