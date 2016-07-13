@@ -215,7 +215,35 @@
             <modify>
                 <exchange>
                     <exchange-table>
+                        <exception-string>{{Erstausgabe}}24{{/Erstausgabe}}</exception-string>
+                        <exception-string>{{Erstausgabe}}52{{/Erstausgabe}}</exception-string>
                         <exception-string>{{Erstausgabe}}62{{/Erstausgabe}}</exception-string>
+                        <exception-string>{{Erstausgabe}}66{{/Erstausgabe}}</exception-string>
+                        <exception-string>{{Erstausgabe}}83{{/Erstausgabe}}</exception-string>
+                        <exception-string>{{Erstausgabe}}125{{/Erstausgabe}}</exception-string>
+                        <exception-string>{{Erstausgabe}}126{{/Erstausgabe}}</exception-string>
+                        <exception-string>{{Erstausgabe}}127{{/Erstausgabe}}</exception-string>
+                        <exception-string>{{Erstausgabe}}141{{/Erstausgabe}}</exception-string>
+                        <exception-string>{{Erstausgabe}}148{{/Erstausgabe}}</exception-string>
+                        <exception-string>{{Erstausgabe}}178{{/Erstausgabe}}</exception-string>
+                        <exception-string>{{Erstausgabe}}198{{/Erstausgabe}}</exception-string>
+                        <exception-string>{{Erstausgabe}}264{{/Erstausgabe}}</exception-string>
+                        <exception-string>{{Erstausgabe}}281{{/Erstausgabe}}</exception-string>
+                        <exception-string>{{Erstausgabe}}289{{/Erstausgabe}}</exception-string>
+                        <exception-string>{{Erstausgabe}}294{{/Erstausgabe}}</exception-string>
+                        <exception-string>{{Erstausgabe}}298{{/Erstausgabe}}</exception-string>
+                        <exception-string>{{Erstausgabe}}315{{/Erstausgabe}}</exception-string>
+                        <exception-string>{{Erstausgabe}}373{{/Erstausgabe}}</exception-string>
+                        <exception-string>{{Erstausgabe}}395{{/Erstausgabe}}</exception-string>
+                        <exception-string>{{Erstausgabe}}513{{/Erstausgabe}}</exception-string>
+                        <exception-string>{{Erstausgabe}}535{{/Erstausgabe}}</exception-string>
+                        <exception-string>{{Erstausgabe}}553{{/Erstausgabe}}</exception-string>
+                        <exception-string>{{Erstausgabe}}690{{/Erstausgabe}}</exception-string>
+                        <exception-string>{{Erstausgabe}}724{{/Erstausgabe}}</exception-string>
+                        <exception-string>{{Erstausgabe}}743{{/Erstausgabe}}</exception-string>
+                        <exception-string>{{Erstausgabe}}835{{/Erstausgabe}}</exception-string>
+                        <exception-string>{{Erstausgabe}}848{{/Erstausgabe}}</exception-string>
+                        <exception-string>{{Erstausgabe}}934{{/Erstausgabe}}</exception-string>
                         <string-pair>
                             <search-string>{{/Kapiteltitel}}{[} {{Erstausgabe}}{#}{{/Erstausgabe}}{]}</search-string>
                             <replacement-string/>
