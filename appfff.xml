@@ -2,10 +2,21 @@
 <script xmlns="http://www.xstep.org" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <variables>
         <variable type="execution-file" name="execute">file:///C:/Users/Gerrit/txstep/ueb/txstep.tu</variable>
+        <!-- sources -->
         <variable type="permanent-file" name="muo-z2" format="tustep"
             >file:///C:/Users/Gerrit/txstep/txt/muo_z2.tf</variable>
+        <variable type="permanent-file" name="varianten" code="utf8"
+            >file:///C:/Users/Gerrit/txstep/txt/MoE1_Varianten2.txt</variable>
+        <!-- outputs tf -->
         <variable type="permanent-file" name="muo-app" option="erase" format="tustep"
             >file:///C:/Users/Gerrit/txstep/txt/muo_app.tf</variable>
+        <variable type="permanent-file" name="wf-app" option="erase" format="tustep"
+            >file:///C:/Users/Gerrit/txstep/txt/wf_app.tf</variable>
+        <!-- outputs txt -->
+        <variable type="permanent-file" name="muo-app-txt" option="erase" code="utf8"
+            >file:///C:/Users/Gerrit/txstep/txt/muo_app.txt</variable>
+        <variable type="permanent-file" name="wf-app-txt" option="erase" code="utf8"
+            >file:///C:/Users/Gerrit/txstep/txt/wf_app.txt</variable>
     </variables>
     <transform source="$muo-z2" destination="$muo-app">
         <pass>
@@ -20,4 +31,20 @@
             </examine-text>
         </pass>
     </transform>
+    <transform source="$varianten" destination="$wf-app">
+        <pass>
+            <examine-text>
+                <select>
+                    <text-contains>
+                        <search-table>
+                            <search-string>\{\G\A</search-string>
+                            <search-string>Nullvarianz</search-string>
+                        </search-table>
+                    </text-contains>
+                </select>
+            </examine-text>
+        </pass>
+    </transform>
+    <transform source="$muo-app" destination="$muo-app-txt"/>
+    <transform source="$wf-app" destination="$wf-app-txt"/>
 </script>
