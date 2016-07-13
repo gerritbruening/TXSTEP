@@ -12,6 +12,8 @@
             >file:///C:/Users/Gerrit/txstep/txt/proc_gutenb.html</variable>
         <variable type="permanent-file" name="kproj-h" code="utf8"
             >file:///C:/Users/Gerrit/txstep/txt/proc_kproject.xml</variable>
+        <variable type="permanent-file" name="lt-x" code="utf8"
+            >file:///C:/Users/Gerrit/txstep/txt/process-lt.xml</variable>
         <!-- par ko -->
         <variable type="scratch-file" name="par"/>
         <!-- tf -->
@@ -23,6 +25,8 @@
             >file:///C:/Users/Gerrit/txstep/txt/gutenb.tf</variable>
         <variable type="permanent-file" name="kproj-t" format="tustep" option="erase"
             >file:///C:/Users/Gerrit/txstep/txt/kproject.tf</variable>
+        <variable type="permanent-file" name="lt-t" format="tustep" option="erase"
+            >file:///C:/Users/Gerrit/txstep/txt/lt.tf</variable>
         <!-- ve -->
         <variable type="permanent-file" name="diff1" option="erase" format="tustep"
             >file:///C:/Users/Gerrit/txstep/ve/diff1.tf</variable>
@@ -32,6 +36,8 @@
             >file:///C:/Users/Gerrit/txstep/ve/diff3.tf</variable>
         <variable type="permanent-file" name="diff4" option="erase" format="tustep"
             >file:///C:/Users/Gerrit/txstep/ve/diff4.tf</variable>
+        <variable type="permanent-file" name="diff5" option="erase" format="tustep"
+            >file:///C:/Users/Gerrit/txstep/ve/diff5.tf</variable>
         <!-- va -->
         <variable type="permanent-file" name="diff-listing" option="erase" format="tustep"
             >file:///C:/Users/Gerrit/txstep/va/diff.list</variable>
@@ -68,6 +74,18 @@
                         <string-pair>
                             <search-string>^&^#x2019;</search-string>
                             <replacement-string/>
+                        </string-pair>
+                    </exchange-table>
+                </exchange>
+            </modify>
+        </pass>
+        <pass>
+            <modify>
+                <exchange>
+                    <exchange-table>
+                        <string-pair>
+                            <search-string>}}</search-string>
+                            <replacement-string>}} </replacement-string>
                         </string-pair>
                     </exchange-table>
                 </exchange>
@@ -118,6 +136,18 @@
                 </exchange>
             </modify>
         </pass>
+        <pass>
+            <modify>
+                <exchange>
+                    <exchange-table>
+                        <string-pair>
+                            <search-string>}}</search-string>
+                            <replacement-string>}} </replacement-string>
+                        </string-pair>
+                    </exchange-table>
+                </exchange>
+            </modify>
+        </pass>
         <remove-blanks where="both"/>
         <suppress-blank-lines/>
         <output-records max-length="120"/>
@@ -159,6 +189,18 @@
                 </exchange>
             </modify>
         </pass>
+        <pass>
+            <modify>
+                <exchange>
+                    <exchange-table>
+                        <string-pair>
+                            <search-string>}}</search-string>
+                            <replacement-string>}} </replacement-string>
+                        </string-pair>
+                    </exchange-table>
+                </exchange>
+            </modify>
+        </pass>
         <remove-blanks where="both"/>
         <suppress-blank-lines/>
         <output-records max-length="120"/>
@@ -191,7 +233,77 @@
                         <!--<string-pair>
                             <search-string>.{[} {]}" {&a}</search-string>
                             <replacement-string/>
-                        </string-pair>--> <!-- führt leider auch zu falschen Ersetzungen -->
+                        </string-pair>-->
+                        <!-- führt leider auch zu falschen Ersetzungen -->
+                    </exchange-table>
+                </exchange>
+            </modify>
+        </pass>
+        <pass>
+            <modify>
+                <exchange>
+                    <exchange-table>
+                        <string-pair>
+                            <search-string>}}</search-string>
+                            <replacement-string>}} </replacement-string>
+                        </string-pair>
+                    </exchange-table>
+                </exchange>
+            </modify>
+        </pass>
+        <remove-blanks where="both"/>
+        <suppress-blank-lines/>
+        <output-records max-length="120"/>
+    </transform>
+    <transform source="$lt-x" destination="$lt-t">
+        <define-text-units>
+            <text-unit-start>
+                <comparison-table>
+                    <exclusion-string>{{/</exclusion-string>
+                    <comparison-string>{{</comparison-string>
+                </comparison-table>
+            </text-unit-start>
+        </define-text-units>
+        <pass>
+            <modify>
+                <exchange>
+                    <exchange-table>
+                        <string-pair>
+                            <search-string>#\[0096\]</search-string>
+                            <replacement-string>--</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>#\[0092\]</search-string>
+                            <replacement-string>'</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>#\[2013\]</search-string>
+                            <replacement-string>'</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>#.,</search-string>
+                            <replacement-string>"</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>#.'</search-string>
+                            <replacement-string>"</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>{{title/}}</search-string>
+                            <replacement-string/>
+                        </string-pair>
+                    </exchange-table>
+                </exchange>
+            </modify>
+        </pass>
+        <pass>
+            <modify>
+                <exchange>
+                    <exchange-table>
+                        <string-pair>
+                            <search-string>}}</search-string>
+                            <replacement-string>}} </replacement-string>
+                        </string-pair>
                     </exchange-table>
                 </exchange>
             </modify>
@@ -238,7 +350,7 @@
             <insertion length-before="1" length-after="0"/>
         </add-context>
         <pos-ind-b value="yes"/>
-        <version-id>KProj</version-id>
+        <version-id>KKA</version-id>
     </compare>
     <compare versiona="$zeno-t" versionb="$gutenb-t" variants="$diff4" listing="-">
         <compare-units mode="word"/>
@@ -248,7 +360,20 @@
             <insertion length-before="1" length-after="0"/>
         </add-context>
     </compare>
-    <collate source="$dta-t" mode="single-witness" diff-file="$diff1'$diff2'diff3" listing="$diff-listing" special="code">
+    <compare versiona="$dta-t" versionb="$lt-t" variants="$diff5" type="corrections" listing="-">
+        <compare-units mode="word"/>
+        <select-area versiona="0.235-0.357/08,10" versionb="0.18-0.94/43,7"/>
+        <locations abbreviate="no" word-number="always"/>
+        <add-context>
+            <omission length-before="0" length-lemma="5" length-after="0"/>
+            <replacement length-before="0" length-lemma="5" length-after="0"/>
+            <insertion length-before="1" length-after="0"/>
+        </add-context>
+        <pos-ind-b value="yes"/>
+        <version-id>Krause</version-id>
+    </compare>    
+    <collate source="$dta-t" mode="single-witness" diff-file="$diff1'$diff2'$diff3'$diff5" listing="$diff-listing"
+        special="code">
         <list lines="all"/>
     </collate>
     <display file="$diff-listing" type="listing" mode="ps-landscape"/>
