@@ -5,6 +5,38 @@
         <char-group name="ts">{#},.MNORT</char-group>
         <char-group name="pw">{#},.</char-group>
         <char-group name="pc">,;.:!\?</char-group>
+        <char-group name="an">?{-}#,'</char-group>
+        <string-group name="pa">
+            <member>24</member>
+            <member>52</member>
+            <member>62</member>
+            <member>66</member>
+            <member>83</member>
+            <member>125</member>
+            <member>126</member>
+            <member>127</member>
+            <member>141</member>
+            <member>148</member>
+            <member>178</member>
+            <member>198</member>
+            <member>264</member>
+            <member>281</member>
+            <member>289</member>
+            <member>294</member>
+            <member>298</member>
+            <member>315</member>
+            <member>373</member>
+            <member>395</member>
+            <member>513</member>
+            <member>535</member>
+            <member>553</member>
+            <member>690</member>
+            <member>724</member>
+            <member>743</member>
+            <member>835</member>
+            <member>848</member>
+            <member>934</member>
+        </string-group>
         <!-- sources -->
         <variable type="permanent-file" name="muo-fff" code="utf8"
             >file:///C:/Users/Gerrit/txstep/txt/MoE76-78.txt</variable>
@@ -29,6 +61,9 @@
             >file:///C:/Users/Gerrit/txstep/txt/muo_z2a.tf</variable>
         <variable type="permanent-file" name="muo-z3" option="erase" format="tustep"
             >file:///C:/Users/Gerrit/txstep/txt/muo_z3.tf</variable>
+        <variable type="permanent-file" name="m-einf" format="tustep">file:///C:/Users/Gerrit/txstep/txt/m_einf_txt</variable>
+        <variable type="permanent-file" name="m-einf2" option="erase" format="tustep"
+            >file:///C:/Users/Gerrit/txstep/txt/m-einf2.tf</variable>
         <variable type="permanent-file" option="erase" name="muo-xml"
             >file:///C:/Users/Gerrit/txstep/txt/muo.xml</variable>
     </variables>
@@ -146,7 +181,7 @@
                         </string-pair>
                         <string-pair>
                             <search-string>{{RD:"ÜBERSCHRIFT 7"}}{{JD:"MoE-1-S62 (korrigiert!)"}}\[Seite 62\]</search-string>
-                            <replacement-string>{{Erstausgabe}}{-2=}{{/Erstausgabe}}</replacement-string>
+                            <replacement-string>{{Erstausgabe}}62{{/Erstausgabe}}</replacement-string>
                         </string-pair>
                         <string-pair>
                             <search-string>{{RD:"ÜBERSCHRIFT 7"}}{{JD:"MoE-1/{#}, {#}"}}\[Seite {#}\]</search-string>
@@ -215,35 +250,7 @@
             <modify>
                 <exchange>
                     <exchange-table>
-                        <exception-string>{{Erstausgabe}}24{{/Erstausgabe}}</exception-string>
-                        <exception-string>{{Erstausgabe}}52{{/Erstausgabe}}</exception-string>
-                        <exception-string>{{Erstausgabe}}62{{/Erstausgabe}}</exception-string>
-                        <exception-string>{{Erstausgabe}}66{{/Erstausgabe}}</exception-string>
-                        <exception-string>{{Erstausgabe}}83{{/Erstausgabe}}</exception-string>
-                        <exception-string>{{Erstausgabe}}125{{/Erstausgabe}}</exception-string>
-                        <exception-string>{{Erstausgabe}}126{{/Erstausgabe}}</exception-string>
-                        <exception-string>{{Erstausgabe}}127{{/Erstausgabe}}</exception-string>
-                        <exception-string>{{Erstausgabe}}141{{/Erstausgabe}}</exception-string>
-                        <exception-string>{{Erstausgabe}}148{{/Erstausgabe}}</exception-string>
-                        <exception-string>{{Erstausgabe}}178{{/Erstausgabe}}</exception-string>
-                        <exception-string>{{Erstausgabe}}198{{/Erstausgabe}}</exception-string>
-                        <exception-string>{{Erstausgabe}}264{{/Erstausgabe}}</exception-string>
-                        <exception-string>{{Erstausgabe}}281{{/Erstausgabe}}</exception-string>
-                        <exception-string>{{Erstausgabe}}289{{/Erstausgabe}}</exception-string>
-                        <exception-string>{{Erstausgabe}}294{{/Erstausgabe}}</exception-string>
-                        <exception-string>{{Erstausgabe}}298{{/Erstausgabe}}</exception-string>
-                        <exception-string>{{Erstausgabe}}315{{/Erstausgabe}}</exception-string>
-                        <exception-string>{{Erstausgabe}}373{{/Erstausgabe}}</exception-string>
-                        <exception-string>{{Erstausgabe}}395{{/Erstausgabe}}</exception-string>
-                        <exception-string>{{Erstausgabe}}513{{/Erstausgabe}}</exception-string>
-                        <exception-string>{{Erstausgabe}}535{{/Erstausgabe}}</exception-string>
-                        <exception-string>{{Erstausgabe}}553{{/Erstausgabe}}</exception-string>
-                        <exception-string>{{Erstausgabe}}690{{/Erstausgabe}}</exception-string>
-                        <exception-string>{{Erstausgabe}}724{{/Erstausgabe}}</exception-string>
-                        <exception-string>{{Erstausgabe}}743{{/Erstausgabe}}</exception-string>
-                        <exception-string>{{Erstausgabe}}835{{/Erstausgabe}}</exception-string>
-                        <exception-string>{{Erstausgabe}}848{{/Erstausgabe}}</exception-string>
-                        <exception-string>{{Erstausgabe}}934{{/Erstausgabe}}</exception-string>
+                        <exception-string>{{/Kapiteltitel}}{[} {{Erstausgabe}}{s:pa}{{/Erstausgabe}}</exception-string>
                         <string-pair>
                             <search-string>{{/Kapiteltitel}}{[} {{Erstausgabe}}{#}{{/Erstausgabe}}{]}</search-string>
                             <replacement-string/>
@@ -286,6 +293,10 @@
             <modify>
                 <exchange>
                     <exchange-table>
+                        <string-pair>
+                            <search-string>}}{s:pa}{{/Erstausgabe}}{[}?</search-string>
+                            <replacement-string>{{Absatzanfang/}}{-1=}</replacement-string>
+                        </string-pair>
                         <string-pair>
                             <search-string>}}43{{/Erstausgabe}}{[}?</search-string>
                             <replacement-string>{{Absatzanfang/}}{-1=}</replacement-string>
@@ -1190,6 +1201,7 @@
     <transform source="$muo-z1ba" destination="$muo-z2">
         <new-line-before>
             <search-table>
+                <exception-string>{{PW:AUSZEICHUNGEN,2.33333,1.5625,"HANDEXEMPLAR Variante Bleistift"}}hätten</exception-string>
                 <search-string>{{PW:AUSZEICHUNGEN,</search-string>
                 <search-string>{{IT+}}{{PW:"Popup-Verknüpfung",</search-string>
                 <search-string>{{PW:"Popup-Verknüpfung",</search-string>
@@ -1197,6 +1209,7 @@
         </new-line-before>
         <new-line-after>
             <search-table>
+                <exception-string>{{PW:AUSZEICHUNGEN,2.33333,1.5625,"HANDEXEMPLAR Variante Bleistift"}}wären{{LT}}würden{{EL}}</exception-string>
                 <search-string>{{EL}}{{IT}}</search-string>
                 <search-string>{{EL}}</search-string>
             </search-table>
@@ -1390,6 +1403,22 @@
             </search-table>
         </new-line-before>
     </transform>
+    <!-- BYPASS -->
+    <transform source="$m-einf" destination="$m-einf2">
+        <pass>
+            <modify>
+                <exchange>
+                    <exchange-table>
+                        <string-pair>
+                            <search-string>{[}*\{GA{0-2}?: #.,{|}{00}{c:an}{|}#.'</search-string>
+                            <replacement-string>{{GA}}=2={{/GA}}</replacement-string>
+                        </string-pair>
+                    </exchange-table>
+                </exchange>
+            </modify>
+        </pass>
+    </transform>
+    <!-- END BYPASS -->
     <!-- ADD ROOT ELEMENT -->
     <transform source="$muo-z3" destination="$muo-xml">
         <insert-at-start>{{Text}}</insert-at-start>
