@@ -1481,7 +1481,7 @@
                     <exchange-table>
                         <string-pair>
                             <search-string>{[}((S.657*{{+E+L}}{]}</search-string>
-                            <replacement-string></replacement-string>
+                            <replacement-string/>
                         </string-pair>
                         <string-pair>
                             <search-string>{[}{{LT}}{|}*{|}{{EL}}{]}</search-string>
