@@ -5,7 +5,7 @@
         <char-group name="ts">{#},.MNORT</char-group>
         <char-group name="pw">{#},.</char-group>
         <char-group name="pc">,;.:!\?</char-group>
-        <char-group name="an">?{-}#,'</char-group>
+        <char-group name="an">?{-}#</char-group>
         <string-group name="pa">
             <member>24</member>
             <member>52</member>
@@ -61,9 +61,14 @@
             >file:///C:/Users/Gerrit/txstep/txt/muo_z2a.tf</variable>
         <variable type="permanent-file" name="muo-z3" option="erase" format="tustep"
             >file:///C:/Users/Gerrit/txstep/txt/muo_z3.tf</variable>
-        <variable type="permanent-file" name="m-einf" format="tustep">file:///C:/Users/Gerrit/txstep/txt/m_einf_txt</variable>
+        <variable type="permanent-file" name="m-einf" format="tustep"
+            >file:///C:/Users/Gerrit/txstep/txt/m_einf_txt</variable>
         <variable type="permanent-file" name="m-einf2" option="erase" format="tustep"
             >file:///C:/Users/Gerrit/txstep/txt/m-einf2.tf</variable>
+        <variable type="permanent-file" name="m-einf3" option="erase" format="tustep"
+            >file:///C:/Users/Gerrit/txstep/txt/m-einf3.tf</variable>
+        <variable type="permanent-file" name="m-einf4" option="erase" format="tustep"
+            >file:///C:/Users/Gerrit/txstep/txt/m-einf4.tf</variable>
         <variable type="permanent-file" option="erase" name="muo-xml"
             >file:///C:/Users/Gerrit/txstep/txt/muo.xml</variable>
     </variables>
@@ -1403,24 +1408,209 @@
             </search-table>
         </new-line-before>
     </transform>
-    <!-- BYPASS -->
+    <!-- SHORTCUT FOR CLEAR READING TEXT  -->
+    <!-- SHORTCUT: REPLACE VARIANTS BY GA OR KA READING -->
     <transform source="$m-einf" destination="$m-einf2">
         <pass>
             <modify>
                 <exchange>
                     <exchange-table>
                         <string-pair>
-                            <search-string>{[}*\{GA{0-2}?: #.,{|}{00}{c:an}{|}#.'</search-string>
-                            <replacement-string>{{GA}}=2={{/GA}}</replacement-string>
+                            <search-string>{[}*\{\G\A{0-2}?: #.,{|}*{|}#.'|kursiv|\}*{]}</search-string>
+                            <replacement-string>{{GA}}{{kursiv}}{=2=}{{/kursiv}}{{/GA}}</replacement-string>
+                        </string-pair>
+                    </exchange-table>
+                </exchange>
+            </modify>
+        </pass>
+        <pass>
+            <modify>
+                <exchange>
+                    <exchange-table>
+                        <string-pair>
+                            <search-string>{[}*\{\G\A{0-2}?: #.,{|}*{|}#.'\}*{]}</search-string>
+                            <replacement-string>{{GA}}{=2=}{{/GA}}</replacement-string>
+                        </string-pair>
+                    </exchange-table>
+                </exchange>
+            </modify>
+        </pass>
+        <pass>
+            <modify>
+                <exchange>
+                    <exchange-table>
+                        <string-pair>
+                            <search-string>{[}*{{LT}}{|}*{|}{{IT}}{{EL}}((*)){]}</search-string>
+                            <replacement-string>{{KA}}{{kursiv}}{=2=}{{/kursiv}}{{/KA}}</replacement-string>
+                        </string-pair>
+                    </exchange-table>
+                </exchange>
+            </modify>
+        </pass>
+        <pass>
+            <modify>
+                <exchange>
+                    <exchange-table>
+                        <string-pair>
+                            <search-string>{[}*{{LT}}{|}*{|}{{EL}}((*)){]}</search-string>
+                            <replacement-string>{{KA}}{=2=}{{/KA}}</replacement-string>
+                        </string-pair>
+                    </exchange-table>
+                </exchange>
+            </modify>
+        </pass>
+        <pass>
+            <modify>
+                <exchange>
+                    <exchange-table>
+                        <string-pair>
+                            <search-string>{[}*\{#.,{|}*{|}#.'|Nullvarianz{0}|\}*{]}</search-string>
+                            <replacement-string>{=2=}</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>{[}*{{LT}}{|}*{|}{{EL}}((*)){{IT}}{]}</search-string>
+                            <replacement-string>{{KA}}{{kursiv}}{=2=}{{/kursiv}}{{/KA}}</replacement-string>
+                        </string-pair>
+                    </exchange-table>
+                </exchange>
+            </modify>
+        </pass>
+        <pass>
+            <modify>
+                <exchange>
+                    <exchange-table>
+                        <string-pair>
+                            <search-string>{[}((S.657*{{+E+L}}{]}</search-string>
+                            <replacement-string></replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>{[}{{LT}}{|}*{|}{{EL}}{]}</search-string>
+                            <replacement-string>{{KA}}{=2=}{{/KA}}</replacement-string>
                         </string-pair>
                     </exchange-table>
                 </exchange>
             </modify>
         </pass>
     </transform>
-    <!-- END BYPASS -->
+    <!-- <GA> AND <KA> INTO PRECEDING AND FOLLOWING RECORDS -->
+    <transform source="$m-einf2" destination="$m-einf3">
+        <define-text-units>
+            <text-unit-start>
+                <comparison-table>
+                    <exclusion-string>{{\G\A</exclusion-string>
+                    <exclusion-string>{{\K\A</exclusion-string>
+                    <comparison-string>{{Teil</comparison-string>
+                    <comparison-string>{{Kapitel</comparison-string>
+                    <comparison-string>{{Absatz</comparison-string>
+                </comparison-table>
+            </text-unit-start>
+        </define-text-units>
+        <!-- TRIM WHITESPACE BETWEEN APP ENTRY AND FOLLOWING PUNCTUATION CHARACTERS -->
+        <pass>
+            <modify>
+                <exchange>
+                    <exchange-table>
+                        <string-pair>
+                            <search-string>{{/\G\A}}{[} {]}{c:pc}</search-string>
+                            <replacement-string/>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>{{/\K\A}}{[} {]}{c:pc}</search-string>
+                            <replacement-string/>
+                        </string-pair>
+                    </exchange-table>
+                </exchange>
+            </modify>
+        </pass>
+        <pass>
+            <modify>
+                <exchange>
+                    <exchange-table>
+                        <string-pair>
+                            <search-string>{{FD:Popup}} {|}{{KA}}partie honteuse{|}{{/FD:Popup}}{{/KA}} </search-string>
+                            <replacement-string>{=2=}{{/KA}}</replacement-string>
+                        </string-pair>
+                    </exchange-table>
+                </exchange>
+            </modify>
+        </pass>
+        <!-- SHORTCUT: FINAL CLEAN-UP -->
+        <pass>
+            <modify>
+                <exchange>
+                    <exchange-table>
+                        <!-- copy of https://github.com/gerritbruening/TXSTEP/blob/2f1847169f85bcebab4c594072e0c620a9b93ea5/fff2xml.xml#L1298 -->
+                        <string-pair>
+                            <search-string>{{HR}}{{HR}}</search-string>
+                            <replacement-string>{{!-- {{HR}}{{HR}} NOCH NICHT BEHANDELT --}}</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>{{HR}}</search-string>
+                            <replacement-string>{{!-- {{HR}} NOCH NICHT BEHANDELT --}}</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>{{PS:"LESETEXT DRUCK"}}</search-string>
+                            <replacement-string>{{!-- {{PS:"LESETEXT DRUCK"}} --}}</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>{{IT+}}</search-string>
+                            <replacement-string>{{!-- {{IT+}} NOCH NICHT BEHANDELT --}}</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>{{IT}}</search-string>
+                            <replacement-string>{{!-- {{IT}} NOCH NICHT BEHANDELT --}}</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>{{HD-}}</search-string>
+                            <replacement-string>{{!-- {{HD-}} NOCH ZU BEHANDELN\? --}}</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>{{HD}}</search-string>
+                            <replacement-string>{{!-- {{HD}} NOCH ZU BEHANDELN\? --}}</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>{{{0}/FD:Popup}}</search-string>
+                            <replacement-string>{{!-- {{FD:Popup}} NOCH NICHT BEHANDELT --}}</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>{{BC:DC}}</search-string>
+                            <replacement-string>{{!-- {{BC:DC}} --}}</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>{{BC}}</search-string>
+                            <replacement-string>{{!-- {{BC}} --}}</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>{{FT:Arial,SN}} {{FT}}</search-string>
+                            <replacement-string> {{!-- {{FT:Arial,SN}} {{FT}} --}}</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>{{PB}}</search-string>
+                            <replacement-string>{{!-- {{PB}} --}}</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>{{BP:{#}.{#}}}</search-string>
+                            <replacement-string>{{!-- {{BP:...}} --}}</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>{{JD:"MoE-1-{0}S{#}"}}</search-string>
+                            <replacement-string>{{!-- {{JD:"MoE-1-S... --}}</replacement-string>
+                        </string-pair>
+                    </exchange-table>
+                </exchange>
+            </modify>
+        </pass>
+        <new-line-before>
+            <search-table>
+                <search-string>{{Teil</search-string>
+                <search-string>{{Kapitel</search-string>
+                <search-string>{{Absatz</search-string>
+            </search-table>
+        </new-line-before>
+    </transform>
+    <!-- END SHORTCUT  -->
     <!-- ADD ROOT ELEMENT -->
-    <transform source="$muo-z3" destination="$muo-xml">
+    <transform source="$m-einf3" destination="$muo-xml">
         <insert-at-start>{{Text}}</insert-at-start>
         <insert-at-end>{{/Text}}</insert-at-end>
     </transform>
