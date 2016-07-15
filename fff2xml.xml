@@ -67,8 +67,6 @@
             >file:///C:/Users/Gerrit/txstep/txt/m-einf2.tf</variable>
         <variable type="permanent-file" name="m-einf3" option="erase" format="tustep"
             >file:///C:/Users/Gerrit/txstep/txt/m-einf3.tf</variable>
-        <variable type="permanent-file" name="m-einf4" option="erase" format="tustep"
-            >file:///C:/Users/Gerrit/txstep/txt/m-einf4.tf</variable>
         <variable type="permanent-file" option="erase" name="muo-xml"
             >file:///C:/Users/Gerrit/txstep/txt/muo.xml</variable>
     </variables>
@@ -1527,6 +1525,22 @@
                 <exchange>
                     <exchange-table>
                         <string-pair>
+                            <search-string>{c:pc}{{/GA}}{[}{c:pc}</search-string>
+                            <replacement-string/>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>{c:pc}{{/KA}}{[}{c:pc}</search-string>
+                            <replacement-string/>
+                        </string-pair>
+                    </exchange-table>
+                </exchange>
+            </modify>
+        </pass>
+        <pass>
+            <modify>
+                <exchange>
+                    <exchange-table>
+                        <string-pair>
                             <search-string>{{FD:Popup}} {|}{{KA}}partie honteuse{|}{{/FD:Popup}}{{/KA}} </search-string>
                             <replacement-string>{=2=}{{/KA}}</replacement-string>
                         </string-pair>
@@ -1539,62 +1553,63 @@
             <modify>
                 <exchange>
                     <exchange-table>
-                        <!-- copy of https://github.com/gerritbruening/TXSTEP/blob/2f1847169f85bcebab4c594072e0c620a9b93ea5/fff2xml.xml#L1298 -->
+                        <!-- copy of https://github.com/gerritbruening/TXSTEP/blob/2f1847169f85bcebab4c594072e0c620a9b93ea5/fff2xml.xml#L1298 
+                        BUT WITH EMPTY <replacement-string/> -->
                         <string-pair>
                             <search-string>{{HR}}{{HR}}</search-string>
-                            <replacement-string>{{!-- {{HR}}{{HR}} NOCH NICHT BEHANDELT --}}</replacement-string>
+                            <replacement-string/>
                         </string-pair>
                         <string-pair>
                             <search-string>{{HR}}</search-string>
-                            <replacement-string>{{!-- {{HR}} NOCH NICHT BEHANDELT --}}</replacement-string>
+                            <replacement-string/>
                         </string-pair>
                         <string-pair>
                             <search-string>{{PS:"LESETEXT DRUCK"}}</search-string>
-                            <replacement-string>{{!-- {{PS:"LESETEXT DRUCK"}} --}}</replacement-string>
+                            <replacement-string/>
                         </string-pair>
                         <string-pair>
                             <search-string>{{IT+}}</search-string>
-                            <replacement-string>{{!-- {{IT+}} NOCH NICHT BEHANDELT --}}</replacement-string>
+                            <replacement-string/>
                         </string-pair>
                         <string-pair>
                             <search-string>{{IT}}</search-string>
-                            <replacement-string>{{!-- {{IT}} NOCH NICHT BEHANDELT --}}</replacement-string>
+                            <replacement-string/>
                         </string-pair>
                         <string-pair>
                             <search-string>{{HD-}}</search-string>
-                            <replacement-string>{{!-- {{HD-}} NOCH ZU BEHANDELN\? --}}</replacement-string>
+                            <replacement-string/>
                         </string-pair>
                         <string-pair>
                             <search-string>{{HD}}</search-string>
-                            <replacement-string>{{!-- {{HD}} NOCH ZU BEHANDELN\? --}}</replacement-string>
+                            <replacement-string/>
                         </string-pair>
                         <string-pair>
                             <search-string>{{{0}/FD:Popup}}</search-string>
-                            <replacement-string>{{!-- {{FD:Popup}} NOCH NICHT BEHANDELT --}}</replacement-string>
+                            <replacement-string/>
                         </string-pair>
                         <string-pair>
                             <search-string>{{BC:DC}}</search-string>
-                            <replacement-string>{{!-- {{BC:DC}} --}}</replacement-string>
+                            <replacement-string/>
                         </string-pair>
                         <string-pair>
                             <search-string>{{BC}}</search-string>
-                            <replacement-string>{{!-- {{BC}} --}}</replacement-string>
+                            <replacement-string/>
                         </string-pair>
                         <string-pair>
                             <search-string>{{FT:Arial,SN}} {{FT}}</search-string>
-                            <replacement-string> {{!-- {{FT:Arial,SN}} {{FT}} --}}</replacement-string>
+                            <replacement-string> </replacement-string>
                         </string-pair>
                         <string-pair>
                             <search-string>{{PB}}</search-string>
-                            <replacement-string>{{!-- {{PB}} --}}</replacement-string>
+                            <replacement-string/>
                         </string-pair>
                         <string-pair>
                             <search-string>{{BP:{#}.{#}}}</search-string>
-                            <replacement-string>{{!-- {{BP:...}} --}}</replacement-string>
+                            <replacement-string/>
                         </string-pair>
                         <string-pair>
                             <search-string>{{JD:"MoE-1-{0}S{#}"}}</search-string>
-                            <replacement-string>{{!-- {{JD:"MoE-1-S... --}}</replacement-string>
+                            <replacement-string/>
                         </string-pair>
                     </exchange-table>
                 </exchange>
