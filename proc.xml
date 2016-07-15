@@ -375,6 +375,7 @@
     <collate source="$dta-t" mode="single-witness" diff-file="$diff1'$diff2'$diff3'$diff5" listing="$diff-listing"
         special="code">
         <list lines="all"/>
+        <var-marks id-text="=" missing-text=" " id-var="id-prev"/>
     </collate>
     <display file="$diff-listing" type="listing" mode="ps-landscape"/>
 </script>
