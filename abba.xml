@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<script xmlns="http://www.xstep.org" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <variables>
+        <variable type="execution-file" name="execute">file:///C:/Users/Gerrit/txstep/ueb/txstep.tu</variable>
+        <variable type="permanent-file" name="a8-x" code="utf8">file:///C:/Users/Gerrit/txstep/txt/a8.xml</variable>
+        <variable type="permanent-file" name="a8z1" format="tustep" option="erase"
+            >file:///C:/Users/Gerrit/txstep/txt/a8z1.tf</variable>
+        <variable type="permanent-file" name="a8-t" format="tustep" option="erase"
+            >file:///C:/Users/Gerrit/txstep/txt/a8.tf</variable>
+        <variable type="permanent-file" name="b9-x" code="utf8">file:///C:/Users/Gerrit/txstep/txt/b9.xml</variable>
+        <variable type="permanent-file" name="b9-t" format="tustep" option="erase"
+            >file:///C:/Users/Gerrit/txstep/txt/b9.tf</variable>
+        <variable type="permanent-file" name="ba9-x" code="utf8">file:///C:/Users/Gerrit/txstep/txt/ba9.xml</variable>
+        <variable type="permanent-file" name="ba9-t" format="tustep" option="erase"
+            >file:///C:/Users/Gerrit/txstep/txt/ba9.tf</variable>
+        <variable type="permanent-file" name="diff" option="erase" format="tustep"
+            >file:///C:/Users/Gerrit/txstep/ve/diff</variable>
+        <variable type="permanent-file" name="diff-listing" option="erase" format="tustep"
+            >file:///C:/Users/Gerrit/txstep/va/diff.list</variable>
+        <char-group name="ti">?{-}{{!/}}%</char-group>
+        <char-group name="ok">?{-}{{}}%</char-group>
+        <variable type="scratch-file" name="par"/>
+    </variables>
+    <transform source="$a8-x" destination="$a8z1" save-params="$par">
+        <define-text-units>
+            <text-unit-start>
+                <comparison-table>
+                    <exclusion-string>{{/</exclusion-string>
+                    <comparison-string>{{</comparison-string>
+                </comparison-table>
+            </text-unit-start>
+        </define-text-units>
+        <pass>
+            <modify>
+                <exchange>
+                    <exchange-table>
+                        <exception-string>%{%}</exception-string>
+                        <exception-string>#.?</exception-string>
+                        <string-pair>
+                            <search-string>{1-0} }}</search-string>
+                            <replacement-string>}}</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>{{\?oxygen RNGSchema="https://faustedition.uni-wuerzburg.de/xml/schema/printed_editions_neu.rng" type="xml"\?}}</search-string>
+                            <replacement-string/>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>xmlns{00}{c:ok}"{00}{c:ok}"</search-string>
+                            <replacement-string/>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>#\[2019\]</search-string>
+                            <replacement-string>'</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>#\[2013\]</search-string>
+                            <replacement-string>--</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>#\[2014\]</search-string>
+                            <replacement-string>--</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>#.,</search-string>
+                            <replacement-string>"</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>#.'</search-string>
+                            <replacement-string>"</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>{{{0}/seg}}</search-string>
+                            <replacement-string/>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>{{{00}{c:ti}{[} {]}{00}{c:ti}}}</search-string>
+                            <replacement-string>+</replacement-string>
+                        </string-pair>
+                    </exchange-table>
+                </exchange>
+            </modify>
+        </pass>
+        <pass>
+            <modify>
+                <exchange>
+                    <exchange-table>
+                        <exception-string>%{%}</exception-string>
+                        <exception-string>#.?</exception-string>
+                        <exception-string>{{{0}/abbr}}</exception-string>
+                        <exception-string>{{{0}/emph}}</exception-string>
+                        <exception-string>{{{0}/hi}}</exception-string>
+                        <exception-string>{{{0}/sic}}</exception-string>
+                        <exception-string>{{{0}/unclear}}</exception-string>
+                        <string-pair>
+                            <search-string>}}</search-string>
+                            <replacement-string>}} </replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>{{</search-string>
+                            <replacement-string> {{</replacement-string>
+                        </string-pair>
+                    </exchange-table>
+                </exchange>
+            </modify>
+        </pass>
+        <remove-blanks where="both"/>
+        <suppress-blank-lines/>
+        <output-records max-length="120"/>
+    </transform>
+    <transform source="$a8z1" destination="$a8-t">
+        <define-text-units>
+            <text-unit-start>
+                <comparison-table>
+                    <exclusion-string>{{abbr}}</exclusion-string>
+                    <exclusion-string>{{emph}}</exclusion-string>
+                    <exclusion-string>{{hi}}</exclusion-string>
+                    <exclusion-string>{{hi+</exclusion-string>
+                    <exclusion-string>{{l}}</exclusion-string>
+                    <exclusion-string>{{l+</exclusion-string>
+                    <exclusion-string>{{s}}</exclusion-string>
+                    <exclusion-string>{{sic}}</exclusion-string>
+                    <exclusion-string>{{stage}}</exclusion-string>
+                    <exclusion-string>{{stage+</exclusion-string>
+                    <exclusion-string>{{unclear}}</exclusion-string>
+                    <comparison-string>{{</comparison-string>
+                </comparison-table>
+            </text-unit-start>
+        </define-text-units>
+        <new-line-before>
+            <search-table>
+                <exception-string>{{abbr}}</exception-string>
+                <exception-string>{{emph}}</exception-string>
+                <exception-string>{{hi}}</exception-string>
+                <exception-string>{{hi+</exception-string>
+                <exception-string>{{s}}</exception-string>
+                <exception-string>{{seg}}</exception-string>
+                <exception-string>{{unclear}}</exception-string>
+                <exception-string>{{sic}}</exception-string>
+                <exception-string>{{/</exception-string>
+                <search-string>{{lg*}} {{l</search-string>
+                <search-string>{{move*}} {{</search-string>
+                <search-string>{{</search-string>
+            </search-table>
+        </new-line-before>
+    </transform>
+    <transform source="$b9-x" destination="$b9-t" take-params="$par"/>
+    <transform source="$ba9-x" destination="$ba9-t" take-params="$par"/>
+    <compare versiona="$a8-t" versionb="$b9-t" variants="$diff" type="corrections" listing="-">
+        <compare-units mode="word"/>
+        <locations abbreviate="no" word-number="always"/>
+        <add-context>
+            <omission length-before="0" length-lemma="5" length-after="0"/>
+            <replacement length-before="0" length-lemma="5" length-after="0"/>
+            <insertion length-before="1" length-after="0"/>
+        </add-context>
+        <pos-ind-b value="yes"/>
+        <version-id>B</version-id>
+        <version-sort-val value="1"/>
+    </compare>
+    <compare versiona="$a8-t" versionb="$ba9-t" variants="$diff" option="append" type="corrections" listing="-">
+        <compare-units mode="word"/>
+        <locations abbreviate="no" word-number="always"/>
+        <add-context>
+            <omission length-before="0" length-lemma="5" length-after="0"/>
+            <replacement length-before="0" length-lemma="5" length-after="0"/>
+            <insertion length-before="1" length-after="0"/>
+        </add-context>
+        <pos-ind-b value="yes"/>
+        <version-id>Ba</version-id>
+        <version-sort-val value="2"/>
+    </compare>
+    <sort source="$diff" destination="$diff">
+        <sort-field num="1" start="1" length="17" order="ascending"/>
+        <sort-field num="2" start="37" length="2"/>
+        <!--  1-17: starting pos. of lemma ,18-34: end position of lemma, 35: type of reference (whole line or words in a line), 
+            36:  2 = omission, 3 = replacement, 4 = insertion,  37-38: version number for sorting, 
+            39-41: continuation lines for long variants,42-44: Pointer to 1st character after context info -->
+    </sort>
+    <collate source="$a8-t" mode="cumulated" diff-file="$diff" listing="$diff-listing" special="glyph">
+        <list lines="with-variants"/>
+        <version-sort-val value="1"/>
+        <version-id>B</version-id>
+        <version-sort-val value="2"/>
+        <version-id>Ba</version-id>
+    </collate>
+    <display file="$diff-listing" type="listing" mode="ps-landscape"/>
+</script>
