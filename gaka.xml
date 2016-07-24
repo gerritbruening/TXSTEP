@@ -1,0 +1,312 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<script xmlns="http://www.xstep.org" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <variables>
+        <variable type="execution-file" name="execute">file:///C:/users/Gerrit/txstep/ueb/txstep.tu</variable>
+        <variable type="permanent-file" name="m-einf3" format="tustep"
+            >file:///C:/Users/Gerrit/txstep/txt/m-einf3.tf</variable>
+        <variable type="permanent-file" name="muo-xml" format="tustep" option="erase"
+            >file:///C:/Users/Gerrit/txstep/txt/muo-xml.tf</variable>
+        <variable type="permanent-file" name="muo-imp" format="tustep"
+            >file:///C:/Users/Gerrit/txstep/txt/ga2.tf</variable>
+        <variable type="permanent-file" name="muo-imp2" format="tustep" option="erase"
+            >file:///C:/Users/Gerrit/txstep/txt/muo-imp2.tf</variable>
+        <variable type="permanent-file" name="diff1" option="erase" format="tustep"
+            >file:///C:/Users/Gerrit/txstep/ve/diff1.tf</variable>
+        <variable type="permanent-file" name="diff-listing" option="erase" format="tustep"
+            >file:///C:/Users/Gerrit/txstep/va/diff.list</variable>
+        <char-group name="nu">?{-}{#}</char-group>
+        <char-group name="nr">{#}</char-group>
+    </variables>
+    <transform source="$m-einf3" destination="$muo-xml">
+        <pass>
+            <modify>
+                <exchange>
+                    <exchange-table>
+                        <string-pair>
+                            <search-string>{{Kapiteltitel Kapitelnummer="MoE-1/{#}"}}{|}{#}{|}. {|}*{|}{{/Kapiteltitel}}*</search-string>
+                            <replacement-string>{{Textkörper}}{=2=}{{/Textkörper}} {{Textkörper}}{{i}}{=4=}{{/i}}{{/Textkörper}}</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>{{Teiltitel}}</search-string>
+                            <replacement-string>{{Überschrift-1}}</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>{{/Teiltitel}}</search-string>
+                            <replacement-string>{{/Überschrift-1}}</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>{{{0}/GA}}</search-string>
+                            <replacement-string/>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>{{{0}/KA}}</search-string>
+                            <replacement-string/>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>{{{0}/Versal}}</search-string>
+                            <replacement-string/>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>{{Erstausgabe Worttrennung="Ja"}}{#}{{/Erstausgabe}}</search-string>
+                            <replacement-string/>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>{{Erstausgabe}}{#}{{/Erstausgabe}}</search-string>
+                            <replacement-string/>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>{{Rowohlt}}{#}{{/Rowohlt}}</search-string>
+                            <replacement-string/>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>{{Absatz}}</search-string>
+                            <replacement-string>{{Textkörper}}</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>{{/Absatz}}</search-string>
+                            <replacement-string>{{/Textkörper}}</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>{{kursiv}}</search-string>
+                            <replacement-string>{{i}}</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>{{/kursiv}}</search-string>
+                            <replacement-string>{{/i}}</replacement-string>
+                        </string-pair>
+                    </exchange-table>
+                </exchange>
+            </modify>
+        </pass>
+        <pass>
+            <modify>
+                <exchange>
+                    <exchange-table>
+                        <string-pair>
+                            <search-string>#.}}</search-string>
+                            <replacement-string>"</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>#.{{</search-string>
+                            <replacement-string>"</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>#.'</search-string>
+                            <replacement-string>"</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>#\[2013\]</search-string>
+                            <replacement-string>--</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>#\[2019\]</search-string>
+                            <replacement-string>'</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>#\[2026\]</search-string>
+                            <replacement-string>...</replacement-string>
+                        </string-pair>
+                    </exchange-table>
+                </exchange>
+            </modify>
+        </pass>
+        <pass>
+            <modify>
+                <exchange>
+                    <exchange-table>
+                        <string-pair>
+                            <search-string>{{Textkörper}}</search-string>
+                            <replacement-string>{{Absatz}} </replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>{{/Textkörper}}</search-string>
+                            <replacement-string> {{/Absatz}}</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>{{Überschrift-1}}</search-string>
+                            <replacement-string>{{Überschrift-1}} </replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>{{/Überschrift-1}}</search-string>
+                            <replacement-string> {{/Überschrift-1}}</replacement-string>
+                        </string-pair>
+                    </exchange-table>
+                </exchange>
+            </modify>
+        </pass>
+        <new-line-before>
+            <search-table>
+                <search-string>{{Textkörper}}</search-string>
+            </search-table>
+        </new-line-before>
+        <output-records max-length="120"/>
+    </transform>
+    <transform source="$muo-imp" destination="$muo-imp2">
+        <define-text-units>
+            <text-unit-start>
+                <comparison-table>
+                    <exclusion-string>{{Textkörper/}}</exclusion-string>
+                    <exclusion-string>{{Textkörper}}{&amp;a}</exclusion-string>
+                    <exclusion-string>{{/section}}</exclusion-string>
+                    <exclusion-string>{{section page="Next"}}</exclusion-string>
+                    <comparison-string>{{Textkörper}}{c:nr}</comparison-string>
+                </comparison-table>
+            </text-unit-start>
+        </define-text-units>
+        <pass>
+            <modify>
+                <exchange>
+                    <exchange-table>
+                        <string-pair>
+                            <search-string>-{[} {]}{\A}</search-string>
+                            <replacement-string/>
+                        </string-pair>
+                    </exchange-table>
+                </exchange>
+            </modify>
+        </pass>
+        <pass>
+            <modify>
+                <exchange>
+                    <exchange-table>
+                        <exception-string>- und </exception-string>
+                        <exception-string>- oder </exception-string>
+                        <string-pair>
+                            <search-string>-{00} </search-string>
+                            <replacement-string>-_</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>{{/section}} {{section page="Next"}}</search-string>
+                            <replacement-string>{{Seitenumbruch/}}</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>{{Textkörper/}}</search-string>
+                            <replacement-string/>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>{{Überschrift-1/}}</search-string>
+                            <replacement-string/>
+                        </string-pair>
+                    </exchange-table>
+                </exchange>
+            </modify>
+        </pass>
+        <pass>
+            <modify>
+                <exchange>
+                    <exchange-table>
+                        <string-pair>
+                            <search-string>#.}}</search-string>
+                            <replacement-string>"</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>#.{{</search-string>
+                            <replacement-string>"</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>#\[2013\]</search-string>
+                            <replacement-string>--</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>#\[2019\]</search-string>
+                            <replacement-string>'</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>#\[2026\]</search-string>
+                            <replacement-string>...</replacement-string>
+                        </string-pair>
+                    </exchange-table>
+                </exchange>
+            </modify>
+        </pass>
+        <pass>
+            <modify>
+                <exchange>
+                    <exchange-table>
+                        <string-pair>
+                            <search-string>{{Textkörper}}</search-string>
+                            <replacement-string>{{Absatz}} </replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>{{/Textkörper}}</search-string>
+                            <replacement-string> {{/Absatz}}</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>{{Überschrift-1}}</search-string>
+                            <replacement-string>{{Überschrift-1}} </replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>{{/Überschrift-1}}</search-string>
+                            <replacement-string> {{/Überschrift-1}}</replacement-string>
+                        </string-pair>
+                    </exchange-table>
+                </exchange>
+            </modify>
+        </pass>
+        <pass>
+            <modify>
+                <exchange>
+                    <exchange-table>
+                        <string-pair>
+                            <search-string>-{00} {{/Absatz}}{00} {{Seitenumbruch/}}{00} {{Absatz}}{00} </search-string>
+                            <replacement-string/>
+                        </string-pair>
+                    </exchange-table>
+                </exchange>
+            </modify>
+        </pass>
+        <pass>
+            <modify>
+                <exchange>
+                    <exchange-table>
+                        <string-pair>
+                            <search-string>{{/Absatz}}{00} {{Seitenumbruch/}}{00} {{Absatz}}</search-string>
+                            <replacement-string> </replacement-string>
+                        </string-pair>
+                    </exchange-table>
+                </exchange>
+            </modify>
+        </pass>
+        <pass>
+            <modify>
+                <exchange>
+                    <exchange-table>
+                        <string-pair>
+                            <search-string>{00} </search-string>
+                            <replacement-string> </replacement-string>
+                        </string-pair>
+                    </exchange-table>
+                </exchange>
+            </modify>
+        </pass>
+        <new-line-before>
+            <search-table>
+                <search-string>{{Absatz}}</search-string>
+            </search-table>
+        </new-line-before>
+        <output-records max-length="150"/>
+    </transform>
+    <compare versiona="$muo-imp2" versionb="$muo-xml" variants="diff1" listing="-">
+        <compare-units mode="word"/>
+        <select-area versiona="1.91-4.622/37,6" versionb="29.23-65.1/02,6"/>
+        <!--<locations abbreviate="no" word-number="always"/>-->
+        <add-context>
+            <omission length-before="0" length-lemma="5" length-after="0"/>
+            <replacement length-before="0" length-lemma="5" length-after="0"/>
+            <insertion length-before="1" length-after="0"/>
+        </add-context>
+        <version-id>KA</version-id>
+        <normalize>
+            <exchange-table>
+                <string-pair>
+                    <search-string>-_</search-string>
+                    <replacement-string/>
+                </string-pair>
+            </exchange-table>
+        </normalize>
+    </compare>
+    <collate source="$muo-imp2" mode="single-witness" diff-file="$diff1" listing="$diff-listing" special="code">
+        <list lines="with-variants"/>
+    </collate>
+    <display file="$diff-listing" type="listing" mode="ps-landscape"/>
+</script>
