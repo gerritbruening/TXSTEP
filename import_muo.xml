@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<script xmlns="http://www.xstep.org" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <variables>
+        <variable type="execution-file" name="execute">file:///C:/users/Gerrit/txstep/ueb/txstep.tu</variable>
+        <variable type="permanent-file" name="source" option="erase"
+            >file:///C:/Users/Gerrit/txstep/txt/Musil1.tf</variable>
+    </variables>
+    <tustep>
+#de,da=*
+word = C:\users\Gerrit\txstep\txt\Musil1.rtf
+*eof
+#anmelde, word, traeger = -
+#*import, word, source, ignor = color'font
+    </tustep>
+</script>
