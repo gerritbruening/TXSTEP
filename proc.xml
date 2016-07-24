@@ -60,20 +60,20 @@
                             <replacement-string/>
                         </string-pair>
                         <string-pair>
-                            <search-string>^&^#x201E;</search-string>
+                            <search-string>^&amp;^#x201E;</search-string>
                             <replacement-string>"</replacement-string>
                         </string-pair>
                         <string-pair>
-                            <search-string>^&^#x201C;</search-string>
+                            <search-string>^&amp;^#x201C;</search-string>
                             <replacement-string>"</replacement-string>
                         </string-pair>
                         <string-pair>
-                            <search-string>^&^#x2013;</search-string>
+                            <search-string>^&amp;^#x2013;</search-string>
                             <replacement-string>--</replacement-string>
                         </string-pair>
                         <string-pair>
-                            <search-string>^&^#x2019;</search-string>
-                            <replacement-string/>
+                            <search-string>^&amp;^#x2019;</search-string>
+                            <replacement-string>'</replacement-string>
                         </string-pair>
                     </exchange-table>
                 </exchange>
@@ -166,11 +166,11 @@
                 <exchange>
                     <exchange-table>
                         <string-pair>
-                            <search-string>^&nbsp;</search-string>
+                            <search-string>^&amp;nbsp;</search-string>
                             <replacement-string> </replacement-string>
                         </string-pair>
                         <string-pair>
-                            <search-string>^&nbsp;{[}-{]}{c:pc}</search-string>
+                            <search-string>^&amp;nbsp;{[}-{]}{c:pc}</search-string>
                             <replacement-string>--</replacement-string>
                         </string-pair>
                         <string-pair>
@@ -227,11 +227,11 @@
                             <replacement-string>'</replacement-string>
                         </string-pair>
                         <string-pair>
-                            <search-string>.{[} {]}" "{&a}</search-string>
+                            <search-string>.{[} {]}" "{&amp;a}</search-string>
                             <replacement-string/>
                         </string-pair>
                         <!--<string-pair>
-                            <search-string>.{[} {]}" {&a}</search-string>
+                            <search-string>.{[} {]}" {&amp;a}</search-string>
                             <replacement-string/>
                         </string-pair>-->
                         <!-- führt leider auch zu falschen Ersetzungen -->
