@@ -67,7 +67,8 @@ Current structure of the script:
 11. handle the bulk of variants
 12. comment out hitherto unhandled FFF markup
 13. integrate apparatus into preceding and following records, trim whitespace between app entry and following punctuation characters
-14. add root element
+14. BYPASS for the generation of a clear reading text close to GA
+15. add root element
 
 ## proc.xml
 
