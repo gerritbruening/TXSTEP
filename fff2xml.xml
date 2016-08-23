@@ -71,8 +71,8 @@
             >file:///C:/Users/Gerrit/txstep/txt/muo.xml</variable>
     </variables>
     <transform source="$moe1-txt" destination="$moe1-t"/>
+    <!-- BASIC MARKUP -->
     <transform source="$moe1-txt" destination="$muo-z1">
-        <!-- BASIC MARKUP -->
         <!-- preparatory clean-up -->
         <pass>
             <modify>
@@ -1218,8 +1218,8 @@
             </search-table>
         </new-line-after>
     </transform>
+    <!-- HANDLE THE BULK OF VARIANTS -->
     <transform source="$muo-z2" destination="$muo-z2a">
-        <!-- HANDLE THE BULK OF VARIANTS -->
         <pass>
             <modify>
                 <exchange>
