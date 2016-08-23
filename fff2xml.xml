@@ -239,8 +239,8 @@
             </modify>
         </pass>
     </transform>
+    <!-- REMOVE REDUNDANT <Erstausgabe> -->
     <transform source="$muo-z1" destination="$muo-z1a">
-        <!-- REMOVE REDUNDANT <Erstausgabe> -->
         <define-text-units>
             <text-unit-start>
                 <comparison-table>
@@ -268,8 +268,8 @@
             </search-table>
         </new-line-before>
     </transform>
+    <!-- REMOVE REDUNDANT <Absatzanfang/> ... -->
     <transform source="$muo-z1a" destination="$muo-z1b">
-        <!-- REMOVE REDUNDANT <Absatzanfang/> ... -->
         <define-text-units>
             <text-unit-start>
                 <comparison-table>
