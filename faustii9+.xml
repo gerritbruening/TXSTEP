@@ -68,11 +68,10 @@
         <!-- tustep output of <compare> -->
         <variable type="permanent-file" name="diff" option="erase"
             format="tustep"
-            >file:///C:/Users/Gerrit/txstep/vergleiche/diff</variable>
+            >file:///C:/Users/Gerrit/txstep/ve/diff</variable>
         <!-- output of collate -->
-        <variable type="permanent-file" name="diff-listing" option="erase"
-            format="tustep"
-            >file:///C:/Users/Gerrit/txstep/vergleiche/diff-listing.list</variable>
+        <variable type="permanent-file" name="diff-listing" option="erase" format="tustep"
+            >file:///C:/Users/Gerrit/txstep/va/diff.list</variable>
     </variables>
     <transform source="$h-x" destination="$hz1-t" save-params="$par">
         <define-text-units>
@@ -382,5 +381,5 @@
         <version-list list="variants"/>-->
         <var-marks id-text="=" missing-text=" " id-var="id-prev"/>
     </collate>
-    <display file="$diff-listing" type="listing" mode="ps-landscape"/>
+<!--    <display file="$diff-listing" type="listing" mode="ps-landscape"/>-->
 </script>
