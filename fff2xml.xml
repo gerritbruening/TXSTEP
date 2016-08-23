@@ -1221,34 +1221,6 @@
     </transform>
     <!-- HANDLING OF VARIANTS -->
     <transform source="$muo-z2" destination="$muo-z2a">
-        <pass>
-            <modify>
-                <exchange>
-                    <exchange-table>
-                        <string-pair>
-                            <search-string>"Popup-Verknüpfung"{00}{c:pw}</search-string>
-                            <replacement-string/>
-                        </string-pair>
-                        <string-pair>
-                            <search-string>PW:{[}AUSZEICHUNGEN{00}{c:pw}</search-string>
-                            <replacement-string/>
-                        </string-pair>
-                        <string-pair>
-                            <search-string>{[}{{IT+}}{]}{{PW:</search-string>
-                            <replacement-string>{{IT}}</replacement-string>
-                        </string-pair>
-                        <string-pair>
-                            <search-string>{{IT}}{]}</search-string>
-                            <replacement-string>{{/IT}}</replacement-string>
-                        </string-pair>
-                        <string-pair>
-                            <search-string>{{IT}}{|}{{EL}}{]}</search-string>
-                            <replacement-string>{=2=}{{/IT}}</replacement-string>
-                        </string-pair>
-                    </exchange-table>
-                </exchange>
-            </modify>
-        </pass>
         <!--<pass>
             <modify>
                 <exchange>
