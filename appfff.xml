@@ -1,10 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <script xmlns="http://www.xstep.org" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <variables>
-        <variable type="execution-file" name="execute">file:///C:/Users/Gerrit/txstep/ueb/txstep.tu</variable>
+        <variable type="execution-file" name="execute"
+            >file:///C:/Users/Gerrit/txstep/ueb/txstep.tu</variable>
+        <char-group name="pw">{#},.</char-group>
+        <string-group name="it">
+            <member>{{/IT}}</member>
+        </string-group>
+        <string-group name="hr">
+            <member>{{HR}}</member>
+        </string-group>
+        <string-group name="ku">
+            <member>\{aa\}</member>
+            <member>\{aa+\}</member>
+            <member>\{aa-\}</member>
+            <member>\{bb\}</member>
+            <member>\{cc\}</member>
+            <member>\{dd\}</member>
+            <member>\{ee\}</member>
+            <member>\{ff\}</member>
+            <member>\{gg\}</member>
+            <member>\{hh\}</member>
+            <member>\{xx+\}</member>
+            <member>\{xx!\}</member>
+            <member>\{xx-\}</member>
+            <member>\{yy\}</member>
+            <member>\{yy-\}</member>
+            <member>\{zz\}</member>
+            <member>\{zz!\}</member>
+        </string-group>
+        <string-group name="ga">
+            <member>+</member>
+            <member>-</member>
+            <member>+!</member>
+        </string-group>
         <!-- sources -->
-        <variable type="permanent-file" name="muo-z2" format="tustep"
-            >file:///C:/Users/Gerrit/txstep/txt/muo_z2.tf</variable>
+        <variable type="permanent-file" name="muo-z2a" format="tustep"
+            >file:///C:/Users/Gerrit/txstep/txt/muo_z2a.tf</variable>
         <variable type="permanent-file" name="varianten" code="utf8"
             >file:///C:/Users/Gerrit/txstep/txt/MoE1_Varianten2.txt</variable>
         <!-- outputs tf -->
@@ -12,13 +44,17 @@
             >file:///C:/Users/Gerrit/txstep/txt/muo_app.tf</variable>
         <variable type="permanent-file" name="wf-app" option="erase" format="tustep"
             >file:///C:/Users/Gerrit/txstep/txt/wf_app.tf</variable>
+        <variable type="permanent-file" name="wf-app-x" option="erase" format="tustep"
+            >file:///C:/Users/Gerrit/txstep/txt/wf_app_x.tf</variable>
+        <variable type="permanent-file" name="muo-app-x" option="erase" format="tustep"
+            >file:///C:/Users/Gerrit/txstep/txt/muo_app_x.tf</variable>
         <!-- outputs txt -->
         <variable type="permanent-file" name="muo-app-txt" option="erase" code="utf8"
             >file:///C:/Users/Gerrit/txstep/txt/muo_app.txt</variable>
         <variable type="permanent-file" name="wf-app-txt" option="erase" code="utf8"
             >file:///C:/Users/Gerrit/txstep/txt/wf_app.txt</variable>
     </variables>
-    <transform source="$muo-z2" destination="$muo-app">
+    <transform source="$muo-z2a" destination="$muo-app">
         <pass>
             <examine-text>
                 <select>
@@ -29,6 +65,125 @@
                     </text-contains>
                 </select>
             </examine-text>
+        </pass>
+    </transform>
+    <transform source="$muo-app" destination="$muo-app-x">
+        <!-- preparatory clean-up -->
+        <pass>
+            <modify>
+                <exchange>
+                    <exchange-table>
+                        <string-pair>
+                            <search-string>"Popup-Verknüpfung"{[}{00}{c:pw}</search-string>
+                            <replacement-string/>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>"Popup-Verknüpfung"</search-string>
+                            <replacement-string/>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>PW:{[}AUSZEICHUNGEN{00}{c:pw}</search-string>
+                            <replacement-string/>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>{{PS:"LESETEXT DRUCK"}}</search-string>
+                            <replacement-string/>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>{{/FD:Popup}}</search-string>
+                            <replacement-string/>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>{{IT-}}{{FT:Arial,SN}}{{PT:10}}{{FC:0,0,255}}</search-string>
+                            <replacement-string/>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>{{IT}}{{FT}}{{PT}}{{FC}}</search-string>
+                            <replacement-string/>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>{[}{{IT+}}{]}{{PW:</search-string>
+                            <replacement-string>{{IT}}</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>{{IT}}{]}</search-string>
+                            <replacement-string>{{/IT}}</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>{{IT}}{|}{{EL}}{]}</search-string>
+                            <replacement-string>{=2=}{{/IT}}</replacement-string>
+                        </string-pair>
+                    </exchange-table>
+                </exchange>
+            </modify>
+        </pass>
+        <pass>
+            <modify>
+                <exchange>
+                    <exchange-table>
+                        <string-pair>
+                            <search-string>{00}{s:hr}</search-string>
+                            <replacement-string>{{HR}}</replacement-string>
+                        </string-pair>
+                    </exchange-table>
+                </exchange>
+            </modify>
+        </pass>
+        <pass>
+            <modify>
+                <exchange>
+                    <exchange-table>
+                        <string-pair>
+                            <search-string>{{LT}}{|}*{|}{{EL}}{]}{0}{s:it}</search-string>
+                            <replacement-string>{{KA}}{=2=}{{/KA}}</replacement-string>
+                        </string-pair>
+                    </exchange-table>
+                </exchange>
+            </modify>
+        </pass>
+        <pass>
+            <modify>
+                <exchange>
+                    <exchange-table>
+                        <string-pair>
+                            <search-string>{[}{{PW:"Druckvariante Fris%/e"}}{|}*{|}{{KA}}</search-string>
+                            <replacement-string>{{RA}}{=2=}{{/RA}} {=3=}</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>{[}{{PW:"HANDEXEMPLAR Variante Bleistift"}}{|}*{|}{{HR}}(auch Druckvariante Fris%/e){{KA}}</search-string>
+                            <replacement-string>{{HE}}{=2=}{{/HE}} {{RA}}{=2=}{{/RA}} {{KA}}</replacement-string>
+                        </string-pair>
+                    </exchange-table>
+                </exchange>
+            </modify>
+        </pass>
+        <pass>
+            <modify>
+                <exchange>
+                    <exchange-table>
+                        <string-pair>
+                            <search-string>{[}{{PW:"HANDEXEMPLAR Variante Bleistift"}}{|}*{|}{{KA}}</search-string>
+                            <replacement-string>{{HE}}{=2=}{{/HE}} {=3=}</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>{[}{{PW:"Druckvariante Erstausgabe"}}{|}*{|}{{KA}}</search-string>
+                            <replacement-string>{{EA}}{=2=}{{/EA}} {=3=}</replacement-string>
+                        </string-pair>
+                    </exchange-table>
+                </exchange>
+            </modify>
+        </pass>
+        <pass>
+            <modify>
+                <exchange>
+                    <exchange-table>
+                        <string-pair>
+                            <search-string>{{IT}}{{PW:"Druckvariante Erstausgabe"}}gesperrt{{HR}}Druckvariante Fris%/e: kursiv{{KA}}{|}*{|}{{/KA}}{{/IT}}</search-string>
+                            <replacement-string>{{EA}}{{gesperrt}}{=2=}{{/gesperrt}}{{/EA}} {{RA}}{{kursiv}}{=2=}{{/kursiv}}{{RA}} {{KA}}{{kursiv}}{=2=}{{/kursiv}}{{/KA}}</replacement-string>
+                        </string-pair>
+                    </exchange-table>
+                </exchange>
+            </modify>
         </pass>
     </transform>
     <transform source="$varianten" destination="$wf-app">
@@ -45,6 +200,96 @@
             </examine-text>
         </pass>
     </transform>
-    <transform source="$muo-app" destination="$muo-app-txt"/>
-    <transform source="$wf-app" destination="$wf-app-txt"/>
+    <transform source="$wf-app" destination="$wf-app-x">
+        <pass>
+            <modify>
+                <exchange>
+                    <exchange-table>
+                        <string-pair>
+                            <search-string>{s:ku}</search-string>
+                            <replacement-string>{{Komm ref="#{+1=}"/}}</replacement-string>
+                        </string-pair>
+                    </exchange-table>
+                </exchange>
+            </modify>
+        </pass>
+        <pass>
+            <modify>
+                <exchange>
+                    <exchange-table>
+                        <string-pair>
+                            <search-string>ref="#{[}\{</search-string>
+                            <replacement-string/>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>\}{]}"/}}</search-string>
+                            <replacement-string/>
+                        </string-pair>
+                    </exchange-table>
+                </exchange>
+            </modify>
+        </pass>
+        <pass>
+            <modify>
+                <exchange>
+                    <exchange-table>
+                        <string-pair>
+                            <search-string>\{GA{0}{s:ga}: #.,{|}*{|}#.'\}</search-string>
+                            <replacement-string>{{GA}}{=2=}{{/GA}}</replacement-string>
+                        </string-pair>
+                    </exchange-table>
+                </exchange>
+            </modify>
+        </pass>
+        <pass>
+            <modify>
+                <exchange>
+                    <exchange-table>
+                        <string-pair>
+                            <search-string>\{KA: #.,{|}*{|}#.'\}</search-string>
+                            <replacement-string>{{KA}}{=2=}{{/KA}}</replacement-string>
+                        </string-pair>
+                    </exchange-table>
+                </exchange>
+            </modify>
+        </pass>
+        <pass>
+            <modify>
+                <exchange>
+                    <exchange-table>
+                        <string-pair>
+                            <search-string>\{RA: #.,{|}*{|}#.'\}</search-string>
+                            <replacement-string>{{RA}}{=2=}{{/RA}}</replacement-string>
+                        </string-pair>
+                    </exchange-table>
+                </exchange>
+            </modify>
+        </pass>
+        <pass>
+            <modify>
+                <exchange>
+                    <exchange-table>
+                        <string-pair>
+                            <search-string>\{HE: #.,{|}*{|}#.'\}</search-string>
+                            <replacement-string>{{HE}}{=2=}{{/HE}}</replacement-string>
+                        </string-pair>
+                    </exchange-table>
+                </exchange>
+            </modify>
+        </pass>
+        <pass>
+            <modify>
+                <exchange>
+                    <exchange-table>
+                        <string-pair>
+                            <search-string>\{EA: #.,{|}*{|}#.'\}</search-string>
+                            <replacement-string>{{EA}}{=2=}{{/EA}}</replacement-string>
+                        </string-pair>
+                    </exchange-table>
+                </exchange>
+            </modify>
+        </pass>
+    </transform>
+    <!--<transform source="$muo-app" destination="$muo-app-txt"/>-->
+    <!--<transform source="$wf-app" destination="$wf-app-txt"/>-->
 </script>
