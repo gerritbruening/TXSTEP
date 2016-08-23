@@ -1218,7 +1218,7 @@
             </search-table>
         </new-line-after>
     </transform>
-    <!-- HANDLE THE BULK OF VARIANTS -->
+    <!-- HANDLING OF VARIANTS -->
     <transform source="$muo-z2" destination="$muo-z2a">
         <pass>
             <modify>
