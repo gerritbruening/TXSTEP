@@ -179,7 +179,7 @@
                     <exchange-table>
                         <string-pair>
                             <search-string>{{IT}}{{PW:"Druckvariante Erstausgabe"}}gesperrt{{HR}}Druckvariante Fris%/e: kursiv{{KA}}{|}*{|}{{/KA}}{{/IT}}</search-string>
-                            <replacement-string>{{EA}}{{gesperrt}}{=2=}{{/gesperrt}}{{/EA}} {{RA}}{{kursiv}}{=2=}{{/kursiv}}{{RA}} {{KA}}{{kursiv}}{=2=}{{/kursiv}}{{/KA}}</replacement-string>
+                            <replacement-string>{{EA}}{{sp}}{=2=}{{/sp}}{{/EA}} {{RA}}{{it}}{=2=}{{/it}}{{RA}} {{KA}}{{it}}{=2=}{{/it}}{{/KA}}</replacement-string>
                         </string-pair>
                     </exchange-table>
                 </exchange>
@@ -234,6 +234,18 @@
                 <exchange>
                     <exchange-table>
                         <string-pair>
+                            <search-string>\{GA{0}{s:ga}: #.,{|}*{|}#.'|kursiv|\}</search-string>
+                            <replacement-string>{{GA}}{{it}}{=2=}{{/it}}{{/GA}}</replacement-string>
+                        </string-pair>
+                    </exchange-table>
+                </exchange>
+            </modify>
+        </pass>
+        <pass>
+            <modify>
+                <exchange>
+                    <exchange-table>
+                        <string-pair>
                             <search-string>\{GA{0}{s:ga}: #.,{|}*{|}#.'\}</search-string>
                             <replacement-string>{{GA}}{=2=}{{/GA}}</replacement-string>
                         </string-pair>
@@ -246,8 +258,32 @@
                 <exchange>
                     <exchange-table>
                         <string-pair>
+                            <search-string>\{KA: #.,{|}*{|}#.'|kursiv|\}</search-string>
+                            <replacement-string>{{KA}}{{it}}{=2=}{{/it}}{{/KA}}</replacement-string>
+                        </string-pair>
+                    </exchange-table>
+                </exchange>
+            </modify>
+        </pass>
+        <pass>
+            <modify>
+                <exchange>
+                    <exchange-table>
+                        <string-pair>
                             <search-string>\{KA: #.,{|}*{|}#.'\}</search-string>
                             <replacement-string>{{KA}}{=2=}{{/KA}}</replacement-string>
+                        </string-pair>
+                    </exchange-table>
+                </exchange>
+            </modify>
+        </pass>
+        <pass>
+            <modify>
+                <exchange>
+                    <exchange-table>
+                        <string-pair>
+                            <search-string>\{RA: #.,{|}*{|}#.'|kursiv|\}</search-string>
+                            <replacement-string>{{RA}}{{it}}{=2=}{{/it}}{{/RA}}</replacement-string>
                         </string-pair>
                     </exchange-table>
                 </exchange>
@@ -282,6 +318,18 @@
                 <exchange>
                     <exchange-table>
                         <string-pair>
+                            <search-string>\{EA: #.,{|}*{|}#.'|gesperrt|\}</search-string>
+                            <replacement-string>{{EA}}{{sp}}{=2=}{{/sp}}{{/EA}}</replacement-string>
+                        </string-pair>
+                    </exchange-table>
+                </exchange>
+            </modify>
+        </pass>
+        <pass>
+            <modify>
+                <exchange>
+                    <exchange-table>
+                        <string-pair>
                             <search-string>\{EA: #.,{|}*{|}#.'\}</search-string>
                             <replacement-string>{{EA}}{=2=}{{/EA}}</replacement-string>
                         </string-pair>
@@ -291,5 +339,5 @@
         </pass>
     </transform>
     <!--<transform source="$muo-app" destination="$muo-app-txt"/>-->
-    <!--<transform source="$wf-app" destination="$wf-app-txt"/>-->
+    <transform source="$wf-app-x" destination="$wf-app-txt"/>
 </script>
