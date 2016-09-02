@@ -201,12 +201,14 @@
             </modify>
         </pass>-->
     </transform>
-    <transform source="$varianten" destination="$wf-app">
+    <transform source="$varianten" destination="$wf-app" mode="+">
         <pass>
             <examine-text>
                 <select>
                     <text-contains>
                         <search-table>
+                            <exception-string>\{GA+!: ...\}</exception-string>
+                            <exception-string>\{GA-: ...\}</exception-string>
                             <search-string>\{\G\A</search-string>
                             <search-string>Nullvarianz</search-string>
                         </search-table>
@@ -216,6 +218,7 @@
         </pass>
     </transform>
     <transform source="$wf-app" destination="$wf-app-x">
+        <!-- KOMM -->
         <pass>
             <modify>
                 <exchange>
@@ -244,6 +247,7 @@
                 </exchange>
             </modify>
         </pass>
+        <!-- GA -->
         <pass>
             <modify>
                 <exchange>
@@ -261,8 +265,8 @@
                 <exchange>
                     <exchange-table>
                         <string-pair>
-                            <search-string>\{GA{0}{s:ga}: #.,{|}*{|}#.'\}</search-string>
-                            <replacement-string>{{GA}}{=2=}{{/GA}}</replacement-string>
+                            <search-string>\{GA{0}{s:ga}: #.,{|}*{|}#.'{00} |{|}*{|}|\}</search-string>
+                            <replacement-string>{{GA}}{=2=}{{note}}{=4=}{{/note}}{{/GA}}</replacement-string>
                         </string-pair>
                     </exchange-table>
                 </exchange>
@@ -273,8 +277,33 @@
                 <exchange>
                     <exchange-table>
                         <string-pair>
+                            <search-string>\{GA{0}{s:ga}: #.,{|}*{|}#.'\}</search-string>
+                            <replacement-string>{{GA}}{=2=}{{/GA}}</replacement-string>
+                        </string-pair>
+                    </exchange-table>
+                </exchange>
+            </modify>
+        </pass>
+        <!-- KA -->
+        <pass>
+            <modify>
+                <exchange>
+                    <exchange-table>
+                        <string-pair>
                             <search-string>\{KA: #.,{|}*{|}#.'|kursiv|\}</search-string>
                             <replacement-string>{{KA}}{{it}}{=2=}{{/it}}{{/KA}}</replacement-string>
+                        </string-pair>
+                    </exchange-table>
+                </exchange>
+            </modify>
+        </pass>
+        <pass>
+            <modify>
+                <exchange>
+                    <exchange-table>
+                        <string-pair>
+                            <search-string>\{KA: #.,{|}*{|}#.'|nicht kursiv|\}</search-string>
+                            <replacement-string>{{KA}}{=2=}{{/KA}}</replacement-string>
                         </string-pair>
                     </exchange-table>
                 </exchange>
