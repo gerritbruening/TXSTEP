@@ -26,6 +26,7 @@
             <member>\{xx-\}</member>
             <member>\{yy\}</member>
             <member>\{yy-\}</member>
+            <member>\{yy|ND1989|\}</member>
             <member>\{zz\}</member>
             <member>\{zz!\}</member>
         </string-group>
@@ -34,11 +35,15 @@
             <member>-</member>
             <member>+!</member>
         </string-group>
+        <string-group name="ka">
+            <exception>{{KA}}</exception>
+            <member>?</member>
+        </string-group>
         <!-- sources -->
         <variable type="permanent-file" name="muo-z2a" format="tustep"
             >file:///C:/Users/Gerrit/txstep/txt/muo_z2a.tf</variable>
         <variable type="permanent-file" name="varianten" code="utf8"
-            >file:///C:/Users/Gerrit/txstep/txt/MoE1_Varianten2.txt</variable>
+            >file:///C:/Users/Gerrit/txstep/txt/MoE1_Varianten.txt</variable>
         <!-- outputs tf -->
         <variable type="permanent-file" name="muo-app" option="erase" format="tustep"
             >file:///C:/Users/Gerrit/txstep/txt/muo_app.tf</variable>
@@ -50,7 +55,7 @@
             >file:///C:/Users/Gerrit/txstep/txt/muo_app_x.tf</variable>
         <!-- outputs txt -->
         <variable type="permanent-file" name="muo-app-txt" option="erase" code="utf8"
-            >file:///C:/Users/Gerrit/txstep/txt/muo_app.txt</variable>
+            >file:///C:/Users/Gerrit/txstep/txt/fff_app.txt</variable>
         <variable type="permanent-file" name="wf-app-txt" option="erase" code="utf8"
             >file:///C:/Users/Gerrit/txstep/txt/wf_app.txt</variable>
     </variables>
@@ -129,6 +134,7 @@
                 </exchange>
             </modify>
         </pass>
+        <!-- final part of app entry -->
         <pass>
             <modify>
                 <exchange>
@@ -141,29 +147,31 @@
                 </exchange>
             </modify>
         </pass>
+        <!-- 2 readings -->
         <pass>
             <modify>
                 <exchange>
                     <exchange-table>
                         <string-pair>
-                            <search-string>{[}{{PW:"Druckvariante Fris%/e"}}{|}*{|}{{KA}}</search-string>
-                            <replacement-string>{{RA}}{=2=}{{/RA}} {=3=}</replacement-string>
-                        </string-pair>
-                        <string-pair>
-                            <search-string>{[}{{PW:"HANDEXEMPLAR Variante Bleistift"}}{|}*{|}{{HR}}(auch Druckvariante Fris%/e){{KA}}</search-string>
-                            <replacement-string>{{HE}}{=2=}{{/HE}} {{RA}}{=2=}{{/RA}} {{KA}}</replacement-string>
+                            <search-string>{[}{{PW:"HANDEXEMPLAR Variante Bleistift"}}{|}*{|}{{HR}}(auch Druckvariante Fris%/e){]}{{KA}}</search-string>
+                            <replacement-string>{{HE}}{=2=}{{/HE}} {{RA}}{=2=}{{/RA}} </replacement-string>
                         </string-pair>
                     </exchange-table>
                 </exchange>
             </modify>
         </pass>
+        <!-- 1 reading -->
         <pass>
             <modify>
                 <exchange>
                     <exchange-table>
                         <string-pair>
-                            <search-string>{[}{{PW:"HANDEXEMPLAR Variante Bleistift"}}{|}*{|}{{KA}}</search-string>
-                            <replacement-string>{{HE}}{=2=}{{/HE}} {=3=}</replacement-string>
+                            <search-string>{[}{{PW:"Druckvariante Fris%/e"}}{|}{00}{s:ka}</search-string>
+                            <replacement-string>{{RA}}{=2=}{{/RA}} </replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>{[}{{PW:"HANDEXEMPLAR Variante Bleistift"}}{|}{00}{s:ka}</search-string>
+                            <replacement-string>{{HE}}{=2=}{{/HE}} </replacement-string>
                         </string-pair>
                         <string-pair>
                             <search-string>{[}{{PW:"Druckvariante Erstausgabe"}}{|}*{|}{{KA}}</search-string>
@@ -176,6 +184,13 @@
         <pass>
             <modify>
                 <exchange>
+                    <exchange-table> </exchange-table>
+                </exchange>
+            </modify>
+        </pass>
+        <!--<pass>
+            <modify>
+                <exchange>
                     <exchange-table>
                         <string-pair>
                             <search-string>{{IT}}{{PW:"Druckvariante Erstausgabe"}}gesperrt{{HR}}Druckvariante Fris%/e: kursiv{{KA}}{|}*{|}{{/KA}}{{/IT}}</search-string>
@@ -184,7 +199,7 @@
                     </exchange-table>
                 </exchange>
             </modify>
-        </pass>
+        </pass>-->
     </transform>
     <transform source="$varianten" destination="$wf-app">
         <pass>
@@ -338,6 +353,6 @@
             </modify>
         </pass>
     </transform>
-    <!--<transform source="$muo-app" destination="$muo-app-txt"/>-->
+    <transform source="$muo-app-x" destination="$muo-app-txt"/>
     <transform source="$wf-app-x" destination="$wf-app-txt"/>
 </script>
