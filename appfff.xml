@@ -10,7 +10,7 @@
         <string-group name="hr">
             <member>{{HR}}</member>
         </string-group>
-        <string-group name="ku">
+        <string-group name="ko">
             <member>\{aa\}</member>
             <member>\{aa+\}</member>
             <member>\{aa-\}</member>
@@ -218,13 +218,39 @@
         </pass>
     </transform>
     <transform source="$wf-app" destination="$wf-app-x">
+        <!-- Zählung entfernen -->
+        <pass>
+            <modify>
+                <exchange>
+                    <exchange-table>
+                        <string-pair>
+                            <search-string>{[}{#}) </search-string>
+                            <replacement-string/>
+                        </string-pair>
+                    </exchange-table>
+                </exchange>
+            </modify>
+        </pass>
+        <!-- Seite entfernen -->
+        <pass>
+            <modify>
+                <exchange>
+                    <exchange-table>
+                        <string-pair>
+                            <search-string>{[}\[Seite {#}\] </search-string>
+                            <replacement-string/>
+                        </string-pair>
+                    </exchange-table>
+                </exchange>
+            </modify>
+        </pass>
         <!-- KOMM -->
         <pass>
             <modify>
                 <exchange>
                     <exchange-table>
                         <string-pair>
-                            <search-string>{s:ku}</search-string>
+                            <search-string>{s:ko}</search-string>
                             <replacement-string>{{Komm ref="#{+1=}"/}}</replacement-string>
                         </string-pair>
                     </exchange-table>
