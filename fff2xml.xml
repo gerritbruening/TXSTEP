@@ -250,11 +250,24 @@
                 </comparison-table>
             </text-unit-start>
         </define-text-units>
+        <!-- transpose Kapiteltitel and Erstausgabe when coinciding in EA -->
         <pass>
             <modify>
                 <exchange>
                     <exchange-table>
-                        <exception-string>{{/Kapiteltitel}}{[} {{Erstausgabe}}{s:pa}{{/Erstausgabe}}</exception-string>
+                        <string-pair>
+                            <search-string>{{Kapiteltitel*{{/Kapiteltitel}}{|} {|}{{Erstausgabe}}{s:pa}{{/Erstausgabe}}</search-string>
+                            <replacement-string>{=3=} {=1=}</replacement-string>
+                        </string-pair>
+                    </exchange-table>
+                </exchange>
+            </modify>
+        </pass>
+        <pass>
+            <modify>
+                <exchange>
+                    <exchange-table>
+                        <!--<exception-string>{{/Kapiteltitel}}{[} {{Erstausgabe}}{s:pa}{{/Erstausgabe}}</exception-string>-->
                         <string-pair>
                             <search-string>{{/Kapiteltitel}}{[} {{Erstausgabe}}{#}{{/Erstausgabe}}{]}</search-string>
                             <replacement-string/>
@@ -297,10 +310,6 @@
             <modify>
                 <exchange>
                     <exchange-table>
-                        <string-pair>
-                            <search-string>}}{s:pa}{{/Erstausgabe}}{[}?</search-string>
-                            <replacement-string>{{Absatzanfang/}}{-1=}</replacement-string>
-                        </string-pair>
                         <string-pair>
                             <search-string>}}43{{/Erstausgabe}}{[}?</search-string>
                             <replacement-string>{{Absatzanfang/}}{-1=}</replacement-string>
@@ -605,7 +614,7 @@
                 </exchange>
             </modify>
         </pass>
-        <!-- preparatory step for the following one: insert inital page break -->
+        <!-- preparatory step for the following one: insert initial page break -->
         <pass>
             <modify>
                 <exchange>
