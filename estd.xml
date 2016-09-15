@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<script xmlns="http://www.xstep.org" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <variables>
+        <variable type="execution-file" name="exec">file:///</variable>
+        <variable type="permanent-file" name="source">file:///</variable>
+        <variable type="permanent-file" name="dest" option="erase">file:///</variable>
+    </variables>
+</script>
