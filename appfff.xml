@@ -407,6 +407,18 @@
                 </exchange>
             </modify>
         </pass>
+        <pass>
+            <modify>
+                <exchange>
+                    <exchange-table>
+                        <string-pair>
+                            <search-string>{[}\{#.,{|}*{|}#.'|Nullvarianz{0}|\}{]}</search-string>
+                            <replacement-string>{{ALLE}}{=2=}{{/ALLE}}</replacement-string>
+                        </string-pair>
+                    </exchange-table>
+                </exchange>
+            </modify>
+        </pass>
     </transform>
     <transform source="$muo-app-x" destination="$muo-app-txt"/>
     <transform source="$wf-app-x" destination="$wf-app-txt"/>
