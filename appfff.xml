@@ -251,7 +251,7 @@
                     <exchange-table>
                         <string-pair>
                             <search-string>{s:ko}</search-string>
-                            <replacement-string>{{{+1=}/}}</replacement-string>
+                            <replacement-string>{{Komm ref="#{+1=}"/}}</replacement-string>
                         </string-pair>
                     </exchange-table>
                 </exchange>
@@ -262,11 +262,11 @@
                 <exchange>
                     <exchange-table>
                         <string-pair>
-                            <search-string>{{{[}\{</search-string>
+                            <search-string>ref="#{[}\{</search-string>
                             <replacement-string/>
                         </string-pair>
                         <string-pair>
-                            <search-string>\}{]}/}}</search-string>
+                            <search-string>\}{]}"/}}</search-string>
                             <replacement-string/>
                         </string-pair>
                     </exchange-table>
