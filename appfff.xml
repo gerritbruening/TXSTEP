@@ -39,6 +39,14 @@
             <exception>{{KA}}</exception>
             <member>?</member>
         </string-group>
+        <string-group name="an">
+            <exception>#.'</exception>
+            <member>?</member>
+        </string-group>
+        <string-group name="pp">
+            <exception>|</exception>
+            <member>?</member>
+        </string-group>
         <!-- sources -->
         <variable type="permanent-file" name="muo-z2a" format="tustep"
             >file:///C:/Users/Gerrit/txstep/txt/muo_z2a.tf</variable>
@@ -279,7 +287,7 @@
                 <exchange>
                     <exchange-table>
                         <string-pair>
-                            <search-string>\{GA{0}{s:ga}: #.,{|}*{|}#.'|kursiv|\}</search-string>
+                            <search-string>\{GA{0}{s:ga}: #.,{|}{00}{s:an}{|}#.'|kursiv|\}</search-string>
                             <replacement-string>{{GA}}{{it}}{=2=}{{/it}}{{/GA}}</replacement-string>
                         </string-pair>
                     </exchange-table>
@@ -291,7 +299,7 @@
                 <exchange>
                     <exchange-table>
                         <string-pair>
-                            <search-string>\{GA{0}{s:ga}: #.,{|}*{|}#.'{00} |{|}*{|}|\}</search-string>
+                            <search-string>\{GA{0}{s:ga}: #.,{|}{00}{s:pp}{|}#.'{00} |{|}*{|}|\}</search-string>
                             <replacement-string>{{GA}}{=2=}{{note}}{=4=}{{/note}}{{/GA}}</replacement-string>
                         </string-pair>
                     </exchange-table>
@@ -414,6 +422,18 @@
                         <string-pair>
                             <search-string>{[}\{#.,{|}*{|}#.'|Nullvarianz{0}|\}{]}</search-string>
                             <replacement-string>{{ALLE}}{=2=}{{/ALLE}}</replacement-string>
+                        </string-pair>
+                    </exchange-table>
+                </exchange>
+            </modify>
+        </pass>
+        <pass>
+            <modify>
+                <exchange>
+                    <exchange-table>
+                        <string-pair>
+                            <search-string>{[}*{]}</search-string>
+                            <replacement-string>{{app}} {=1=} {{/app}}</replacement-string>
                         </string-pair>
                     </exchange-table>
                 </exchange>
