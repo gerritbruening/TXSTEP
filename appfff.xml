@@ -217,6 +217,7 @@
                         <search-table>
                             <exception-string>\{GA+!: ...\}</exception-string>
                             <exception-string>\{GA-: ...\}</exception-string>
+                            <exception-string>\{GA!!: ...\}</exception-string>
                             <search-string>\{\G\A</search-string>
                             <search-string>Nullvarianz</search-string>
                         </search-table>
