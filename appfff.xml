@@ -4,6 +4,7 @@
         <variable type="execution-file" name="execute"
             >file:///C:/Users/Gerrit/txstep/ueb/txstep.tu</variable>
         <char-group name="pw">{#},.</char-group>
+        <char-group name="pp">?-|</char-group>
         <string-group name="it">
             <member>{{/IT}}</member>
         </string-group>
@@ -41,10 +42,6 @@
         </string-group>
         <string-group name="an">
             <exception>#.'</exception>
-            <member>?</member>
-        </string-group>
-        <string-group name="pp">
-            <exception>|</exception>
             <member>?</member>
         </string-group>
         <!-- sources -->
@@ -283,6 +280,7 @@
             </modify>
         </pass>
         <!-- GA -->
+        <!-- GA kursiv -->
         <pass>
             <modify>
                 <exchange>
@@ -295,24 +293,39 @@
                 </exchange>
             </modify>
         </pass>
+        <!-- GA "..." |...| -->
         <pass>
             <modify>
                 <exchange>
                     <exchange-table>
                         <string-pair>
-                            <search-string>\{GA{0}{s:ga}: #.,{|}{00}{s:pp}{|}#.'{00} |{|}*{|}|\}</search-string>
+                            <search-string>\{GA{0}{s:ga}: #.,{|}{00}{s:an}{|}#.'{00} |{|}{00}{c:pp}{|}|\}</search-string>
                             <replacement-string>{{GA}}{=2=}{{note}}{=4=}{{/note}}{{/GA}}</replacement-string>
                         </string-pair>
                     </exchange-table>
                 </exchange>
             </modify>
         </pass>
+        <!-- GA buggy case of "..." |...| -->
         <pass>
             <modify>
                 <exchange>
                     <exchange-table>
                         <string-pair>
-                            <search-string>\{GA{0}{s:ga}: #.,{|}*{|}#.'\}</search-string>
+                            <search-string>\{GA+!: #.,{|}*{|}#.'|{|}*{|}|\}</search-string>
+                            <replacement-string>{{GA}}{=2=}{{note}}{=4=}{{/note}}{{/GA}}</replacement-string>
+                        </string-pair>
+                    </exchange-table>
+                </exchange>
+            </modify>
+        </pass>
+        <!-- GA "..." -->
+        <pass>
+            <modify>
+                <exchange>
+                    <exchange-table>
+                        <string-pair>
+                            <search-string>\{GA{0}{s:ga}{0}: #.,{|}*{|}#.'\}</search-string>
                             <replacement-string>{{GA}}{=2=}{{/GA}}</replacement-string>
                         </string-pair>
                     </exchange-table>
