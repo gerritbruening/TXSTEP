@@ -216,6 +216,8 @@
                             <exception-string>\{GA-: ...\}</exception-string>
                             <exception-string>\{GA!!: ...\}</exception-string>
                             <search-string>\{\G\A</search-string>
+                            <search-string>|GA+!|</search-string>
+                            <search-string>|GA!!</search-string>
                             <search-string>Nullvarianz</search-string>
                         </search-table>
                     </text-contains>
@@ -224,24 +226,12 @@
         </pass>
     </transform>
     <transform source="$wf-app" destination="$wf-app-x">
-        <!-- Zählung entfernen -->
-        <pass>
-            <modify>
-                <exchange>
-                    <exchange-table>
-                        <string-pair>
-                            <search-string>{[}{#}) </search-string>
-                            <replacement-string/>
-                        </string-pair>
-                    </exchange-table>
-                </exchange>
-            </modify>
-        </pass>
         <!-- Seite entfernen -->
         <pass>
             <modify>
                 <exchange>
                     <exchange-table>
+                        <exception-string>\[Seite {#}\] |SB|nicht|AB|</exception-string>
                         <string-pair>
                             <search-string>{[}\[Seite {#}\] </search-string>
                             <replacement-string/>
