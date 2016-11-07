@@ -5,6 +5,8 @@
             >file:///C:/Users/Gerrit/txstep/ueb/txstep.tu</variable>
         <char-group name="pw">{#},.</char-group>
         <char-group name="pp">?-|</char-group>
+        <char-group name="gt">?-}}</char-group>
+        <char-group name="bt">?-\]</char-group><!-- bracket -->
         <string-group name="it">
             <member>{{/IT}}</member>
         </string-group>
@@ -54,6 +56,12 @@
             >file:///C:/Users/Gerrit/txstep/txt/muo_app.tf</variable>
         <variable type="permanent-file" name="wf-app" option="erase" format="tustep"
             >file:///C:/Users/Gerrit/txstep/txt/wf_app.tf</variable>
+        <variable type="permanent-file" name="var" option="erase" format="tustep"
+            >file:///C:/Users/Gerrit/txstep/txt/var.tf</variable>
+        <variable type="permanent-file" name="var-x" option="erase" format="tustep"
+            >file:///C:/Users/Gerrit/txstep/txt/var-x.tf</variable>
+        <variable type="permanent-file" name="sbnab" option="erase" format="tustep"
+            >file:///C:/Users/Gerrit/txstep/txt/sbnab.tf</variable>
         <variable type="permanent-file" name="wf-app-x" option="erase" format="tustep"
             >file:///C:/Users/Gerrit/txstep/txt/wf_app_x.tf</variable>
         <variable type="permanent-file" name="muo-app-x" option="erase" format="tustep"
@@ -64,6 +72,93 @@
         <variable type="permanent-file" name="wf-app-txt" option="erase" code="utf8"
             >file:///C:/Users/Gerrit/txstep/txt/wf_app.txt</variable>
     </variables>
+    <transform source="$varianten" destination="$var" mode="+">
+        <pass>
+            <examine-text>
+                <select>
+                    <text-contains>
+                        <search-table>
+                            <exception-string>\{GA+!: ...\}</exception-string>
+                            <exception-string>\{GA-: ...\}</exception-string>
+                            <exception-string>\{GA!!: ...\}</exception-string>
+                            <exception-string>\{GA!!: |ABSATZ|\}</exception-string>
+                            <exception-string>|SB|nicht|AB|</exception-string>
+                            <search-string>\{\G\A</search-string>
+                            <search-string>Nullvarianz</search-string>
+                        </search-table>
+                    </text-contains>
+                </select>
+            </examine-text>
+        </pass>
+    </transform>
+    <transform source="$var" destination="$var-x">
+        <pass>
+            <modify>
+                <exchange>
+                    <exchange-table>
+                        <string-pair>
+                            <search-string>{[}\[Seite {#}\] </search-string>
+                            <replacement-string/>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>{[}\[Seite {#}\]\[{#}\] </search-string>
+                            <replacement-string/>
+                        </string-pair>
+                    </exchange-table>
+                </exchange>
+            </modify>
+        </pass>
+        <pass>
+            <modify>
+                <exchange>
+                    <exchange-table>
+                        <exception-string>#\[</exception-string>
+                        <exception-string>\[Fris%/e</exception-string>
+                        <exception-string>#.{{</exception-string>
+                        <string-pair>
+                            <search-string>\[{|}{00}{c:bt}{|}\] {{{|}{00}{c:gt}{|}}}</search-string>
+                            <replacement-string>{{del}}{=2=}{{/del}}{{add}}{=4=}{{/add}}</replacement-string>
+                        </string-pair>
+                        <!--<string-pair>
+                            <search-string>\[{|}{00}{c:bt}{|}\]{{{|}{00}{c:gt}{|}}}</search-string>
+                            <replacement-string>{{del}}{=2=}{{/del}}{{add}}{=4=}{{/add}}</replacement-string>
+                        </string-pair>-->
+                        <string-pair>
+                            <search-string>\[{00}{c:bt}\]</search-string>
+                            <replacement-string>{{del}}{+2=}{{/del}}</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>{{{00}{c:gt}}}</search-string>
+                            <replacement-string>{{add}}{+2=}{{/add}}</replacement-string>
+                        </string-pair>
+                    </exchange-table>
+                </exchange>
+            </modify>
+        </pass>
+        <!--<pass>
+            <modify>
+                <exchange>
+                    <exchange-table>
+                        <exception-string>#.{{</exception-string>
+                    </exchange-table>
+                </exchange>
+            </modify>
+        </pass>-->
+    </transform>
+    <transform source="$varianten" destination="$sbnab" mode="+">
+        <pass>
+            <examine-text>
+                <select>
+                    <text-contains>
+                        <search-table>
+                            <exception-string>|SB|nicht|AB|#.,</exception-string>
+                            <search-string>|SB|nicht|AB|</search-string>
+                        </search-table>
+                    </text-contains>
+                </select>
+            </examine-text>
+        </pass>
+    </transform>
     <transform source="$muo-z2a" destination="$muo-app">
         <pass>
             <examine-text>
@@ -183,13 +278,6 @@
                             <replacement-string>{{EA}}{=2=}{{/EA}} {=3=}</replacement-string>
                         </string-pair>
                     </exchange-table>
-                </exchange>
-            </modify>
-        </pass>
-        <pass>
-            <modify>
-                <exchange>
-                    <exchange-table> </exchange-table>
                 </exchange>
             </modify>
         </pass>
