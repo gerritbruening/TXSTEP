@@ -239,19 +239,27 @@
                 <exchange>
                     <exchange-table>
                         <string-pair>
-                            <search-string>}}{[}{|}{00}{c:pp}{|}|gesperrt|</search-string>
-                            <replacement-string>{{sp}}{=2=}{{/sp}}</replacement-string>
+                            <search-string>{{EA}}{[}{|}{00}{c:pp}{|}|gesperrt|{|}{{/EA}}</search-string>
+                            <replacement-string>{{sp}}{=2=}{{/sp}}{=4=}</replacement-string>
                         </string-pair>
-                        <!--<string-pair>
-                            <search-string>}}{[}{|}{00}{c:pp}{|}|kursiv|</search-string>
-                            <replacement-string>{{it}}{=2=}{{/it}}</replacement-string>
-                        </string-pair>-->
+                        <string-pair>
+                            <search-string>{{RA}}{[}{|}{00}{c:pp}{|}|kursiv|{|}{{/RA}}</search-string>
+                            <replacement-string>{{it}}{=2=}{{/it}}{=4=}</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>{{KA}}{[}{|}{00}{c:pp}{|}|kursiv|{|}{{/KA}}</search-string>
+                            <replacement-string>{{it}}{=2=}{{/it}}{=4=}</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>"}}{[}{|}{00}{c:pp}{|}|kursiv|{|}{{/GA}}</search-string>
+                            <replacement-string>{{it}}{=2=}{{/it}}{=4=}</replacement-string>
+                        </string-pair>
                     </exchange-table>
                 </exchange>
             </modify>
         </pass>
         <!-- editorial notes -->
-        <!--<pass>
+        <pass>
             <modify>
                 <exchange>
                     <exchange-table>
@@ -262,7 +270,19 @@
                     </exchange-table>
                 </exchange>
             </modify>
-        </pass>-->
+        </pass>
+        <pass>
+            <modify>
+                <exchange>
+                    <exchange-table>
+                        <string-pair>
+                            <search-string>}}{[}: </search-string>
+                            <replacement-string/>
+                        </string-pair>
+                    </exchange-table>
+                </exchange>
+            </modify>
+        </pass>
     </transform>
     <transform source="$varianten" destination="$sbnab" mode="+">
         <pass>
@@ -652,5 +672,5 @@
         </pass>
     </transform>
     <transform source="$muo-app-x" destination="$muo-app-txt"/>
-    <transform source="$wf-app-x" destination="$wf-app-txt"/>
+    <transform source="$var-x" destination="$wf-app-txt"/>
 </script>
