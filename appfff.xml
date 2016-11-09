@@ -7,6 +7,7 @@
         <char-group name="pp">?-|</char-group>
         <char-group name="gt">?-}}</char-group>
         <char-group name="bt">?-\]</char-group>
+        <char-group name="be">?-\}</char-group>
         <string-group name="dl">
             <exception>{{/del}}</exception>
             <member>?</member>
@@ -180,7 +181,30 @@
                 </exchange>
             </modify>
         </pass>
-
+        <pass>
+            <modify>
+                <exchange>
+                    <exchange-table>
+                        <string-pair>
+                            <search-string>\{{|}{\A}{\A}{|}{00}{c:be}{|}\}</search-string>
+                            <replacement-string>{{{=2=}}}{=3=}{{/{=2=}}}</replacement-string>
+                        </string-pair>
+                    </exchange-table>
+                </exchange>
+            </modify>
+        </pass>
+        <pass>
+            <modify>
+                <exchange>
+                    <exchange-table>
+                        <string-pair>
+                            <search-string>|{|}{00}{c:pp}{|}|{|}{{/</search-string>
+                            <replacement-string>{{note type="editorial"}}{=2=}{{/note}}{=4=}</replacement-string>
+                        </string-pair>
+                    </exchange-table>
+                </exchange>
+            </modify>
+        </pass>
     </transform>
     <transform source="$varianten" destination="$sbnab" mode="+">
         <pass>
