@@ -283,6 +283,18 @@
                 </exchange>
             </modify>
         </pass>
+        <pass>
+            <modify>
+                <exchange>
+                    <exchange-table>
+                        <string-pair>
+                            <search-string>*</search-string>
+                            <replacement-string>{{app}} {+1=} {{/app}}</replacement-string>
+                        </string-pair>
+                    </exchange-table>
+                </exchange>
+            </modify>
+        </pass>
     </transform>
     <transform source="$varianten" destination="$sbnab" mode="+">
         <pass>
