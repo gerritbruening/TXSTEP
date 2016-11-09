@@ -198,13 +198,71 @@
                 <exchange>
                     <exchange-table>
                         <string-pair>
+                            <search-string>{{GA{[}}}+!{]}:</search-string>
+                            <replacement-string> type="GA+!"}}</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>{{GA{[}}}-{]}:</search-string>
+                            <replacement-string> type="GA-"}}</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>{{GA{[}}}+{]}:</search-string>
+                            <replacement-string> type="GA+"}}</replacement-string>
+                        </string-pair>
+                    </exchange-table>
+                </exchange>
+            </modify>
+        </pass>
+        <pass>
+            <modify>
+                <exchange>
+                    <exchange-table>
+                        <string-pair>
+                            <search-string>}}{[}: #.,</search-string>
+                            <replacement-string/>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>#.'{]}{{/</search-string>
+                            <replacement-string/>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>#.'{0} {]}|</search-string>
+                            <replacement-string/>
+                        </string-pair>
+                    </exchange-table>
+                </exchange>
+            </modify>
+        </pass>
+        <!-- gesperrt etc. -->
+        <pass>
+            <modify>
+                <exchange>
+                    <exchange-table>
+                        <string-pair>
+                            <search-string>}}{[}{|}{00}{c:pp}{|}|gesperrt|</search-string>
+                            <replacement-string>{{sp}}{=2=}{{/sp}}</replacement-string>
+                        </string-pair>
+                        <!--<string-pair>
+                            <search-string>}}{[}{|}{00}{c:pp}{|}|kursiv|</search-string>
+                            <replacement-string>{{it}}{=2=}{{/it}}</replacement-string>
+                        </string-pair>-->
+                    </exchange-table>
+                </exchange>
+            </modify>
+        </pass>
+        <!-- editorial notes -->
+        <!--<pass>
+            <modify>
+                <exchange>
+                    <exchange-table>
+                        <string-pair>
                             <search-string>|{|}{00}{c:pp}{|}|{|}{{/</search-string>
                             <replacement-string>{{note type="editorial"}}{=2=}{{/note}}{=4=}</replacement-string>
                         </string-pair>
                     </exchange-table>
                 </exchange>
             </modify>
-        </pass>
+        </pass>-->
     </transform>
     <transform source="$varianten" destination="$sbnab" mode="+">
         <pass>
