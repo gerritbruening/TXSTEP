@@ -6,7 +6,15 @@
         <char-group name="pw">{#},.</char-group>
         <char-group name="pp">?-|</char-group>
         <char-group name="gt">?-}}</char-group>
-        <char-group name="bt">?-\]</char-group><!-- bracket -->
+        <char-group name="bt">?-\]</char-group>
+        <string-group name="dl">
+            <exception>{{/del}}</exception>
+            <member>?</member>
+        </string-group>
+        <string-group name="ad">
+            <exception>{{/add}}</exception>
+            <member>?</member>
+        </string-group>
         <string-group name="it">
             <member>{{/IT}}</member>
         </string-group>
@@ -119,10 +127,6 @@
                             <search-string>\[{|}{00}{c:bt}{|}\] {{{|}{00}{c:gt}{|}}}</search-string>
                             <replacement-string>{{del}}{=2=}{{/del}}{{add}}{=4=}{{/add}}</replacement-string>
                         </string-pair>
-                        <!--<string-pair>
-                            <search-string>\[{|}{00}{c:bt}{|}\]{{{|}{00}{c:gt}{|}}}</search-string>
-                            <replacement-string>{{del}}{=2=}{{/del}}{{add}}{=4=}{{/add}}</replacement-string>
-                        </string-pair>-->
                         <string-pair>
                             <search-string>\[{00}{c:bt}\]</search-string>
                             <replacement-string>{{del}}{+2=}{{/del}}</replacement-string>
@@ -135,15 +139,48 @@
                 </exchange>
             </modify>
         </pass>
-        <!--<pass>
+        <pass>
             <modify>
                 <exchange>
                     <exchange-table>
-                        <exception-string>#.{{</exception-string>
+                        <string-pair>
+                            <search-string>{{del}}{00}{s:dl}{{/del}}{0} {{add}}{00}{s:ad}{{/add}}</search-string>
+                            <replacement-string>{{subst}}{=1=}{{/subst}}</replacement-string>
+                        </string-pair>
                     </exchange-table>
                 </exchange>
             </modify>
-        </pass>-->
+        </pass>
+        <!-- KOMM -->
+        <pass>
+            <modify>
+                <exchange>
+                    <exchange-table>
+                        <string-pair>
+                            <search-string>{s:ko}</search-string>
+                            <replacement-string>{{note type="textcrit" subtype="{+1=}"/}}</replacement-string>
+                        </string-pair>
+                    </exchange-table>
+                </exchange>
+            </modify>
+        </pass>
+        <pass>
+            <modify>
+                <exchange>
+                    <exchange-table>
+                        <string-pair>
+                            <search-string>subtype="{[}\{</search-string>
+                            <replacement-string/>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>\}{]}"/}}</search-string>
+                            <replacement-string/>
+                        </string-pair>
+                    </exchange-table>
+                </exchange>
+            </modify>
+        </pass>
+
     </transform>
     <transform source="$varianten" destination="$sbnab" mode="+">
         <pass>
