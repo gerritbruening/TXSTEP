@@ -75,6 +75,10 @@
             >file:///C:/Users/Gerrit/txstep/txt/wf_app_x.tf</variable>
         <variable type="permanent-file" name="muo-app-x" option="erase" format="tustep"
             >file:///C:/Users/Gerrit/txstep/txt/muo_app_x.tf</variable>
+        <variable type="permanent-file" name="diff" option="erase" format="tustep"
+            >file:///C:/Users/Gerrit/txstep/ve/diff</variable>
+        <variable type="permanent-file" name="diff-list" option="erase" format="tustep"
+            >file:///C:/Users/Gerrit/txstep/va/difflist</variable>
         <!-- outputs txt -->
         <variable type="permanent-file" name="muo-app-txt" option="erase" code="utf8"
             >file:///C:/Users/Gerrit/txstep/txt/fff_app.txt</variable>
@@ -289,7 +293,7 @@
                     <exchange-table>
                         <string-pair>
                             <search-string>*</search-string>
-                            <replacement-string>{{app}} {+1=} {{/app}}</replacement-string>
+                            <replacement-string>+++ANFANG ANFANG ANFANG+++ {{app}} {+1=} {{/app}} +++ENDE ENDE ENDE+++</replacement-string>
                         </string-pair>
                     </exchange-table>
                 </exchange>
@@ -449,14 +453,35 @@
                 <exchange>
                     <exchange-table>
                         <string-pair>
+                            <search-string>*{|}{{KA}}*{{/KA}}{|}*</search-string>
+                            <replacement-string>{=2=}</replacement-string>
+                        </string-pair>
+                    </exchange-table>
+                </exchange>
+            </modify>
+        </pass>        
+        <pass>
+            <modify>
+                <exchange>
+                    <exchange-table>
+                        <string-pair>
                             <search-string>*{{KA}}*</search-string>
-                            <replacement-string>{{app}} {=1=} {{/app}}</replacement-string>
+                            <replacement-string>+++ANFANG ANFANG ANFANG+++ {{app}} {=1=} {{/app}} +++ENDE ENDE ENDE+++</replacement-string>
                         </string-pair>
                     </exchange-table>
                 </exchange>
             </modify>
         </pass>
     </transform>
+    <compare versiona="$muo-app-x" versionb="$var-x" variants="$diff" type="corrections" listing="-">
+        <compare-units mode="word"/>
+        <version-id>WF</version-id>
+    </compare>
+    <collate source="$muo-app-x" mode="single-witness" diff-file="$diff" listing="$diff-list">
+        <list lines="all"/>
+    </collate>
+    <display file="$diff-list" type="listing" mode="ps-landscape"/>
+    
     <transform source="$muo-app-x" destination="$muo-app-txt"/>
     <transform source="$var-x" destination="$wf-app-txt"/>
 </script>
