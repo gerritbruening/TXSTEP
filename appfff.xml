@@ -444,6 +444,18 @@
                 </exchange>
             </modify>
         </pass>-->
+        <pass>
+            <modify>
+                <exchange>
+                    <exchange-table>
+                        <string-pair>
+                            <search-string>*{{KA}}*</search-string>
+                            <replacement-string>{{app}} {=1=} {{/app}}</replacement-string>
+                        </string-pair>
+                    </exchange-table>
+                </exchange>
+            </modify>
+        </pass>
     </transform>
     <transform source="$muo-app-x" destination="$muo-app-txt"/>
     <transform source="$var-x" destination="$wf-app-txt"/>
