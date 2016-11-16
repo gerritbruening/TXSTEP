@@ -1310,6 +1310,52 @@
                 </exchange>
             </modify>
         </pass>
+        <pass>
+            <modify>
+                <exchange>
+                    <exchange-table>
+                        <string-pair>
+                            <search-string>*{{PW:*</search-string>
+                            <replacement-string>{{app}} {{appN}}{{/appN}} {=1=} {{/app}}</replacement-string>
+                        </string-pair>
+                    </exchange-table>
+                </exchange>
+            </modify>
+        </pass>
+        <pass>
+            <number>
+                <insert-value-after>
+                    <search-table>
+                        <search-string>{{appN}}</search-string>
+                    </search-table>
+                </insert-value-after>
+            </number>
+        </pass>
+        <!--<pass>
+            <examine-text><select>
+                    <text-contains>
+                        <search-table>
+                            <search-string>{{PW:</search-string>
+                        </search-table>
+                    </text-contains>
+                </select>
+                <when-selected>
+                    <continue/>
+                </when-selected><otherwise>
+                    <get-next-unit/>
+                </otherwise></examine-text>
+            <reassemble>
+                <append-before part-num="1">+++ANFANG ANFANG ANFANG 8 +++ </append-before>
+                <append-after part-num="1"> +++ENDE ENDE ENDE+++</append-after>
+            </reassemble>
+            <number>
+                <insert-value-after>
+                    <search-table>
+                        <search-string>ANFANG ANFANG ANFANG </search-string>
+                    </search-table>
+                </insert-value-after>
+            </number>
+        </pass>-->
         <!-- first approach -->
         <!--<pass>
             <modify>
