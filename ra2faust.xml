@@ -6,8 +6,8 @@
         <!-- sources -->
         <variable type="permanent-file" name="goett1825" code="UTF-8"
             >file:///C:/Users/Gerrit/txstep/txt/goettling_1825-06-12.txt</variable>
-        <variable type="permanent-file" name="goett1826" code="UTF-8"
-            >file:///C:/Users/Gerrit/txstep/txt/goettling_1826-10-27.txt</variable>
+        <variable type="permanent-file" name="goett1826" format="tustep"
+            >file:///C:/Users/Gerrit/txstep/txt/goettling.tf</variable>
         <variable type="permanent-file" name="goett1827" code="UTF-8"
             >file:///C:/Users/Gerrit/txstep/txt/goettling_1827-07-27.txt</variable>
         <!-- par -->
@@ -15,6 +15,10 @@
         <!-- results -->
         <variable type="permanent-file" option="erase" name="goett1825-x" code="utf8"
             >file:///C:/Users/Gerrit/txstep/txt/goettling_1825-06-12.xml</variable>
+        <variable type="permanent-file" option="erase" name="goett1826-x" code="utf8"
+            >file:///C:/Users/Gerrit/txstep/txt/goettling_1826-10-27.xml</variable>
+        <variable type="permanent-file" option="erase" name="goett1827-x" code="utf8"
+            >file:///C:/Users/Gerrit/txstep/txt/goettling_1826-07-27.xml</variable>
         <!-- groups -->
         <char-group name="we">.,{{^_\[</char-group>
         <string-group name="il">
@@ -202,6 +206,23 @@
                 <exchange>
                     <exchange-table>
                         <string-pair>
+                            <search-string>#1+{|}{00}{s:un}{|}#1-</search-string>
+                            <replacement-string>{{hi rend="underline"}}{=2=}{{/hi}}</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>#0+{|}{00}{s:st}{|}#0-</search-string>
+                            <replacement-string>{{f:st hand="^#???"}}{=2=}{{/f:st}}</replacement-string>
+                        </string-pair>
+                    </exchange-table>
+                </exchange>
+            </modify>
+        </pass>
+        
+        <pass>
+            <modify>
+                <exchange>
+                    <exchange-table>
+                        <string-pair>
                             <search-string>{{handShift new="^#go^_t"/}} </search-string>
                             <replacement-string> {{handShift new="^#go^_t"/}}</replacement-string>
                         </string-pair>
@@ -233,6 +254,22 @@
                             <search-string>{{ge:line{[}}}^_^_^_</search-string>
                             <replacement-string> rend="indent-10"}}</replacement-string>
                         </string-pair>
+                        <string-pair>
+                            <search-string>{{ge:line{[}}}___</search-string>
+                            <replacement-string> rend="indent-10"}}</replacement-string>
+                        </string-pair>
+                    </exchange-table>
+                </exchange>
+            </modify>
+        </pass>
+        <pass>
+            <modify>
+                <exchange>
+                    <exchange-table>
+                        <string-pair>
+                            <search-string>^_^_^_^_</search-string>
+                            <replacement-string>{{f:hspace unit="chars" quantity="4"/}}</replacement-string>
+                        </string-pair>
                     </exchange-table>
                 </exchange>
             </modify>
@@ -257,6 +294,19 @@
                 </exchange>
             </modify>
         </pass>
+        <pass>
+            <modify>
+                <exchange>
+                    <exchange-table>
+                        <string-pair>
+                            <search-string>^_^_</search-string>
+                            <replacement-string>{{f:hspace unit="chars" quantity="2"/}}</replacement-string>
+                        </string-pair>
+                    </exchange-table>
+                </exchange>
+            </modify>
+        </pass>
+        
         <new-line-before>
             <search-table>
                 <search-string>{{ge:line</search-string>
@@ -267,5 +317,7 @@
         <suppress-blank-lines/>
         <insert-at-end>{{/zone}}{{/surface}}</insert-at-end>
     </transform>
-    <display file="$goett1825-x"/>
+    <transform source="$goett1826" destination="$goett1826-x" take-params="$ra"></transform>
+    <transform source="$goett1827" destination="$goett1827-x" take-params="$ra"></transform>
+    <display file="$goett1827-x"/>
 </script>
