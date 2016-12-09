@@ -59,7 +59,7 @@
         <variable type="permanent-file" name="muo-z2a" format="tustep"
             >file:///C:/Users/Gerrit/txstep/txt/muo_z2a.tf</variable>
         <variable type="permanent-file" name="varianten" code="utf8"
-            >file:///C:/Users/Gerrit/txstep/txt/MoE1_Varianten.txt</variable>
+            >file:///C:/Users/Gerrit/txstep/txt/MoE1_Varianten_Version20161114.txt</variable>
         <!-- outputs tf -->
         <variable type="permanent-file" name="muo-app" option="erase" format="tustep"
             >file:///C:/Users/Gerrit/txstep/txt/muo_app.tf</variable>
@@ -98,6 +98,7 @@
                             <exception-string>|SB|nicht|AB|</exception-string>
                             <search-string>\{\G\A</search-string>
                             <search-string>Nullvarianz</search-string>
+                            <search-string>\{\H\E</search-string>
                         </search-table>
                     </text-contains>
                 </select>
@@ -110,12 +111,24 @@
                 <exchange>
                     <exchange-table>
                         <string-pair>
-                            <search-string>{[}\[Seite {#}\] </search-string>
-                            <replacement-string/>
+                            <search-string>\]\[</search-string>
+                            <replacement-string>,</replacement-string>
+                        </string-pair>
+                    </exchange-table>
+                </exchange>
+            </modify>
+        </pass>
+        <pass>
+            <modify>
+                <exchange>
+                    <exchange-table>
+                        <string-pair>
+                            <search-string>{[}\[Seite {|}{#},{#}{|}\]</search-string>
+                            <replacement-string>loc={=2=}</replacement-string>
                         </string-pair>
                         <string-pair>
-                            <search-string>{[}\[Seite {#}\]\[{#}\] </search-string>
-                            <replacement-string/>
+                            <search-string>{[}\[Seite {|}{#}{|}\]</search-string>
+                            <replacement-string>loc={=2=}</replacement-string>
                         </string-pair>
                     </exchange-table>
                 </exchange>
@@ -293,12 +306,33 @@
                     <exchange-table>
                         <string-pair>
                             <search-string>*</search-string>
-                            <replacement-string>+++ANFANG ANFANG ANFANG+++ {{app}} {+1=} {{/app}} +++ENDE ENDE ENDE+++</replacement-string>
+                            <replacement-string>{{app}} {{appN}}{{/appN}} {+1=} {{/app}}</replacement-string>
                         </string-pair>
                     </exchange-table>
                 </exchange>
             </modify>
         </pass>
+        <pass>
+            <number mode="increase-before">
+                <insert-value-after>
+                    <search-table>
+                        <search-string>{{appN}}</search-string>
+                    </search-table>
+                </insert-value-after>
+            </number>
+        </pass>
+        <!--<pass>
+            <modify>
+                <exchange>
+                    <exchange-table>
+                        <string-pair>
+                            <search-string>*</search-string>
+                            <replacement-string>+++ANFANG ANFANG ANFANG+++ {+1=} +++ENDE ENDE ENDE+++</replacement-string>
+                        </string-pair>
+                    </exchange-table>
+                </exchange>
+            </modify>
+        </pass>-->
     </transform>
     <transform source="$varianten" destination="$sbnab" mode="+">
         <pass>
@@ -320,12 +354,24 @@
                 <select>
                     <text-contains>
                         <search-table>
-                            <search-string>{{PW:</search-string>
+                            <search-string>{{app}}</search-string>
                         </search-table>
                     </text-contains>
                 </select>
             </examine-text>
         </pass>
+        <!--<pass>
+            <modify>
+                <exchange>
+                    <exchange-table>
+                        <string-pair>
+                            <search-string>*</search-string>
+                            <replacement-string>+++ANFANG ANFANG ANFANG+++ {=1=} +++ENDE ENDE ENDE+++</replacement-string>
+                        </string-pair>
+                    </exchange-table>
+                </exchange>
+            </modify>
+        </pass>-->
     </transform>
     <transform source="$muo-app" destination="$muo-app-x">
         <!-- preparatory clean-up -->
@@ -459,7 +505,7 @@
                     </exchange-table>
                 </exchange>
             </modify>
-        </pass>        
+        </pass>
         <pass>
             <modify>
                 <exchange>
@@ -473,15 +519,15 @@
             </modify>
         </pass>
     </transform>
-    <compare versiona="$muo-app-x" versionb="$var-x" variants="$diff" type="corrections" listing="-">
+    <!--<compare versiona="$muo-app" versionb="$var-x" variants="$diff" type="corrections" listing="-">
         <compare-units mode="word"/>
         <version-id>WF</version-id>
-    </compare>
-    <collate source="$muo-app-x" mode="single-witness" diff-file="$diff" listing="$diff-list">
+    </compare>-->
+    <!--<collate source="$muo-app-x" mode="single-witness" diff-file="$diff" listing="$diff-list">
         <list lines="all"/>
-    </collate>
-    <display file="$diff-list" type="listing" mode="ps-landscape"/>
-    
-    <transform source="$muo-app-x" destination="$muo-app-txt"/>
+    </collate>-->
+    <!--<display file="$diff-list" type="listing" mode="ps-landscape"/>-->
+
+    <transform source="$muo-app" destination="$muo-app-txt"/>
     <transform source="$var-x" destination="$wf-app-txt"/>
 </script>
