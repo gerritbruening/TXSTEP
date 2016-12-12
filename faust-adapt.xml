@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<script xmlns="http://www.xstep.org" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <variables>
+        <variable type="execution-file" name="execute"
+            >file:///C:/Users/Gerrit/txstep/ueb/txstep.tu</variable>
+        <!-- sources -->
+        <variable type="permanent-file" name="goett44r" code="UTF-8"
+            >file:///C:/Users/Gerrit/txstep/txt/44r.xml</variable>
+        <!-- par -->
+        <variable type="scratch-file" name="adapt"/>
+        <!-- results -->
+        <variable type="permanent-file" option="erase" name="goett44r-ad" code="utf8"
+            >file:///C:/Users/Gerrit/txstep/txt/44r_neu.xml</variable>
+        <variable type="permanent-file" option="erase" name="goett44r-t" format="tustep"
+            >file:///C:/Users/Gerrit/txstep/txt/goett44r_neu.tf</variable>
+        <!-- groups -->
+    </variables>
+    <transform source="$goett44r" destination="$goett44r-ad" save-params="$adapt">
+        <define-text-units>
+            <text-unit-start>
+                <comparison-table>
+                    <exclusion-string>{{/</exclusion-string>
+                    <comparison-string>{{</comparison-string>
+                </comparison-table>
+            </text-unit-start>
+        </define-text-units>
+        <remove-blanks where="both"/>
+        <suppress-blank-lines/>
+    </transform>
+    <transform source="$goett44r" destination="$goett44r-t" take-params="$adapt"/>
+    <display file="$goett44r-ad"/>
+</script>
