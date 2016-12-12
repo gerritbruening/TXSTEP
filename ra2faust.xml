@@ -197,6 +197,22 @@
                             <search-string>{{/lat}}</search-string>
                             <replacement-string>{{handShift new="^#go^_t"/}}</replacement-string>
                         </string-pair>
+                        <string-pair>
+                            <search-string>^#H:+^#G:</search-string>
+                            <replacement-string>{{handShift new="^#g^_t???"/}}{{g ref="^#transpose^_???"/}}{{handShift new="^#go^_t???"/}}</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>/=</search-string>
+                            <replacement-string>{{handShift new="^#g^_t???"/}}{{g ref="^#transpose^_???"/}}{{handShift new="^#go^_t???"/}}</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>(</search-string>
+                            <replacement-string>{{g ref="^#parenthesis^_left"/}}</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>)</search-string>
+                            <replacement-string>{{g ref="^#parenthesis^_right"/}}</replacement-string>
+                        </string-pair>
                     </exchange-table>
                 </exchange>
             </modify>
@@ -319,5 +335,5 @@
     </transform>
     <transform source="$goett1826" destination="$goett1826-x" take-params="$ra"></transform>
     <transform source="$goett1827" destination="$goett1827-x" take-params="$ra"></transform>
-    <display file="$goett1827-x"/>
+    <display file="$goett1826-x"/>
 </script>
