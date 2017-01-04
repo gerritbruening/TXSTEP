@@ -1,4 +1,5 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?><?oxygen RNGSchema="https://faustedition.uni-wuerzburg.de/schema/1.3/faust-tei.rng" type="xml"?>
+<?xml version="1.0" encoding="UTF-8"?>
+<?oxygen RNGSchema="https://faustedition.uni-wuerzburg.de/schema/1.3/faust-tei.rng" type="xml"?>
 <TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:f="http://www.faustedition.net/ns"
     xmlns:ge="http://www.tei-c.org/ns/geneticEditions" xmlns:svg="http://www.w3.org/2000/svg">
     <teiHeader>
@@ -328,27 +329,27 @@
                 <f:vspace unit="lines" quantity="7"/>
                 <ge:line rend="indent-20">habe die Ehre hierbei den neunten und zehnten Band der
                     Werke</ge:line>
-                <ge:line>zurück zu senden; ich erlaube mir folgende Bemerkungen
-                    anzuschließen.</ge:line>
+                <ge:line>zurück zu ſenden; ich erlaube mir folgende Bemerkungen
+                    anzuſchließen.</ge:line>
                 <ge:line type="inter" f:left="#neunter"><handShift new="#g_t"/>10</ge:line>
                 <ge:line xml:id="neunter" rend="indent-10"><handShift new="#go_t"/><hi
                         rend="underline">Neunter Band</hi>. <handShift new="#g_bl"/><seg
-                        rend="inbetween">✓</seg><handShift new="#go_t"/>S. 36, Z. 5 scheint statt
-                    „dann“ stehen zu müssen „<hi rend="underline">denn</hi>“.</ge:line>
-                <ge:line>S. 39,9 habe ich die Interpunction geändert, in so fern nach „gequuält“ ein
-                    Punct stand.</ge:line>
+                        rend="inbetween">✓</seg><handShift new="#go_t"/>S. 36, Z. 5 ſcheint ſtatt
+                    „dann“ ſtehen zu müſſen „<hi rend="underline">denn</hi>“.</ge:line>
+                <ge:line>S. 39,9 habe ich die Interpunction geändert, in ſo fern nach „gequuält“ ein
+                    Punct ſtand.</ge:line>
                 <ge:line><handShift new="#g_bl"/><seg rend="inbetween">✓</seg><handShift new="#go_t"
                     />Sollten nicht in Gretchen’s Lied S. 169 die beiden letzten Strophen, welche
                     ver-</ge:line>
-                <ge:line>verbunden gedruckt sind, durch einen Zwischenraum geschieden werden, wie es
+                <ge:line>verbunden gedruckt ſind, durch einen Zwiſchenraum geſchieden werden, wie es
                     mit Str. 6.</ge:line>
-                <ge:line>und 7 geschehen ist, obgleich nur eine sehr schwache Interpunction sie
-                    scheidet? S. <handShift new="#g_bl"/><seg rend="inbetween">✓</seg><handShift
+                <ge:line>und 7 geſchehen iſt, obgleich nur eine ſehr ſchwache Interpunction ſie
+                    ſcheidet? S. <handShift new="#g_bl"/><seg rend="inbetween">✓</seg><handShift
                         new="#go_t"/>172,12</ge:line>
-                <ge:line>in den Worten: „<hi rend="underline">Natur</hi> ist Schall und Rauch
-                    Umnebelnd Himmelsglut“ ist wohl ein</ge:line>
-                <ge:line>Druckfehler für: „<hi rend="underline">Name</hi> ist Schall und Rauch“
-                    u.s.w., wie ich in der Leipziger Aus-</ge:line>
+                <ge:line>in den Worten: „<hi rend="underline">Natur</hi> iſt Schall und Rauch
+                    Umnebelnd Himmelsglut“ iſt wohl ein</ge:line>
+                <ge:line>Druckfehler für: „<hi rend="underline">Name</hi> iſt Schall und Rauch“
+                    u.ſ.w., wie ich in der Leipziger Aus-</ge:line>
             </zone>
             <zone f:top="#neunter" f:right-left="#Hauptzone">
                 <ge:line><handShift new="#xx_bl"/>11.<f:hspace unit="chars" quantity="3"/></ge:line>
