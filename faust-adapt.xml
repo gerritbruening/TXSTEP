@@ -5,7 +5,7 @@
             >file:///C:/Users/Gerrit/txstep/ueb/txstep.tu</variable>
         <!-- sources -->
         <variable type="permanent-file" name="goett44r" code="UTF-8"
-            >file:///C:/Users/Gerrit/txstep/txt/44r.xml</variable>
+            >file:///C:/Users/Gerrit/txstep/txt/83v.xml</variable>
         <!-- par -->
         <variable type="scratch-file" name="adapt"/>
         <!-- results -->
@@ -44,6 +44,9 @@
                 <exchange>
                     <exchange-table>
                         <exception-string>f:st</exception-string>
+                        <exception-string>{{{0}/s</exception-string>
+                        <exception-string> au\s</exception-string>
+                        <exception-string>#parenthesis</exception-string>
                         <string-pair>
                             <search-string>\s\s</search-string>
                             <replacement-string>#.s#.s</replacement-string>
@@ -53,16 +56,24 @@
                             <replacement-string>#.sch</replacement-string>
                         </string-pair>
                         <string-pair>
+                            <search-string>\sp</search-string>
+                            <replacement-string>#.sp</replacement-string>
+                        </string-pair>
+                        <string-pair>
                             <search-string>\st</search-string>
                             <replacement-string>#.st</replacement-string>
                         </string-pair>
                         <string-pair>
-                            <search-string> \s{]}{c:vo}</search-string>
-                            <replacement-string> #.s</replacement-string>
+                            <search-string>\s{]}{c:vo}</search-string>
+                            <replacement-string>#.s</replacement-string>
                         </string-pair>
                         <string-pair>
                             <search-string>\u.s.w.</search-string>
                             <replacement-string>u.#.s.w.</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>\s{]}cr</search-string>
+                            <replacement-string>#.s</replacement-string>
                         </string-pair>
                     </exchange-table>
                 </exchange>
