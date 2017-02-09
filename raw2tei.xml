@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<script xmlns="http://www.xstep.org" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <variables>
+        <variable type="execution-file" name="execute"
+            >file:///C:/Users/Gerrit/txstep/ueb/txstep.tu</variable>
+        <!-- source -->
+        <variable type="permanent-file" name="tei-raw" code="utf8"
+            >file:///C:/Users/Gerrit/txstep/txt/tei-raw.xml</variable>
+        <!-- output -->
+        <variable type="permanent-file" option="erase" name="tei"
+            >file:///C:/Users/Gerrit/txstep/txt/Bd3_integral_tei_cust.xml</variable>
+    </variables>
+    <transform source="$tei-raw" destination="$tei">
+        <define-text-units>
+            <text-unit-start>
+                <comparison-table>
+                    <exclusion-string>#.?</exclusion-string>
+                    <comparison-string>{{p</comparison-string>
+                    <comparison-string>{{head</comparison-string>
+                </comparison-table>
+            </text-unit-start>
+        </define-text-units>
+        <pass>
+            <modify>
+                <exchange>
+                    <exchange-table>
+                        <string-pair>
+                            <search-string>^&lt;{0}/app^&gt;</search-string>
+                            <replacement-string/>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>^&lt;appN^&gt;{#}^&lt;/appN^&gt;</search-string>
+                            <replacement-string/>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>loc={#}</search-string>
+                            <replacement-string/>
+                        </string-pair>
+
+                    </exchange-table>
+                </exchange>
+            </modify>
+        </pass>
+        <pass>
+            <modify>
+                <exchange>
+                    <exchange-table>
+                        <string-pair>
+                            <search-string>^&lt;</search-string>
+                            <replacement-string>{{</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>^&gt;</search-string>
+                            <replacement-string>}}</replacement-string>
+                        </string-pair>
+                    </exchange-table>
+                </exchange>
+            </modify>
+        </pass>
+        <pass>
+            <modify>
+                <exchange>
+                    <exchange-table>
+                        <string-pair>
+                            <search-string>-{[}{{/br}}</search-string>
+                            <replacement-string>{{lb break="no"/}}</replacement-string>
+                        </string-pair>
+                    </exchange-table>
+                </exchange>
+            </modify>
+        </pass>
+        <pass>
+            <modify>
+                <exchange>
+                    <exchange-table>
+                        <string-pair>
+                            <search-string>^&amp;^#xA;{00} </search-string>
+                            <replacement-string> </replacement-string>
+                        </string-pair>
+                    </exchange-table>
+                </exchange>
+            </modify>
+        </pass>
+        <pass>
+            <modify>
+                <exchange>
+                    <exchange-table>
+                        <string-pair>
+                            <search-string>n="{[}\[{\A}{\A} {|}{#}{|}\]{0} {]}"</search-string>
+                            <replacement-string>{=2=}</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>n="{[}\{\{{\A}{\A} {|}{#}{|}\}\}{0} {]}"</search-string>
+                            <replacement-string>{=2=}</replacement-string>
+                        </string-pair>
+                    </exchange-table>
+                </exchange>
+            </modify>
+        </pass>
+        <pass>
+            <modify>
+                <exchange>
+                    <exchange-table>
+                        <string-pair>
+                            <search-string>}}note</search-string>
+                            <replacement-string>}}{{note</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>{{/it{]}{{/KA}}</search-string>
+                            <replacement-string>{{/it}}</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>{{subst}}{|}Geschwiste</search-string>
+                            <replacement-string>{=2=}{=1=}</replacement-string>
+                        </string-pair>
+                        <string-pair>
+                            <search-string>{{subst}}{|}Antiintellektu</search-string>
+                            <replacement-string>{=2=}{=1=}</replacement-string>
+                        </string-pair>
+                    </exchange-table>
+                </exchange>
+            </modify>
+        </pass>
+    </transform>
+    <display file="$tei"/>
+</script>
