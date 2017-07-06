@@ -2,23 +2,23 @@
 <script xmlns="http://www.xstep.org" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <variables>
         <variable type="execution-file" name="exec"
-            >file:///c:/Users/Gerrit/txstep/ueb/txstep.tu</variable>
+            >file:///c:/Users/gerri/txstep/ueb/txstep.tu</variable>
         <variable type="permanent-file" name="source"
-            >file:///c:/Users/Gerrit/txstep/ve/diff</variable>
+            >file:///c:/Users/gerri/txstep/ve/diff</variable>
         <variable type="permanent-file" name="version-a"
-            >file:///c:/Users/Gerrit/txstep/txt/c14.tf</variable>
+            >file:///c:/Users/gerri/txstep/txt/c14.tf</variable>
         <variable type="permanent-file" name="diff-nrd" option="erase"
-            >file:///c:/Users/Gerrit/txstep/ve/diff-nrd.tf</variable>
+            >file:///c:/Users/gerri/txstep/ve/diff-nrd.tf</variable>
         <variable type="permanent-file" name="diff-gle" option="erase"
-            >file:///c:/Users/Gerrit/txstep/ve/diff-gle.tf</variable>
+            >file:///c:/Users/gerri/txstep/ve/diff-gle.tf</variable>
         <variable type="permanent-file" name="diff-2a" option="erase"
-            >file:///c:/Users/Gerrit/txstep/ve/diff-2a.tf</variable>
+            >file:///c:/Users/gerri/txstep/ve/diff-2a.tf</variable>
         <variable type="permanent-file" name="diff-3" option="erase"
-            >file:///c:/Users/Gerrit/txstep/ve/diff-3.tf</variable>
+            >file:///c:/Users/gerri/txstep/ve/diff-3.tf</variable>
         <variable type="permanent-file" name="diff-both" option="erase"
-            >file:///c:/Users/Gerrit/txstep/ve/diff-2_3.tf</variable>
+            >file:///c:/Users/gerri/txstep/ve/diff-2_3.tf</variable>
         <variable type="permanent-file" name="lost" option="erase"
-            >file:///c:/Users/Gerrit/txstep/txt/verlorener_z.tf</variable>
+            >file:///c:/Users/gerri/txstep/txt/verlorener_z.tf</variable>
         <char-group name="os">?{-}}}</char-group>
     </variables>
     <transform source="source" destination="diff-nrd" option="erase" mode="+"/>
