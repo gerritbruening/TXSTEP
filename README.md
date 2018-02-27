@@ -43,9 +43,6 @@ Das % ist in die char-group als Ausnahme mit aufgenommen, damit nicht auch in de
  
 Appends lines to the previous line if they do not begin with start-tags.
 
-## faustii9+.xml
-Compare more than 9 (xml-)sources, output = diff-files with TEI inspired tags; from these files, after cumulating and sorting, a synopsis of the variant readings is generated.
-
 ## fff2xml.xml
 Provisional conversion from FFF to XML. For the general needs, see https://github.com/gerritbruening/muo#plan-of-action.
 
